@@ -1,65 +1,67 @@
-import { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { ThreeDots } from 'react-loader-spinner';
-import TokenContext from '../../Contexts/TokenContext';
-import UserDataContext from '../../Contexts/UserDataContext';
-import * as S from './Style'
+import { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
+import TokenContext from "../../Contexts/TokenContext";
+import UserDataContext from "../../Contexts/UserDataContext";
+import * as S from "./Style";
 
+export default function LoginPage() {
+  const [disabled, setDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const URL = "http://localhost:5000/sign-in";
+  const navigate = useNavigate();
 
-export default function LoginPage () {
-    const [disabled, setDisabled] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
-    const [errorText, setErrorText] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const URL = "http://localhost:5000/sign-in";
-    const navigate = useNavigate();
+  const { setToken } = useContext(TokenContext);
+  const { setUserData } = useContext(UserDataContext);
 
-    const { setToken, token } = useContext(TokenContext);
-    const { setUserData, userData } = useContext(UserDataContext)
+  const body = {
+    email,
+    password,
+  };
 
-    const body = {
-        email,
-        password
-    }
-
-    function login (event) {
-        event.preventDefault();
-        setDisabled(true);
-        setLoading(true);
-        requestLogin();
-    }
-    function requestLogin() {
-        axios.post(URL, body)
-            .then((res) => {
-                setToken(res.data.token);
-                setUserData({userId: res.data.userId})
-                setLoading(false);
-                navigate("/create");
-            })
-            .catch((err) => {
-                setDisabled(false);
-                setLoading(false);
-                setErrorText(`There was an error logging into your account, error: ${err}`)
-                setError(true);
-            })
-    }
-    function openModal() {
-        if (error) {
-          return (
-            <S.Modal onClick={() => setError(false)}>
-              <h5>An error occurred: {errorText}</h5>
-              <h5>Click anywhere inside the box to continue and try again</h5>
-            </S.Modal>
-          );
-        }
-      }
-      const openError = openModal();
-
+  function login(event) {
+    event.preventDefault();
+    setDisabled(true);
+    setLoading(true);
+    requestLogin();
+  }
+  function requestLogin() {
+    axios
+      .post(URL, body)
+      .then((res) => {
+        setToken(res.data.token);
+        setUserData({ userId: res.data.userId });
+        setLoading(false);
+        navigate("/create");
+      })
+      .catch((err) => {
+        setDisabled(false);
+        setLoading(false);
+        setErrorText(
+          `There was an error logging into your account, error: ${err}`
+        );
+        setError(true);
+      });
+  }
+  function openModal() {
+    if (error) {
       return (
-        <>
+        <S.Modal onClick={() => setError(false)}>
+          <h5>An error occurred: {errorText}</h5>
+          <h5>Click anywhere inside the box to continue and try again</h5>
+        </S.Modal>
+      );
+    }
+  }
+  const openError = openModal();
+
+  return (
+    <>
       {error ? openError : null}
       <S.Container>
         <S.Title>
@@ -96,9 +98,7 @@ export default function LoginPage () {
             <S.TextLink>Main page</S.TextLink>
           </Link>
           <Link to={"/sign-up"}>
-            <S.TextLink>
-              Don't have an account? Sign up!
-            </S.TextLink>
+            <S.TextLink>Don't have an account? Sign up!</S.TextLink>
           </Link>
         </S.ContainerLinks>
         <S.Copyright>
@@ -106,5 +106,5 @@ export default function LoginPage () {
         </S.Copyright>
       </S.Container>
     </>
-      )
+  );
 }
