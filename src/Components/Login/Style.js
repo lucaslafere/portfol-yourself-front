@@ -28,6 +28,10 @@ const Container = styled.div`
   flex-direction: column;
   height: 80vh;
   background-color: #fff;
+  max-width: 600px;
+  padding: 1rem;
+  margin: 0 auto;
+
 `;
 const Title = styled.div`
   margin-bottom: 2rem;
@@ -77,7 +81,7 @@ const Button = styled.button`
   border: 1px solid #1976d2;
   background-color: #1976d2;
   line-height: 1.75;
-  padding: 16px;
+  padding: 6px 16px;
   opacity: ${(props) => (props.disabled ? 0.7 : 1)};
   font-style: normal;
   font-weight: 700;
