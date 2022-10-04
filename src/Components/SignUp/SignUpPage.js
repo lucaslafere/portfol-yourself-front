@@ -78,10 +78,12 @@ export default function SignUpPage() {
           <h1>Sign up</h1>
         </S.Title>
         <S.Form onSubmit={signUp}>
-          <S.Input></S.Input>
-          <S.Input></S.Input>
-          <S.Input></S.Input>
-          <S.Button></S.Button>
+          <S.Input placeholder="e-mail" type="email" autoComplete="email" disabled={disabled} value={name} onChange={e => setEmail(e.target.value)}/>
+          <S.Input placeholder="Password" type="password" autoComplete="new-password" disabled={disabled} value={password} onChange={e => setPassword(e.target.value)}/>
+          <S.Input placeholder="Confirm your password" type="password" autoComplete="off" disabled={disabled} value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}/>
+          <S.Button disabled={disabled} type="submit">
+          {loading ? <ThreeDots color="#1976d2" height={80} width={80} /> : "Cadastrar"}
+          </S.Button>
         </S.Form>
         <S.ContainerLinks>
           <Link to={"/"}>
