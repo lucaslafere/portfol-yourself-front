@@ -3,10 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import { ThreeDots } from 'react-loader-spinner';
-import TokenContext from '../Contexts/TokenContext';
-import UserDataContext from '../Contexts/UserDataContext';
+import TokenContext from '../../Contexts/TokenContext';
+import UserDataContext from '../../Contexts/UserDataContext';
 
 
-export default function DashboardPage () {
-
+export default function LoginPage () {
+    
 }

@@ -6,11 +6,14 @@
 }
 body {
   font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 .root {
   margin: 0 auto;
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
   padding: 1rem;
+  background-color: #fff;
 }

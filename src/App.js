@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import TokenContext from "./Contexts/TokenContext";
 import UserDataContext from "./Contexts/UserDataContext";
+import SignUpPage from './Components/SignUp/SignUpPage';
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -12,10 +13,10 @@ export default function App() {
       <UserDataContext.Provider value={{ userData, setUserData }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
+            {/* <Route path="/" element={<MainPage />} /> */}
+            <Route path="/" element={<SignUpPage />} />
+            {/* <Route path="/login" element={<LoginPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} /> */}
           </Routes>
         </BrowserRouter>
       </UserDataContext.Provider>
