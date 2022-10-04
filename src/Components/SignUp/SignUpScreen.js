@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import * as S from "./Style";
 
-export default function SignUpPage() {
+export default function SignUpScreen() {
   const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

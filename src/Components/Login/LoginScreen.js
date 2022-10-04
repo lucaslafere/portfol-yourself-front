@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
@@ -66,7 +66,7 @@ export default function LoginPage() {
       <S.Container>
         <S.Title>
           <ion-icon name="lock-closed-outline"></ion-icon>
-          <h1>Sign in</h1>
+          <h1>Login</h1>
         </S.Title>
         <S.Form onSubmit={login}>
           <S.Input
@@ -89,7 +89,7 @@ export default function LoginPage() {
             {loading ? (
               <ThreeDots color="#1976d2" height={80} width={80} />
             ) : (
-              "SIGN IN"
+              "Login"
             )}
           </S.Button>
         </S.Form>

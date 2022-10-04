@@ -4,6 +4,7 @@ import TokenContext from "./Contexts/TokenContext";
 import UserDataContext from "./Contexts/UserDataContext";
 import SignUpScreen from "./Components/SignUp/SignUpScreen";
 import LoginScreen from "./Components/Login/LoginScreen";
+import MainScreen from "./Components/MainPage/MainScreen";
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -14,8 +15,8 @@ export default function App() {
       <UserDataContext.Provider value={{ userData, setUserData }}>
         <BrowserRouter>
           <Routes>
-            {/* <Route path="/" element={<MainScreen />} /> */}
-            <Route path="/" element={<SignUpScreen />} />
+            <Route path="/" element={<MainScreen />} />
+            <Route path="/sign-up" element={<SignUpScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             {/* <Route path="/create" element={<CreationScreen />} /> */}
             {/* <Route path="/dashboard" element={<DashboardScreen />} /> */}
