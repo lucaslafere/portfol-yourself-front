@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
-import * as S from './Style'
+import * as S from "./Style";
 
 export default function SignUpPage() {
   const [disabled, setDisabled] = useState(false);
@@ -75,14 +75,40 @@ export default function SignUpPage() {
       {error ? openError : null}
       <S.Container>
         <S.Title>
+          <ion-icon name="lock-closed-outline"></ion-icon>
           <h1>Sign up</h1>
         </S.Title>
         <S.Form onSubmit={signUp}>
-          <S.Input placeholder="e-mail" type="email" autoComplete="email" disabled={disabled} value={name} onChange={e => setEmail(e.target.value)}/>
-          <S.Input placeholder="Password" type="password" autoComplete="new-password" disabled={disabled} value={password} onChange={e => setPassword(e.target.value)}/>
-          <S.Input placeholder="Confirm your password" type="password" autoComplete="off" disabled={disabled} value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}/>
+          <S.Input
+            placeholder="Email Address *"
+            type="email"
+            autoComplete="email"
+            disabled={disabled}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <S.Input
+            placeholder="Password *"
+            type="password"
+            autoComplete="new-password"
+            disabled={disabled}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <S.Input
+            placeholder="Confirm your password *"
+            type="password"
+            autoComplete="off"
+            disabled={disabled}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
           <S.Button disabled={disabled} type="submit">
-          {loading ? <ThreeDots color="#1976d2" height={80} width={80} /> : "Cadastrar"}
+            {loading ? (
+              <ThreeDots color="#1976d2" height={80} width={80} />
+            ) : (
+              "SIGN UP"
+            )}
           </S.Button>
         </S.Form>
         <S.ContainerLinks>
@@ -95,6 +121,9 @@ export default function SignUpPage() {
             </S.TextLink>
           </Link>
         </S.ContainerLinks>
+        <S.Copyright>
+          <p>Copyright © Portfol-Yourself 2022.</p>
+        </S.Copyright>
       </S.Container>
     </>
   );
