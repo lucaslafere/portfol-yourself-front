@@ -104,6 +104,7 @@ const ContainerLinks = styled.div`
 `;
 
 const Copyright = styled.div`
+
   margin-top: 40px;
   color: rgba(0, 0, 0, 0.6);
   font-size: 0.9rem;

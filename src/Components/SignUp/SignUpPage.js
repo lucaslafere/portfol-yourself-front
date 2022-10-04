@@ -30,18 +30,32 @@ export default function SignUpPage() {
     if (password !== confirmPassword) {
       setDisabled(false);
       setLoading(false);
-      setErrorText("as senhas são diferentes!");
+      setErrorText("Passwords are different");
       setError(true);
       return;
     }
     if (email.length < 1) {
       setDisabled(false);
       setLoading(false);
-      setErrorText("o campo 'e-mail' deve ser preenchido");
-
+      setErrorText("The Email field is obligatory");
       setError(true);
       return;
-    } else {
+    }
+    if (password.length < 1) {
+      setDisabled(false);
+      setLoading(false);
+      setErrorText("The Password field is obligatory")
+      setError(true)
+      return;
+    }
+    if (confirmPassword.length < 1) {
+      setDisabled(false);
+      setLoading(false);
+      setErrorText("The Confirm Password field is obligatory")
+      setError(true);
+      return;
+    }
+    else {
       axios
         .post(URL, body)
         .then(() => {
