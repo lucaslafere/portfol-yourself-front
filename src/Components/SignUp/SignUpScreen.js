@@ -66,7 +66,7 @@ export default function SignUpPage() {
           setLoading(false);
           setDisabled(false);
           setErrorText(
-            `não foi possível criar sua conta, falha no servidor, erro: ${err}`
+            `There was an error creating your account, error: ${err}`
           );
           setError(true);
         });
@@ -76,8 +76,8 @@ export default function SignUpPage() {
     if (error) {
       return (
         <S.Modal onClick={() => setError(false)}>
-          <h5>Houve um erro: {errorText}</h5>
-          <h5>Clique em qualquer lugar da caixa para retornar</h5>
+          <h5>An error occurred: {errorText}</h5>
+          <h5>Click anywhere inside the box to continue and try again</h5>
         </S.Modal>
       );
     }
