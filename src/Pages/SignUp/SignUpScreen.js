@@ -66,7 +66,7 @@ export default function SignUpScreen() {
           setLoading(false);
           setDisabled(false);
           setErrorText(
-            `There was an error creating your account, error: ${err}`
+            `There was an error creating your portfolio, error: ${err.message}`
           );
           setError(true);
         });
