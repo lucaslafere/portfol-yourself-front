@@ -8,8 +8,8 @@ export default function MainScreen() {
   const navigate = useNavigate();
   const [portfoliosData, setPortfoliosData] = useState([]);
   const portfoliosURL = "http://localhost:5000/portfolios";
-  const { token } = useContext(TokenContext)
-
+  const { token } = useContext(TokenContext);
+  const [boxSize, setBoxSize] = useState("medium");
   function getPortfolios() {
     axios
       .get(portfoliosURL)
@@ -25,11 +25,11 @@ export default function MainScreen() {
       return <h2>No portfolios created yet</h2>;
     } else {
       return portfoliosData.map((el, index) => (
-        <S.PortfolioBox key={index} title={el.title} logo={el.logo}>
+        <S.PortfolioBox boxSize={boxSize} key={index} title={el.title} logo={el.logo}>
           <S.PortfolioLogo>
             <img src={el.logo} alt="" />
           </S.PortfolioLogo>
-          <S.PortfolioTitle>{el.title}</S.PortfolioTitle>
+          <S.PortfolioTitle boxSize={boxSize}>{el.title}</S.PortfolioTitle>
           <S.ViewLink onClick={() => navigate(`/portfolios/${el.userId}`)}>
             Link
           </S.ViewLink>
@@ -39,10 +39,39 @@ export default function MainScreen() {
   }
   useEffect(() => getPortfolios(), []);
   const renderPortfolios = mountPortfolios();
-
+  const renderLogged = mountLogged();
+  const renderDefault = mountDefault();
+  function mountLogged() {
+    return (
+      <>
+        <S.BlueButton onClick={() => navigate("/dashboard")}>
+          Dashboard
+        </S.BlueButton>
+        <S.WhiteButton onClick={() => navigate("/")}>Your site</S.WhiteButton>
+      </>
+    );
+  }
+  function mountDefault() {
+    return (
+      <>
+        <S.BlueButton onClick={() => navigate("/login")}>Login</S.BlueButton>
+        <S.WhiteButton onClick={() => navigate("/sign-up")}>
+          Sign Up
+        </S.WhiteButton>
+      </>
+    );
+  }
   return (
     <>
-      <S.Header>Portfol-Yourself</S.Header>
+      <S.Header>
+        Portfol-Yourself
+        <S.HeaderButtonsContainer>
+          Try it now:
+          <S.WhiteButton onClick={() => setBoxSize("small") }>Small</S.WhiteButton>
+          <S.WhiteButton onClick={() => setBoxSize("medium") }>Medium</S.WhiteButton>
+          <S.WhiteButton onClick={() => setBoxSize("large") }>Large</S.WhiteButton>
+        </S.HeaderButtonsContainer>
+      </S.Header>
       <S.Container>
         <S.TopSection>
           <S.Title>Portfol-yourself</S.Title>
@@ -52,12 +81,7 @@ export default function MainScreen() {
             become a portfol-yowner
           </S.Description>
           <S.TopButtonsContainer>
-            <S.BlueButton onClick={() => navigate("/login")}>
-              Login
-            </S.BlueButton>
-            <S.WhiteButton onClick={() => navigate("/sign-up")}>
-              Sign Up
-            </S.WhiteButton>
+            {token.length > 0 ? renderLogged : renderDefault}
           </S.TopButtonsContainer>
         </S.TopSection>
         <S.Content>{renderPortfolios}</S.Content>
