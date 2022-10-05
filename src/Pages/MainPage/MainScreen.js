@@ -1,15 +1,14 @@
 import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { ThreeDots } from "react-loader-spinner";
 import * as S from "./Style";
 import TokenContext from "../../Contexts/TokenContext";
-import coala from "../../Assets/coala.jpg";
 
 export default function MainScreen() {
   const navigate = useNavigate();
   const [portfoliosData, setPortfoliosData] = useState([]);
   const portfoliosURL = "http://localhost:5000/portfolios";
+  const { token } = useContext(TokenContext)
 
   function getPortfolios() {
     axios
