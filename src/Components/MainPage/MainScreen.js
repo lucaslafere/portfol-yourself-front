@@ -8,6 +8,38 @@ import coala from '../../Assets/coala.jpg'
 
 export default function MainScreen() {
   const navigate = useNavigate();
+    const [portfoliosData, setPortfoliosData] = useState([]);
+    const portfoliosURL = "http://localhost:5000/portfolios"
+
+    function getPortfolios () {
+        axios.get(portfoliosURL)
+        .then(res => {
+            setPortfoliosData(res.data);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+    function mountPortfolios () {
+        if (portfoliosData.length === 0) {
+            return (
+                <h2>No portfolios created yet</h2>
+            )
+        }
+        else {
+            return (
+                portfoliosData.map((el, index) => 
+                <S.PortfolioBox key={index} title={el.title} logo={el.logo}>
+                    <S.PortfolioLogo><img src={el.logo} alt=""/></S.PortfolioLogo>
+                    <S.PortfolioTitle>{el.title}</S.PortfolioTitle>
+                    <S.ViewLink onClick={() => navigate(`/portfolios/${el.userId}`)}>Link</S.ViewLink>
+                </S.PortfolioBox>
+                )
+            )
+        }
+    }
+useEffect(() => getPortfolios(), []);
+const renderPortfolios = mountPortfolios();
 
   return (
     <>
@@ -21,45 +53,11 @@ export default function MainScreen() {
           </S.Description>
           <S.TopButtonsContainer>
             <S.BlueButton onClick={() => navigate("/login")}>Login</S.BlueButton>
-            <S.WhiteButton onClick={() => navigate("/sign-up")}>Sign Up!</S.WhiteButton>
+            <S.WhiteButton onClick={() => navigate("/sign-up")}>Sign Up</S.WhiteButton>
           </S.TopButtonsContainer>
         </S.TopSection>
         <S.Content>
-          <S.PortfolioBox>
-            <S.PortfolioLogo><img src={coala} alt="" /></S.PortfolioLogo>
-            <S.PortfolioTitle>Titulo pequeno</S.PortfolioTitle>
-            <S.ViewLink>Link</S.ViewLink>
-          </S.PortfolioBox>
-          <S.PortfolioBox>
-            <S.PortfolioLogo><img src={coala} alt="" /></S.PortfolioLogo>
-            <S.PortfolioTitle>Titulo 3 palavras kkk</S.PortfolioTitle>
-            <S.ViewLink>Link</S.ViewLink>
-          </S.PortfolioBox>
-          <S.PortfolioBox>
-            <S.PortfolioLogo><img src={coala} alt="" /></S.PortfolioLogo>
-            <S.PortfolioTitle>Titulo 3 palavras kkk</S.PortfolioTitle>
-            <S.ViewLink>Link</S.ViewLink>
-          </S.PortfolioBox>
-          <S.PortfolioBox>
-            <S.PortfolioLogo><img src={coala} alt="" /></S.PortfolioLogo>
-            <S.PortfolioTitle>Titulo 3 palavras kkk</S.PortfolioTitle>
-            <S.ViewLink>Link</S.ViewLink>
-          </S.PortfolioBox>
-          <S.PortfolioBox>
-            <S.PortfolioLogo><img src={coala} alt="" /></S.PortfolioLogo>
-            <S.PortfolioTitle>Titulo 3 palavras kkk</S.PortfolioTitle>
-            <S.ViewLink>Link</S.ViewLink>
-          </S.PortfolioBox>
-          <S.PortfolioBox>
-            <S.PortfolioLogo><img src={coala} alt="" /></S.PortfolioLogo>
-            <S.PortfolioTitle>Titulo 3 palavras kkk</S.PortfolioTitle>
-            <S.ViewLink>Link</S.ViewLink>
-          </S.PortfolioBox>
-          <S.PortfolioBox>
-            <S.PortfolioLogo><img src={coala} alt="" /></S.PortfolioLogo>
-            <S.PortfolioTitle>Title enorme pra ver se quebra esse negocio</S.PortfolioTitle>
-            <S.ViewLink>Link</S.ViewLink>
-          </S.PortfolioBox>
+          {renderPortfolios}
         </S.Content>
         <S.Footer>
             <h5>Footer</h5>
