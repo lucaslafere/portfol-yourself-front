@@ -124,8 +124,6 @@ border-radius: 6px;
 }
 `;
 const PortfolioTitle = styled.div`
-align-self: flex-start;
-margin-left: 1rem;
 font-weight: 400;
 font-size: 1.5rem;
 text-overflow: ellipsis;

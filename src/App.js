@@ -2,9 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import TokenContext from "./Contexts/TokenContext";
 import UserDataContext from "./Contexts/UserDataContext";
-import SignUpScreen from "./Components/SignUp/SignUpScreen";
-import LoginScreen from "./Components/Login/LoginScreen";
-import MainScreen from "./Components/MainPage/MainScreen";
+import SignUpScreen from "./Pages/SignUp/SignUpScreen";
+import LoginScreen from "./Pages/Login/LoginScreen";
+import MainScreen from "./Pages/MainPage/MainScreen";
+import CreationScreen from "./Pages/Creation/CreationScreen";
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -18,7 +19,7 @@ export default function App() {
             <Route path="/" element={<MainScreen />} />
             <Route path="/sign-up" element={<SignUpScreen />} />
             <Route path="/login" element={<LoginScreen />} />
-            {/* <Route path="/create" element={<CreationScreen />} /> */}
+            <Route path="/create" element={<CreationScreen />} />
             {/* <Route path="/dashboard" element={<DashboardScreen />} /> */}
           </Routes>
         </BrowserRouter>
