@@ -8,6 +8,7 @@ const HeaderContainer = styled.div`
   position: fixed;
   height: 70px;
   display: flex;
+  z-index: 2;
 `;
 const SideBar = styled.div`
   width: 20%;

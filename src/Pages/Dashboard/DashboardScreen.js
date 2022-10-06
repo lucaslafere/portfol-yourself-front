@@ -161,7 +161,7 @@ export default function DashboardScreen() {
     if (edit === "edit") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton>Add Item</S.BlueButton>
+          <S.BlueButton onClick={() => navigate("/add")}>Add Item</S.BlueButton>
           <S.WhiteButton>Remove Item</S.WhiteButton>
         </S.ButtonsContainer>
       );
