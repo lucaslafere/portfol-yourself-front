@@ -17,6 +17,7 @@ export default function DashboardScreen() {
     isStore: false,
   });
   const [edit, setEdit] = useState("");
+  const userURL = `vercellink/portfolio/${portfolioId}`
   const { token } = useContext(TokenContext);
   const dashboardURL = `http://localhost:5000/dashboard`;
   const portfoliosURL = `http://localhost:5000/portfolios/${portfolioId}`;
@@ -154,7 +155,7 @@ export default function DashboardScreen() {
     if (edit === "link") {
       return (
         <S.ButtonsContainer>
-          <S.WhiteButton>{`vercellink/portfolio/${portfolioId}`}</S.WhiteButton>
+          <S.WhiteButton onClick={() =>  navigator.clipboard.writeText(userURL)}>{userURL}</S.WhiteButton>
         </S.ButtonsContainer>
       );
     }
