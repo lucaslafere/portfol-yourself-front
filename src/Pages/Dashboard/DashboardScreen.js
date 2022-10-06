@@ -158,7 +158,6 @@ export default function DashboardScreen() {
   function mountLayout() {
       return (
         <S.Container layout={layout.style}>
-          {renderEditting}
           <S.TopSection>
             <S.Title>{layout.title}</S.Title>
           </S.TopSection>
@@ -210,6 +209,7 @@ export default function DashboardScreen() {
             <ion-icon name="checkmark-circle-outline"></ion-icon>
             Save Changes
           </S.SideBarItem>
+          {renderEditting}
         </S.SideBar>
         <S.Header>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>

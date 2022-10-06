@@ -47,10 +47,12 @@ cursor: pointer;
 :hover {
     background-color: #f5f5f5;
 }
-:last-child {
+:nth-child(8) {
     border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     color: #1976d2;
 }
+
 `
 const Header = styled.div`
   width: 100%;
@@ -97,18 +99,14 @@ const Container = styled.div`
 `;
 
 const ButtonsContainer = styled.div`
-height: 60px;
-max-width: 900px;
 width: 100%;
-margin-left: 240px;
-background-color: #fff;
-margin-top: 80px;
-margin-bottom: 16px;
+background-color: transparent;
 display: flex;
+flex-direction: column;
 align-items: center;
 justify-content: center;
-box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-gap: 8rem;
+gap: 16px;
+margin-top: 24px;
 border-radius: 60px;
 `
 const BlueButton = styled.button`
@@ -211,6 +209,7 @@ const Title = styled.div`
   font-size: 3.75rem;
   text-align: center;
   font-weight: 300;
+  margin-top: 80px;
 `;
 
 const Content = styled.div`
