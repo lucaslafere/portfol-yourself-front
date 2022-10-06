@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import TokenContext from "../../Contexts/TokenContext";
-import UserDataContext from "../../Contexts/UserDataContext";
 import * as S from "./Style";
 
 export default function DashboardScreen() {
   const [itemsData, setItemsData] = useState([]);
+  const [portfolioId, setPortfolioId] = useState(0);
   const [layout, setLayout] = useState({
     title: "",
     logo: "",
@@ -18,12 +18,29 @@ export default function DashboardScreen() {
   const [edit, setEdit] = useState("");
   const { token } = useContext(TokenContext);
   const dashboardURL = `http://localhost:5000/dashboard`;
+  const portfoliosURL = `http://localhost:5000/portfolios/${portfolioId}`;
+  const body = {
+    boxSize: layout.boxSize,
+    style: layout.style,
+    isStore: layout.isStore,
+  };
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
   const navigate = useNavigate();
+
+  function putSaveChanges() {
+    axios
+      .put(portfoliosURL, body, config)
+      .then((res) => {
+        console.log(`saved sucessful: ${res.data}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   function getLoggedUserPortfolioByToken() {
     axios
@@ -37,12 +54,13 @@ export default function DashboardScreen() {
           isStore: res.data.layout.isStore,
         });
         setItemsData(res.data.items);
+        setPortfolioId(res.data.portfolio.id);
       })
       .catch((err) => {
         console.log(err);
       });
   }
-  useEffect(() => getLoggedUserPortfolioByToken(), []);
+
   function mountItems() {
     if (layout.isStore === false) {
       return itemsData.map((el, index) => (
@@ -84,47 +102,60 @@ export default function DashboardScreen() {
     if (edit === "box") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton onClick={() => setLayout({...layout, boxSize: "small"})}>Small</S.BlueButton>
-          <S.WhiteButton onClick={() => setLayout({...layout, boxSize: "medium"})}>Medium</S.WhiteButton>
-          <S.BlueButton onClick={() => setLayout({...layout, boxSize: "large"})}>Large</S.BlueButton>
+          <S.BlueButton
+            onClick={() => setLayout({ ...layout, boxSize: "small" })}
+          >
+            Small
+          </S.BlueButton>
+          <S.WhiteButton
+            onClick={() => setLayout({ ...layout, boxSize: "medium" })}
+          >
+            Medium
+          </S.WhiteButton>
+          <S.BlueButton
+            onClick={() => setLayout({ ...layout, boxSize: "large" })}
+          >
+            Large
+          </S.BlueButton>
         </S.ButtonsContainer>
       );
     }
     if (edit === "color") {
-        return (
+      return (
         <S.ButtonsContainer>
-        <S.BlueButton>Blue</S.BlueButton>
-        <S.GreenButton>Green</S.GreenButton>
-        <S.YellowButton>Yellow</S.YellowButton>
-      </S.ButtonsContainer>
-      )
-        }
-      if (edit === "font-size") {
-        return  (
+          <S.BlueButton>Blue</S.BlueButton>
+          <S.GreenButton>Green</S.GreenButton>
+          <S.YellowButton>Yellow</S.YellowButton>
+        </S.ButtonsContainer>
+      );
+    }
+    if (edit === "font-size") {
+      return (
         <S.ButtonsContainer>
           <S.BlueButton>Small</S.BlueButton>
           <S.WhiteButton>Medium</S.WhiteButton>
           <S.BlueButton>Large</S.BlueButton>
         </S.ButtonsContainer>
-        )
-      }
-      if (edit === "layouts") {
-        return (
+      );
+    }
+    if (edit === "layouts") {
+      return (
         <S.ButtonsContainer>
           <S.BlueButton>Cursive</S.BlueButton>
           <S.WhiteButton>Modern</S.WhiteButton>
         </S.ButtonsContainer>
-        )
-      }
-      if (edit === "store-options") {
-        return (
+      );
+    }
+    if (edit === "store-options") {
+      return (
         <S.ButtonsContainer>
           <S.BlueButton>Switch to non-store</S.BlueButton>
           <S.WhiteButton>Switch to store</S.WhiteButton>
         </S.ButtonsContainer>
-        )
-      }
+      );
     }
+  }
+  useEffect(() => getLoggedUserPortfolioByToken(), []);
   const renderItems = mountItems();
   const renderEditting = mountEditting();
 
@@ -153,8 +184,8 @@ export default function DashboardScreen() {
             <ion-icon name="storefront-outline"></ion-icon>
             Store Options
           </S.SideBarItem>
-          <S.SideBarItem>
-          <ion-icon name="checkmark-circle-outline"></ion-icon>
+          <S.SideBarItem onClick={() => putSaveChanges()}>
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
             Save changes
           </S.SideBarItem>
         </S.SideBar>
