@@ -47,6 +47,10 @@ cursor: pointer;
 :hover {
     background-color: #f5f5f5;
 }
+:last-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    color: #1976d2;
+}
 `
 const Header = styled.div`
   width: 100%;

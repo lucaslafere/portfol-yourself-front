@@ -153,6 +153,10 @@ export default function DashboardScreen() {
             <ion-icon name="storefront-outline"></ion-icon>
             Store Options
           </S.SideBarItem>
+          <S.SideBarItem>
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+            Save changes
+          </S.SideBarItem>
         </S.SideBar>
         <S.Header>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>
