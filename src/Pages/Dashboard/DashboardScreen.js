@@ -4,6 +4,7 @@ import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import TokenContext from "../../Contexts/TokenContext";
 import * as S from "./Style";
+import pin from '../../Assets/pin.png'
 
 export default function DashboardScreen() {
   const [itemsData, setItemsData] = useState([]);
@@ -72,7 +73,7 @@ export default function DashboardScreen() {
           description={el.description}
           layout={layout.style}
         >
-            <S.Pin></S.Pin>
+            <S.Pin boxSize={layout.boxSize}><img src={pin} alt="" /></S.Pin>
           <S.ItemImage boxSize={layout.boxSize} layout={layout.style}>
             <img src={el.imageUrl} alt="" />
           </S.ItemImage>

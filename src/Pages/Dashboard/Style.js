@@ -31,29 +31,28 @@ const SideBarTopBox = styled.div`
   margin-bottom: 8px;
 `;
 const SideBarItem = styled.div`
-width: 100%;
-height: 48px;
-padding: 16px;
-display: flex;
-align-items: center;
-justify-content: flex-start;
-background-color: transparent;
--webkit-tap-highlight-color: transparent;
-ion-icon {
+  width: 100%;
+  height: 48px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  ion-icon {
     font-size: 2rem;
     margin-right: 2rem;
-}
-cursor: pointer;
-:hover {
+  }
+  cursor: pointer;
+  :hover {
     background-color: #f5f5f5;
-}
-:nth-child(8) {
+  }
+  :nth-child(8) {
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     color: #1976d2;
-}
-
-`
+  }
+`;
 const Header = styled.div`
   width: 100%;
   padding: 2rem;
@@ -93,23 +92,33 @@ const Container = styled.div`
   align-items: center;
   padding: 1rem;
   margin: 0 auto;
-  background-image: ${(props) => (props.layout === "modern" && "") || (props.layout === "cursive" && "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')")|| (props.layout === "altcursive" && "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')")};
-  background-color: ${(props) => (props.layout === 'modern' && "#f5f5f5") || (props.layout === 'cursive' && "#fff")|| (props.layout === 'altcursive' && "#fff")};
-  font-family: ${(props) => (props.layout === "modern" && "Roboto") || (props.layout === 'cursive' && 'Cedarville Cursive')||
-    (props.layout === "altcursive" && 'The Girl Next Door')};
+  background-image: ${(props) =>
+    (props.layout === "modern" && "") ||
+    (props.layout === "cursive" &&
+      "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')") ||
+    (props.layout === "altcursive" &&
+      "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')")};
+  background-color: ${(props) =>
+    (props.layout === "modern" && "#f5f5f5") ||
+    (props.layout === "cursive" && "#fff") ||
+    (props.layout === "altcursive" && "#fff")};
+  font-family: ${(props) =>
+    (props.layout === "modern" && "Roboto") ||
+    (props.layout === "cursive" && "Cedarville Cursive") ||
+    (props.layout === "altcursive" && "The Girl Next Door")};
 `;
 
 const ButtonsContainer = styled.div`
-width: 100%;
-background-color: transparent;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 16px;
-margin-top: 24px;
-border-radius: 60px;
-`
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  border-radius: 60px;
+`;
 const BlueButton = styled.button`
   display: flex;
   align-items: center;
@@ -224,11 +233,12 @@ const Content = styled.div`
   padding: 1rem;
 `;
 const ItemBox = styled.div`
-  border-radius: ${(props) => 
+  border-radius: ${(props) =>
     (props.layout === "modern" && "6px") ||
     (props.layout === "cursive" && "0px") ||
     (props.layout === "altcursive" && "0px")};
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: column;
   width: ${(props) =>
@@ -252,34 +262,37 @@ const ItemBox = styled.div`
 `;
 
 const Pin = styled.div`
-justify-self: flex-start;
-align-self: center;
-background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 50%, black 100%);
-    background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, black);
-    background-image: radial-gradient(yellow 50%, black 100%);
-    min-height: 24px;
-    min-width: 24px;
-    border-radius: 50%;
-    z-index: 1;
-    position: absolute;
-    /* right: 0; */
-    top: 0;
-`
+  justify-self: flex-start;
+  align-self: center;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  img {
+    width: ${(props) =>
+    (props.boxSize === "medium" && "40px") ||
+    (props.boxSize === "small" && "36px") ||
+    (props.boxSize === "large" && "60px")};
+    height: ${(props) =>
+    (props.boxSize === "medium" && "40px") ||
+    (props.boxSize === "small" && "36px") ||
+    (props.boxSize === "large" && "60px")};
+  }
+`;
 
 const ItemImage = styled.div`
   img {
     width: ${(props) =>
-    (props.boxSize === "medium" && "250px") ||
-    (props.boxSize === "small" && "200px") ||
-    (props.boxSize === "large" && "400px")};
+      (props.boxSize === "medium" && "250px") ||
+      (props.boxSize === "small" && "200px") ||
+      (props.boxSize === "large" && "400px")};
     height: ${(props) =>
-    (props.boxSize === "medium" && "175px") ||
-    (props.boxSize === "small" && "150px") ||
-    (props.boxSize === "large" && "300px")};
-    padding : ${(props) => 
-    (props.layout === "modern" && '0px') || 
-    (props.layout === "cursive" && "1rem 0.75rem")||
-    (props.layout === "altcursive" && "1rem 0.75rem")};
+      (props.boxSize === "medium" && "175px") ||
+      (props.boxSize === "small" && "150px") ||
+      (props.boxSize === "large" && "300px")};
+    padding: ${(props) =>
+      (props.layout === "modern" && "0px") ||
+      (props.layout === "cursive" && "1rem 0.75rem") ||
+      (props.layout === "altcursive" && "1rem 0.75rem")};
     object-fit: cover;
     border-radius: 6px;
   }
@@ -317,8 +330,13 @@ const Footer = styled.div`
 `;
 const Copyright = styled.div`
   margin-top: 40px;
-  color: ${(props) => (props.layout === "modern" && "rgba(0, 0, 0, 0.6)") || (props.layout === "cursive" && "rgba(0, 0, 0, 1)") || (props.layout === "altcursive" && "rgba(0,0,0, 1)")};
-  font-size: ${(props) => (props.layout === "modern" && "0.9rem") || (props.layout === "cursive" && "2rem")||
+  color: ${(props) =>
+    (props.layout === "modern" && "rgba(0, 0, 0, 0.6)") ||
+    (props.layout === "cursive" && "rgba(0, 0, 0, 1)") ||
+    (props.layout === "altcursive" && "rgba(0,0,0, 1)")};
+  font-size: ${(props) =>
+    (props.layout === "modern" && "0.9rem") ||
+    (props.layout === "cursive" && "2rem") ||
     (props.layout === "altcursive" && "2rem")};
   font-weight: 400;
 `;
