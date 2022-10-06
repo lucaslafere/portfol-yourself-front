@@ -43,7 +43,6 @@ export default function DashboardScreen() {
   }
   useEffect(() => getLoggedUserPortfolioByToken(), []);
   function mountItems() {
-    console.log(layout.title);
     if (layout.isStore === false) {
       return itemsData.map((el, index) => (
         <S.ItemBox
@@ -95,6 +94,10 @@ export default function DashboardScreen() {
           <S.SideBarItem>
             <ion-icon name="color-palette-outline"></ion-icon>
             Color Scheme
+          </S.SideBarItem>
+          <S.SideBarItem>
+          <ion-icon name="color-wand-outline"></ion-icon>
+            Font Size
           </S.SideBarItem>
           <S.SideBarItem>
             <ion-icon name="image-outline"></ion-icon>
