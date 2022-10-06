@@ -158,14 +158,6 @@ export default function DashboardScreen() {
         </S.ButtonsContainer>
       );
     }
-    if (edit === "edit") {
-      return (
-        <S.ButtonsContainer>
-          <S.BlueButton onClick={() => navigate("/add")}>Add Item</S.BlueButton>
-          <S.WhiteButton>Remove Item</S.WhiteButton>
-        </S.ButtonsContainer>
-      );
-    }
   }
   function mountLayout() {
       return (
@@ -193,7 +185,7 @@ export default function DashboardScreen() {
       <S.HeaderContainer>
         <S.SideBar>
           <S.SideBarTopBox />
-          <S.SideBarItem onClick={() => setEdit("edit")}>
+          <S.SideBarItem onClick={() => navigate("/add")}>
           <ion-icon name="build-outline"></ion-icon>
             Add New Item
           </S.SideBarItem>
