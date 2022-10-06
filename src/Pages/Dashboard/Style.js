@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+const lightCorkboard = "https://c1.wallpaperflare.com/preview/907/581/284/backdrop-background-blank-board.jpg"
+const darkCorkboard = 'https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1'
+
 const HeaderContainer = styled.div`
   width: 100%;
   position: fixed;
@@ -95,9 +98,9 @@ const Container = styled.div`
   background-image: ${(props) =>
     (props.layout === "modern" && "") ||
     (props.layout === "cursive" &&
-      "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')") ||
+      `url(${darkCorkboard})`) ||
     (props.layout === "altcursive" &&
-      "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')")};
+      `url(${darkCorkboard})`)};
   background-color: ${(props) =>
     (props.layout === "modern" && "#f5f5f5") ||
     (props.layout === "cursive" && "#fff") ||
@@ -215,7 +218,7 @@ const TopSection = styled.div`
   margin-left: 240px;
 `;
 const Title = styled.div`
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 1);
   font-size: 3.75rem;
   text-align: center;
   font-weight: 300;
