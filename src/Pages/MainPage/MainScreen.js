@@ -47,7 +47,7 @@ export default function MainScreen() {
         <S.BlueButton onClick={() => navigate("/dashboard")}>
           Dashboard
         </S.BlueButton>
-        <S.WhiteButton onClick={() => navigate("/")}>Your site</S.WhiteButton>
+        <S.WhiteButton onClick={() => navigate("/create")}>Create now</S.WhiteButton>
       </>
     );
   }
@@ -63,7 +63,7 @@ export default function MainScreen() {
   }
   return (
     <>
-      <S.Header>
+      <S.Header onClick={() => navigate("/")}>
         Portfol-Yourself
         <S.HeaderButtonsContainer>
           Try it now:

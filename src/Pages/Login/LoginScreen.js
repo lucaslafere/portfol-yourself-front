@@ -37,7 +37,7 @@ export default function LoginPage() {
         setToken(res.data.token);
         setUserData({ userId: res.data.userId });
         setLoading(false);
-        navigate("/create");
+        navigate("/");
       })
       .catch((err) => {
         setDisabled(false);

@@ -6,6 +6,7 @@ import SignUpScreen from "./Pages/SignUp/SignUpScreen";
 import LoginScreen from "./Pages/Login/LoginScreen";
 import MainScreen from "./Pages/MainPage/MainScreen";
 import CreationScreen from "./Pages/Creation/CreationScreen";
+import DashboardScreen from "./Pages/Dashboard/DashboardScreen";
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -20,7 +21,7 @@ export default function App() {
             <Route path="/sign-up" element={<SignUpScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/create" element={<CreationScreen />} />
-            {/* <Route path="/dashboard" element={<DashboardScreen />} /> */}
+            <Route path="/dashboard" element={<DashboardScreen />} />
           </Routes>
         </BrowserRouter>
       </UserDataContext.Provider>
