@@ -248,15 +248,22 @@ const ItemBox = styled.div`
   white-space: nowrap;
   margin-bottom: 2rem;
   background-color: #fff;
+  position: relative;
 `;
 
 const Pin = styled.div`
 justify-self: flex-start;
+align-self: center;
 background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 50%, black 100%);
     background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, black);
     background-image: radial-gradient(yellow 50%, black 100%);
-    height: 100px;
-    width: 40px;
+    min-height: 24px;
+    min-width: 24px;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    /* right: 0; */
+    top: 0;
 `
 
 const ItemImage = styled.div`
