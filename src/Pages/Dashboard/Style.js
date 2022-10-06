@@ -249,6 +249,16 @@ const ItemBox = styled.div`
   margin-bottom: 2rem;
   background-color: #fff;
 `;
+
+const Pin = styled.div`
+justify-self: flex-start;
+background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 50%, black 100%);
+    background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, black);
+    background-image: radial-gradient(yellow 50%, black 100%);
+    height: 100px;
+    width: 40px;
+`
+
 const ItemImage = styled.div`
   img {
     width: ${(props) =>
@@ -323,6 +333,7 @@ export {
   Title,
   Content,
   ItemBox,
+  Pin,
   ItemImage,
   ItemTitle,
   ItemDescription,
