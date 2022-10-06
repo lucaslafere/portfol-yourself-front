@@ -84,9 +84,9 @@ export default function DashboardScreen() {
     if (edit === "box") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton>Small</S.BlueButton>
-          <S.WhiteButton>Medium</S.WhiteButton>
-          <S.BlueButton>Large</S.BlueButton>
+          <S.BlueButton onClick={() => setLayout({...layout, boxSize: "small"})}>Small</S.BlueButton>
+          <S.WhiteButton onClick={() => setLayout({...layout, boxSize: "medium"})}>Medium</S.WhiteButton>
+          <S.BlueButton onClick={() => setLayout({...layout, boxSize: "large"})}>Large</S.BlueButton>
         </S.ButtonsContainer>
       );
     }
