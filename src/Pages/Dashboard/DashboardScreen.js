@@ -103,7 +103,6 @@ export default function DashboardScreen() {
             <ion-icon name="image-outline"></ion-icon>
             Layouts
           </S.SideBarItem>
-
           <S.SideBarItem>
             <ion-icon name="storefront-outline"></ion-icon>
             Store Options
@@ -117,6 +116,11 @@ export default function DashboardScreen() {
         </S.Header>
       </S.HeaderContainer>
       <S.Container>
+        <S.ButtonsContainer>
+            <S.BlueButton>Small</S.BlueButton>
+            <S.BlueButton>Medium</S.BlueButton>
+            <S.BlueButton>Large</S.BlueButton>
+        </S.ButtonsContainer>
         <S.TopSection>
           <S.Title>{layout.title}</S.Title>
         </S.TopSection>
