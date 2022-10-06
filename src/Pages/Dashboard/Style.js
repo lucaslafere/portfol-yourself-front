@@ -91,7 +91,9 @@ const Container = styled.div`
   align-items: center;
   padding: 1rem;
   margin: 0 auto;
-  background-color: #f5f5f5;
+  background-image: ${(props) => (props.layout === "modern" && "") || (props.layout === "cursive" && "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')")};
+  background-color: ${(props) => (props.layout === 'modern' && "#f5f5f5") || (props.layout === 'cursive' && "#fff")};
+  font-family: ${(props) => (props.layout === "modern" && "Roboto") || (props.layout === 'cursive' && 'Cedarville Cursive')};
 `;
 
 const ButtonsContainer = styled.div`
@@ -227,15 +229,15 @@ const ItemBox = styled.div`
   display: flex;
   flex-direction: column;
   width: ${(props) =>
-    (props.boxSize === "medium" && "300px") ||
+    (props.boxSize === "medium" && "250px") ||
     (props.boxSize === "small" && "200px") ||
     (props.boxSize === "large" && "400px")};
   height: ${(props) =>
-    (props.boxSize === "medium" && "300px") ||
+    (props.boxSize === "medium" && "250px") ||
     (props.boxSize === "small" && "200px") ||
     (props.boxSize === "large" && "400px")};
   gap: ${(props) =>
-    (props.boxSize === "medium" && "1rem") ||
+    (props.boxSize === "medium" && "0.75rem") ||
     (props.boxSize === "small" && "0.5rem") ||
     (props.boxSize === "large" && "1rem")};
   align-items: center;
@@ -246,9 +248,12 @@ const ItemBox = styled.div`
 `;
 const ItemImage = styled.div`
   img {
-    width: 100%;
+    width: ${(props) =>
+    (props.boxSize === "medium" && "250px") ||
+    (props.boxSize === "small" && "200px") ||
+    (props.boxSize === "large" && "400px")};
     height: ${(props) =>
-    (props.boxSize === "medium" && "200px") ||
+    (props.boxSize === "medium" && "175px") ||
     (props.boxSize === "small" && "150px") ||
     (props.boxSize === "large" && "300px")};
     object-fit: cover;
@@ -283,15 +288,13 @@ const Footer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 1rem;
   font-weight: 500;
   margin-left: 240px;
 `;
 const Copyright = styled.div`
   margin-top: 40px;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9rem;
+  color: ${(props) => (props.layout === "modern" && "rgba(0, 0, 0, 0.6)") || (props.layout === "cursive" && "rgba(0, 0, 0, 1)")};
+  font-size: ${(props) => (props.layout === "modern" && "0.9rem") || (props.layout === "cursive" && "2rem")};
   font-weight: 400;
 `;
 

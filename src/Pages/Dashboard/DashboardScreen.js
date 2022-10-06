@@ -134,8 +134,8 @@ export default function DashboardScreen() {
     if (edit === "layouts") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton>Cursive</S.BlueButton>
-          <S.WhiteButton>Modern</S.WhiteButton>
+          <S.BlueButton onClick={() => setLayout({...layout, style: "cursive"})}>Cursive</S.BlueButton>
+          <S.WhiteButton onClick={() => setLayout({...layout, style: "modern"})}>Modern</S.WhiteButton>
         </S.ButtonsContainer>
       );
     }
@@ -155,9 +155,27 @@ export default function DashboardScreen() {
       );
     }
   }
+  function mountLayout() {
+      return (
+        <S.Container layout={layout.style}>
+          {renderEditting}
+          <S.TopSection>
+            <S.Title>{layout.title}</S.Title>
+          </S.TopSection>
+          <S.Content>{renderItems}</S.Content>
+          <S.Footer layout={layout.style}>
+            <S.Copyright layout={layout.style}>
+              <p>Copyright © Portfol-Yourself 2022.</p>
+            </S.Copyright>
+          </S.Footer>
+        </S.Container>
+      );
+    }
+  
   useEffect(() => getLoggedUserPortfolioByToken(), []);
   const renderItems = mountItems();
   const renderEditting = mountEditting();
+  const renderLayout = mountLayout();
 
   return (
     <>
@@ -200,19 +218,7 @@ export default function DashboardScreen() {
           </S.Logo>
         </S.Header>
       </S.HeaderContainer>
-      <S.Container>
-        {renderEditting}
-        <S.TopSection>
-          <S.Title>{layout.title}</S.Title>
-        </S.TopSection>
-        <S.Content>{renderItems}</S.Content>
-        <S.Footer>
-          <h5>Footer</h5>
-          <S.Copyright>
-            <p>Copyright © Portfol-Yourself 2022.</p>
-          </S.Copyright>
-        </S.Footer>
-      </S.Container>
+      {renderLayout}
     </>
   );
 }
