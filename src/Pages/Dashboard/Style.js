@@ -93,9 +93,10 @@ const Container = styled.div`
   align-items: center;
   padding: 1rem;
   margin: 0 auto;
-  background-image: ${(props) => (props.layout === "modern" && "") || (props.layout === "cursive" && "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')")};
-  background-color: ${(props) => (props.layout === 'modern' && "#f5f5f5") || (props.layout === 'cursive' && "#fff")};
-  font-family: ${(props) => (props.layout === "modern" && "Roboto") || (props.layout === 'cursive' && 'Cedarville Cursive')};
+  background-image: ${(props) => (props.layout === "modern" && "") || (props.layout === "cursive" && "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')")|| (props.layout === "altcursive" && "url('https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1')")};
+  background-color: ${(props) => (props.layout === 'modern' && "#f5f5f5") || (props.layout === 'cursive' && "#fff")|| (props.layout === 'altcursive' && "#fff")};
+  font-family: ${(props) => (props.layout === "modern" && "Roboto") || (props.layout === 'cursive' && 'Cedarville Cursive')||
+    (props.layout === "altcursive" && 'The Girl Next Door')};
 `;
 
 const ButtonsContainer = styled.div`
@@ -223,7 +224,10 @@ const Content = styled.div`
   padding: 1rem;
 `;
 const ItemBox = styled.div`
-  border-radius: 6px;
+  border-radius: ${(props) => 
+    (props.layout === "modern" && "6px") ||
+    (props.layout === "cursive" && "0px") ||
+    (props.layout === "altcursive" && "0px")};
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: column;
@@ -236,9 +240,9 @@ const ItemBox = styled.div`
     (props.boxSize === "small" && "200px") ||
     (props.boxSize === "large" && "400px")};
   gap: ${(props) =>
-    (props.boxSize === "medium" && "0.75rem") ||
-    (props.boxSize === "small" && "0.5rem") ||
-    (props.boxSize === "large" && "1rem")};
+    (props.boxSize === "medium" && "0.5rem") ||
+    (props.boxSize === "small" && "0.3rem") ||
+    (props.boxSize === "large" && "0.6rem")};
   align-items: center;
   overflow: hidden;
   white-space: nowrap;
@@ -255,6 +259,10 @@ const ItemImage = styled.div`
     (props.boxSize === "medium" && "175px") ||
     (props.boxSize === "small" && "150px") ||
     (props.boxSize === "large" && "300px")};
+    padding : ${(props) => 
+    (props.layout === "modern" && '0px') || 
+    (props.layout === "cursive" && "1rem 0.75rem")||
+    (props.layout === "altcursive" && "1rem 0.75rem")};
     object-fit: cover;
     border-radius: 6px;
   }
@@ -264,7 +272,7 @@ const ItemTitle = styled.div`
   font-size: ${(props) =>
     (props.boxSize === "medium" && "1.5rem") ||
     (props.boxSize === "small" && "0.75rem") ||
-    (props.boxSize === "large" && "1.5rem")};
+    (props.boxSize === "large" && "1.75rem")};
   text-overflow: ellipsis;
 `;
 const ItemDescription = styled.div`
@@ -272,7 +280,7 @@ const ItemDescription = styled.div`
   font-size: ${(props) =>
     (props.boxSize === "medium" && "1rem") ||
     (props.boxSize === "small" && "0.8rem") ||
-    (props.boxSize === "large" && "1rem")};
+    (props.boxSize === "large" && "1.75rem")};
   text-overflow: ellipsis;
 `;
 const ItemPriceTag = styled.span`
@@ -292,8 +300,9 @@ const Footer = styled.div`
 `;
 const Copyright = styled.div`
   margin-top: 40px;
-  color: ${(props) => (props.layout === "modern" && "rgba(0, 0, 0, 0.6)") || (props.layout === "cursive" && "rgba(0, 0, 0, 1)")};
-  font-size: ${(props) => (props.layout === "modern" && "0.9rem") || (props.layout === "cursive" && "2rem")};
+  color: ${(props) => (props.layout === "modern" && "rgba(0, 0, 0, 0.6)") || (props.layout === "cursive" && "rgba(0, 0, 0, 1)") || (props.layout === "altcursive" && "rgba(0,0,0, 1)")};
+  font-size: ${(props) => (props.layout === "modern" && "0.9rem") || (props.layout === "cursive" && "2rem")||
+    (props.layout === "altcursive" && "2rem")};
   font-weight: 400;
 `;
 

@@ -70,8 +70,9 @@ export default function DashboardScreen() {
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}
+          layout={layout.style}
         >
-          <S.ItemImage boxSize={layout.boxSize}>
+          <S.ItemImage boxSize={layout.boxSize} layout={layout.style}>
             <img src={el.imageUrl} alt="" />
           </S.ItemImage>
           <S.ItemTitle boxSize={layout.boxSize}>{el.title}</S.ItemTitle>
@@ -136,6 +137,7 @@ export default function DashboardScreen() {
         <S.ButtonsContainer>
           <S.BlueButton onClick={() => setLayout({...layout, style: "cursive"})}>Cursive</S.BlueButton>
           <S.WhiteButton onClick={() => setLayout({...layout, style: "modern"})}>Modern</S.WhiteButton>
+          <S.BlueButton onClick={() => setLayout({...layout, style: "altcursive"})}>Alt.Cursive</S.BlueButton>
         </S.ButtonsContainer>
       );
     }
