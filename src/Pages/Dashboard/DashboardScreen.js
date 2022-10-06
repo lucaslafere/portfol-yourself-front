@@ -73,7 +73,7 @@ export default function DashboardScreen() {
           description={el.description}
           layout={layout.style}
         >
-            <S.Pin boxSize={layout.boxSize}><img src={pin} alt="" /></S.Pin>
+          {layout.style === "modern" ? null : <S.Pin boxSize={layout.boxSize}><img src={pin} alt="" /></S.Pin>}
           <S.ItemImage boxSize={layout.boxSize} layout={layout.style}>
             <img src={el.imageUrl} alt="" />
           </S.ItemImage>
