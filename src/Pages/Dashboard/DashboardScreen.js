@@ -63,9 +63,28 @@ export default function DashboardScreen() {
       });
   }
 
+  function deleteItem(title, imageUrl, description, id){
+    const itemsURL = `http://localhost:5000/items/${id}`;
+    const data = {
+      title,
+      imageUrl,
+      description
+    }
+    axios.delete(itemsURL, config, data)
+    .then(() => {
+      console.log("deletado com sucesso")
+      getLoggedUserPortfolioByToken()
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+  }
   function mountItems() {
+    
     if (layout.isStore === false) {
       return itemsData.map((el, index) => (
+        
         <S.ItemBox
           boxSize={layout.boxSize}
           key={index}
@@ -75,6 +94,7 @@ export default function DashboardScreen() {
           layout={layout.style}
         >
           {layout.style === "modern" ? null : <S.Pin boxSize={layout.boxSize}><img src={pin} alt="" /></S.Pin>}
+          <ion-icon name="close-circle" onClick={() => deleteItem(el.title, el.imageUrl, el.description, el.id)}></ion-icon>
           <S.ItemImage boxSize={layout.boxSize} layout={layout.style}>
             <img src={el.imageUrl} alt="" />
           </S.ItemImage>
@@ -84,6 +104,7 @@ export default function DashboardScreen() {
           </S.ItemDescription>
         </S.ItemBox>
       ));
+      
     } else {
       return itemsData.map((el, index) => (
         <S.ItemBox

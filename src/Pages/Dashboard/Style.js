@@ -263,6 +263,35 @@ const ItemBox = styled.div`
   margin-bottom: 2rem;
   background-color: #fff;
   position: relative;
+  ion-icon {
+    position: absolute;
+    align-self: flex-end;
+    z-index: 1;
+    font-size: 1.5rem;
+    color: red;
+    cursor: pointer;
+  }
+`;
+
+const Modal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 50%;
+  background-color: #1976d2;
+  border-radius: 12px;
+  z-index: 1;
+  position: fixed;
+  top: 25vh;
+  left: 5vw;
+  h5 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
+  }
 `;
 
 const Pin = styled.div`
@@ -362,6 +391,7 @@ export {
   Title,
   Content,
   ItemBox,
+  Modal,
   Pin,
   ItemImage,
   ItemTitle,
