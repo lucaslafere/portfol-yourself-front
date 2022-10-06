@@ -247,6 +247,10 @@ const ItemBox = styled.div`
 const ItemImage = styled.div`
   img {
     width: 100%;
+    height: ${(props) =>
+    (props.boxSize === "medium" && "200px") ||
+    (props.boxSize === "small" && "150px") ||
+    (props.boxSize === "large" && "300px")};
     object-fit: cover;
     border-radius: 6px;
   }
@@ -263,7 +267,7 @@ const ItemDescription = styled.div`
   font-weight: 400;
   font-size: ${(props) =>
     (props.boxSize === "medium" && "1rem") ||
-    (props.boxSize === "small" && "0.5rem") ||
+    (props.boxSize === "small" && "0.8rem") ||
     (props.boxSize === "large" && "1rem")};
   text-overflow: ellipsis;
 `;

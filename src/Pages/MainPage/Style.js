@@ -137,6 +137,10 @@ const PortfolioBox = styled.div`
 const PortfolioLogo = styled.div`
   img {
     width: 100%;
+    height: ${(props) =>
+    (props.boxSize === "medium" && "200px") ||
+    (props.boxSize === "small" && "150px") ||
+    (props.boxSize === "large" && "300px")};
     object-fit: cover;
     border-radius: 6px;
   }

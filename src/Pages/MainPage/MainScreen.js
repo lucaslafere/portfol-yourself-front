@@ -26,7 +26,7 @@ export default function MainScreen() {
     } else {
       return portfoliosData.map((el, index) => (
         <S.PortfolioBox boxSize={boxSize} key={index} title={el.title} logo={el.logo}>
-          <S.PortfolioLogo>
+          <S.PortfolioLogo boxSize={boxSize}>
             <img src={el.logo} alt="" />
           </S.PortfolioLogo>
           <S.PortfolioTitle boxSize={boxSize}>{el.title}</S.PortfolioTitle>

@@ -71,11 +71,11 @@ export default function DashboardScreen() {
           imageUrl={el.imageUrl}
           description={el.description}
         >
-          <S.ItemImage>
+          <S.ItemImage boxSize={layout.boxSize}>
             <img src={el.imageUrl} alt="" />
           </S.ItemImage>
-          <S.ItemTitle>{el.title}</S.ItemTitle>
-          <S.ItemDescription>{el.description}</S.ItemDescription>
+          <S.ItemTitle boxSize={layout.boxSize}>{el.title}</S.ItemTitle>
+          <S.ItemDescription boxSize={layout.boxSize}>{el.description}</S.ItemDescription>
         </S.ItemBox>
       ));
     } else {
@@ -129,15 +129,6 @@ export default function DashboardScreen() {
         </S.ButtonsContainer>
       );
     }
-    if (edit === "font-size") {
-      return (
-        <S.ButtonsContainer>
-          <S.BlueButton>Small</S.BlueButton>
-          <S.WhiteButton>Medium</S.WhiteButton>
-          <S.BlueButton>Large</S.BlueButton>
-        </S.ButtonsContainer>
-      );
-    }
     if (edit === "layouts") {
       return (
         <S.ButtonsContainer>
@@ -175,10 +166,6 @@ export default function DashboardScreen() {
           <S.SideBarItem onClick={() => setEdit("color")}>
             <ion-icon name="color-palette-outline"></ion-icon>
             Color Scheme
-          </S.SideBarItem>
-          <S.SideBarItem onClick={() => setEdit("font-size")}>
-            <ion-icon name="color-wand-outline"></ion-icon>
-            Font Size
           </S.SideBarItem>
           <S.SideBarItem onClick={() => setEdit("layouts")}>
             <ion-icon name="image-outline"></ion-icon>
