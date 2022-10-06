@@ -75,7 +75,9 @@ export default function DashboardScreen() {
             <img src={el.imageUrl} alt="" />
           </S.ItemImage>
           <S.ItemTitle boxSize={layout.boxSize}>{el.title}</S.ItemTitle>
-          <S.ItemDescription boxSize={layout.boxSize}>{el.description}</S.ItemDescription>
+          <S.ItemDescription boxSize={layout.boxSize}>
+            {el.description}
+          </S.ItemDescription>
         </S.ItemBox>
       ));
     } else {
@@ -145,6 +147,13 @@ export default function DashboardScreen() {
         </S.ButtonsContainer>
       );
     }
+    if (edit === "link") {
+      return (
+        <S.ButtonsContainer>
+          <S.WhiteButton>{`vercellink/portfolio/${portfolioId}`}</S.WhiteButton>
+        </S.ButtonsContainer>
+      );
+    }
   }
   useEffect(() => getLoggedUserPortfolioByToken(), []);
   const renderItems = mountItems();
@@ -166,6 +175,10 @@ export default function DashboardScreen() {
           <S.SideBarItem onClick={() => setEdit("color")}>
             <ion-icon name="color-palette-outline"></ion-icon>
             Color Scheme
+          </S.SideBarItem>
+          <S.SideBarItem onClick={() => setEdit("link")}>
+            <ion-icon name="at-outline"></ion-icon>
+            Get Your Link
           </S.SideBarItem>
           <S.SideBarItem onClick={() => setEdit("layouts")}>
             <ion-icon name="image-outline"></ion-icon>

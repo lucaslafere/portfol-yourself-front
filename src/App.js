@@ -22,6 +22,7 @@ export default function App() {
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/create" element={<CreationScreen />} />
             <Route path="/dashboard" element={<DashboardScreen />} />
+            {/* <Route path="/portfolio/:portfolioId" element={<PortfolioScreen />} /> */}
           </Routes>
         </BrowserRouter>
       </UserDataContext.Provider>
