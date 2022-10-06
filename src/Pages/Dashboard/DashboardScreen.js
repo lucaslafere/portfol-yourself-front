@@ -158,6 +158,14 @@ export default function DashboardScreen() {
         </S.ButtonsContainer>
       );
     }
+    if (edit === "edit") {
+      return (
+        <S.ButtonsContainer>
+          <S.BlueButton>Add Item</S.BlueButton>
+          <S.WhiteButton>Remove Item</S.WhiteButton>
+        </S.ButtonsContainer>
+      );
+    }
   }
   function mountLayout() {
       return (
@@ -185,8 +193,8 @@ export default function DashboardScreen() {
       <S.HeaderContainer>
         <S.SideBar>
           <S.SideBarTopBox />
-          <S.SideBarItem>
-            <ion-icon name="add-circle-outline"></ion-icon>
+          <S.SideBarItem onClick={() => setEdit("edit")}>
+          <ion-icon name="build-outline"></ion-icon>
             Add New Item
           </S.SideBarItem>
           <S.SideBarItem onClick={() => setEdit("box")}>
