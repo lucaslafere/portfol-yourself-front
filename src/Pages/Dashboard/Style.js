@@ -126,6 +126,69 @@ const BlueButton = styled.button`
     filter: brightness(120%);
   }
 `;
+const WhiteButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  min-width: 90px;
+  padding: 6px 16px;
+  border-radius: 60px;
+  border: 1px solid rgba(25, 118, 210, 0.5);
+  background-color: #fff;
+  color: #1976d2;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  -webkit-tap-highlight-color: transparent;
+
+  :hover {
+    filter: brightness(120%);
+  }
+`;
+const GreenButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  min-width: 90px;
+  padding: 6px 16px;
+  border-radius: 60px;
+  border: 1px solid rgba(25, 118, 210, 0.5);
+  background-color: green;
+  color: #fff;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  -webkit-tap-highlight-color: transparent;
+
+  :hover {
+    filter: brightness(120%);
+  }
+`;
+const YellowButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  min-width: 90px;
+  padding: 6px 16px;
+  border-radius: 60px;
+  border: 1px solid yellow;
+  background-color: yellow;
+  color: black;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  -webkit-tap-highlight-color: transparent;
+
+  :hover {
+    filter: brightness(120%);
+  }
+`;
 
 const TopSection = styled.div`
   display: flex;
@@ -234,6 +297,9 @@ export {
   Container,
   ButtonsContainer,
   BlueButton,
+  WhiteButton,
+  GreenButton,
+  YellowButton,
   TopSection,
   Title,
   Content,
