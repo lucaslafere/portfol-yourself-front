@@ -1,10 +1,53 @@
 import styled from "styled-components";
 
-const Header = styled.div`
+const HeaderContainer = styled.div`
   width: 100%;
   position: sticky;
   height: 70px;
+  display: flex;
+`;
+const SideBar = styled.div`
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  gap: 0.5rem;
+`;
+const SideBarTopBox = styled.div`
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+const SideBarItem = styled.div`
+width: 240px;
+height: 48px;
+padding: 0.5rem 1rem;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: transparent;
+-webkit-tap-highlight-color: transparent;
+cursor: pointer;
+:hover {
+    background-color: #f5f5f5;
+}
+`
+const Header = styled.div`
+  width: 80%;
   padding: 2rem;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,8 +60,18 @@ const Header = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 3rem;
+  cursor: pointer;
 `;
-
+const Logo = styled.div`
+  width: 200px;
+  height: 100%;
+  img {
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -97,7 +150,7 @@ const ItemDescription = styled.div`
     (props.boxSize === "small" && "0.5rem") ||
     (props.boxSize === "large" && "1rem")};
   text-overflow: ellipsis;
-`
+`;
 const ItemPriceTag = styled.span`
   font-weight: 400;
   font-size: ${(props) =>
@@ -105,7 +158,7 @@ const ItemPriceTag = styled.span`
     (props.boxSize === "small" && "0.5rem") ||
     (props.boxSize === "large" && "1rem")};
   text-overflow: ellipsis;
-`
+`;
 const Footer = styled.div`
   display: flex;
   flex-direction: column;
@@ -122,7 +175,12 @@ const Copyright = styled.div`
 `;
 
 export {
+  HeaderContainer,
+  SideBar,
+  SideBarTopBox,
+  SideBarItem,
   Header,
+  Logo,
   Container,
   TopSection,
   Title,

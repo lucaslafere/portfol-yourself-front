@@ -7,7 +7,6 @@ import UserDataContext from "../../Contexts/UserDataContext";
 import * as S from "./Style";
 
 export default function DashboardScreen() {
-  const [boxSize, setBoxSize] = useState("medium");
   const [itemsData, setItemsData] = useState([]);
   const [layout, setLayout] = useState({
     title: "",
@@ -16,9 +15,7 @@ export default function DashboardScreen() {
     style: "modern",
     isStore: false,
   });
-  const [portfolioId, setPortfolioId] = useState(0);
   const { token } = useContext(TokenContext);
-  const { userData } = useContext(UserDataContext);
   const dashboardURL = `http://localhost:5000/dashboard`;
   const config = {
     headers: {
@@ -31,12 +28,12 @@ export default function DashboardScreen() {
     axios
       .get(dashboardURL, config)
       .then((res) => {
-        setPortfolioId(res.data.portfolioId);
         setLayout({ title: res.data.portfolio.title });
         setLayout({ logo: res.data.portfolio.logo });
         setLayout({ boxSize: res.data.layout.boxSize });
         setLayout({ style: res.data.layout.style });
         setLayout({ isStore: res.data.layout.isStore });
+        setItemsData(res.data.items)
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +44,7 @@ export default function DashboardScreen() {
      if (layout.isStore === false) {
       return itemsData.map((el, index) => (
         <S.ItemBox
-          boxSize={boxSize}
+          boxSize={layout.boxSize}
           key={index}
           title={el.title}
           imageUrl={el.imageUrl}
@@ -63,7 +60,7 @@ export default function DashboardScreen() {
     } else {
       return itemsData.map((el, index) => (
         <S.ItemBox
-          boxSize={boxSize}
+          boxSize={layout.boxSize}
           key={index}
           title={el.title}
           imageUrl={el.imageUrl}
@@ -84,7 +81,27 @@ export default function DashboardScreen() {
 
   return (
     <>
-      <S.Header onClick={() => navigate("/")}>Portfol-yourself</S.Header>
+    <S.HeaderContainer>
+        <S.SideBar>
+            <S.SideBarTopBox/>
+            <S.SideBarItem>
+            Layouts
+            </S.SideBarItem>
+            <S.SideBarItem>
+            Box Sizes
+            </S.SideBarItem>
+            <S.SideBarItem>
+            Site type
+            </S.SideBarItem>
+            <S.SideBarItem>
+            Box Sizes
+            </S.SideBarItem>
+            
+        </S.SideBar>
+      <S.Header onClick={() => navigate("/")}>Portfol-Yourself
+      <S.Logo>{layout.logo}</S.Logo>
+      </S.Header>
+      </S.HeaderContainer>
       <S.Container>
         <S.TopSection>
           <S.Title>{layout.title}</S.Title>
