@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.div`
   width: 100%;
-  position: sticky;
+  position: fixed;
   height: 70px;
   display: flex;
 `;
@@ -31,21 +31,25 @@ const SideBarTopBox = styled.div`
   margin-bottom: 0.5rem;
 `;
 const SideBarItem = styled.div`
-width: 240px;
+width: 100%;
 height: 48px;
-padding: 0.5rem 1rem;
+padding: 1rem;
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 background-color: transparent;
 -webkit-tap-highlight-color: transparent;
+ion-icon {
+    font-size: 2rem;
+    margin-right: 2rem;
+}
 cursor: pointer;
 :hover {
     background-color: #f5f5f5;
 }
 `
 const Header = styled.div`
-  width: 80%;
+  width: 100%;
   padding: 2rem;
   height: 70px;
   display: flex;
@@ -60,14 +64,19 @@ const Header = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 3rem;
-  cursor: pointer;
+  p {
+    cursor: pointer;
+    padding: 2rem;
+  }
 `;
 const Logo = styled.div`
   width: 200px;
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
     width: 200px;
-    height: 100%;
+    height: 60px;
     object-fit: cover;
     border-radius: 6px;
   }
@@ -88,6 +97,8 @@ const TopSection = styled.div`
   gap: 1rem;
   width: 60%;
   margin-bottom: 3rem;
+  margin-left: 240px;
+  margin-top: 80px;
 `;
 const Title = styled.div`
   color: rgba(0, 0, 0, 0.87);
@@ -97,12 +108,13 @@ const Title = styled.div`
 `;
 
 const Content = styled.div`
-  max-width: 1300px;
+  max-width: 900px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  margin-left: 240px;
   padding: 1rem;
 `;
 const ItemBox = styled.div`
@@ -111,6 +123,7 @@ const ItemBox = styled.div`
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
   width: ${(props) =>
     (props.boxSize === "medium" && "300px") ||
     (props.boxSize === "small" && "200px") ||
@@ -166,6 +179,7 @@ const Footer = styled.div`
   color: rgba(0, 0, 0, 0.87);
   font-size: 1rem;
   font-weight: 500;
+  margin-left: 240px;
 `;
 const Copyright = styled.div`
   margin-top: 40px;

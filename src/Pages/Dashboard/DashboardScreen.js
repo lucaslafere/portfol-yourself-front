@@ -28,12 +28,14 @@ export default function DashboardScreen() {
     axios
       .get(dashboardURL, config)
       .then((res) => {
-        setLayout({ title: res.data.portfolio.title });
-        setLayout({ logo: res.data.portfolio.logo });
-        setLayout({ boxSize: res.data.layout.boxSize });
-        setLayout({ style: res.data.layout.style });
-        setLayout({ isStore: res.data.layout.isStore });
-        setItemsData(res.data.items)
+        setLayout({
+          title: res.data.portfolio.title,
+          logo: res.data.portfolio.logo,
+          boxSize: res.data.layout.boxSize,
+          style: res.data.layout.style,
+          isStore: res.data.layout.isStore,
+        });
+        setItemsData(res.data.items);
       })
       .catch((err) => {
         console.log(err);
@@ -41,7 +43,8 @@ export default function DashboardScreen() {
   }
   useEffect(() => getLoggedUserPortfolioByToken(), []);
   function mountItems() {
-     if (layout.isStore === false) {
+    console.log(layout.title);
+    if (layout.isStore === false) {
       return itemsData.map((el, index) => (
         <S.ItemBox
           boxSize={layout.boxSize}
@@ -77,30 +80,38 @@ export default function DashboardScreen() {
       ));
     }
   }
+  function mountEditBoxSize() {}
   const renderItems = mountItems();
 
   return (
     <>
-    <S.HeaderContainer>
+      <S.HeaderContainer>
         <S.SideBar>
-            <S.SideBarTopBox/>
-            <S.SideBarItem>
+          <S.SideBarTopBox />
+          <S.SideBarItem>
+            <ion-icon name="cube-outline"></ion-icon>
+            Box Sizes
+          </S.SideBarItem>
+          <S.SideBarItem>
+            <ion-icon name="color-palette-outline"></ion-icon>
+            Color Scheme
+          </S.SideBarItem>
+          <S.SideBarItem>
+            <ion-icon name="image-outline"></ion-icon>
             Layouts
-            </S.SideBarItem>
-            <S.SideBarItem>
-            Box Sizes
-            </S.SideBarItem>
-            <S.SideBarItem>
-            Site type
-            </S.SideBarItem>
-            <S.SideBarItem>
-            Box Sizes
-            </S.SideBarItem>
-            
+          </S.SideBarItem>
+
+          <S.SideBarItem>
+            <ion-icon name="storefront-outline"></ion-icon>
+            Store Options
+          </S.SideBarItem>
         </S.SideBar>
-      <S.Header onClick={() => navigate("/")}>Portfol-Yourself
-      <S.Logo>{layout.logo}</S.Logo>
-      </S.Header>
+        <S.Header >
+          <p onClick={() => navigate("/")}>Portfol-Yourself</p>
+          <S.Logo>
+            <img src={layout.logo} alt="" />
+          </S.Logo>
+        </S.Header>
       </S.HeaderContainer>
       <S.Container>
         <S.TopSection>
