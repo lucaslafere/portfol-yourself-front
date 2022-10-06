@@ -164,6 +164,10 @@ export default function DashboardScreen() {
       <S.HeaderContainer>
         <S.SideBar>
           <S.SideBarTopBox />
+          <S.SideBarItem>
+            <ion-icon name="add-circle-outline"></ion-icon>
+            Add New Item
+          </S.SideBarItem>
           <S.SideBarItem onClick={() => setEdit("box")}>
             <ion-icon name="cube-outline"></ion-icon>
             Box Sizes
@@ -186,7 +190,7 @@ export default function DashboardScreen() {
           </S.SideBarItem>
           <S.SideBarItem onClick={() => putSaveChanges()}>
             <ion-icon name="checkmark-circle-outline"></ion-icon>
-            Save changes
+            Save Changes
           </S.SideBarItem>
         </S.SideBar>
         <S.Header>
