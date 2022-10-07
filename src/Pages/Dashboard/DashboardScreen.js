@@ -178,8 +178,8 @@ export default function DashboardScreen() {
       return (
         <S.ButtonsContainer>
           <S.BlueButton onClick={() => setLayout({...layout, style: "modern"})}>Modern</S.BlueButton>
-          <S.WhiteButton onClick={() => setLayout({...layout, style: "cursive"})}>Cursive</S.WhiteButton>
-          <S.BlueButton onClick={() => setLayout({...layout, style: "altcursive"})}>Alt.Cursive</S.BlueButton>
+          <S.WhiteButton onClick={() => setLayout({...layout, style: "handwritten"})}>Handwritten Board</S.WhiteButton>
+          <S.BlueButton onClick={() => setLayout({...layout, style: "altcursive"})}>Alt.Cursive Board</S.BlueButton>
         </S.ButtonsContainer>
       );
     }

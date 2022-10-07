@@ -18,8 +18,8 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  background-color: ${(props) => (props.layout === "modern" && "#1976d2") || (props.layout === "cursive" && "#fff") || (props.layout ==="altcursive" && "#fff")};
-  color: ${(props) => (props.layout === "modern" && "#fff") || (props.layout === "cursive" && "rgba(0, 0, 0, 0.87)") || (props.layout ==="altcursive" && "rgba(0, 0, 0, 0.87)")};
+  background-color: ${(props) => (props.layout === "modern" && "#1976d2") || (props.layout === "handwritten" && "#fff") || (props.layout ==="altcursive" && "#fff")};
+  color: ${(props) => (props.layout === "modern" && "#fff") || (props.layout === "handwritten" && "rgba(0, 0, 0, 0.87)") || (props.layout ==="altcursive" && "rgba(0, 0, 0, 0.87)")};
   font-size: 1.25rem;
   font-weight: 500;
   overflow: hidden;
@@ -51,17 +51,17 @@ const Container = styled.div`
   margin: 0 auto;
   background-image: ${(props) =>
     (props.layout === "modern" && "") ||
-    (props.layout === "cursive" &&
+    (props.layout === "handwritten" &&
       `url(${darkCorkboard})`) ||
     (props.layout === "altcursive" &&
       `url(${darkCorkboard})`)};
   background-color: ${(props) =>
     (props.layout === "modern" && "#f5f5f5") ||
-    (props.layout === "cursive" && "#fff") ||
+    (props.layout === "handwritten" && "#fff") ||
     (props.layout === "altcursive" && "#fff")};
   font-family: ${(props) =>
     (props.layout === "modern" && "Roboto") ||
-    (props.layout === "cursive" && "Cedarville Cursive") ||
+    (props.layout === "handwritten" && "Cedarville Cursive") ||
     (props.layout === "altcursive" && "The Girl Next Door")};
   height: 100vh;
 `;
@@ -94,7 +94,7 @@ const Content = styled.div`
 const ItemBox = styled.div`
   border-radius: ${(props) =>
     (props.layout === "modern" && "6px") ||
-    (props.layout === "cursive" && "0px") ||
+    (props.layout === "handwritten" && "0px") ||
     (props.layout === "altcursive" && "0px")};
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
@@ -152,7 +152,7 @@ const ItemImage = styled.div`
       (props.boxSize === "large" && "300px")};
     padding: ${(props) =>
       (props.layout === "modern" && "0px") ||
-      (props.layout === "cursive" && "1rem 0.75rem") ||
+      (props.layout === "handwritten" && "1rem 0.75rem") ||
       (props.layout === "altcursive" && "1rem 0.75rem")};
     object-fit: cover;
     border-radius: 6px;
@@ -192,11 +192,11 @@ const Copyright = styled.div`
   margin-top: 40px;
   color: ${(props) =>
     (props.layout === "modern" && "rgba(0, 0, 0, 0.6)") ||
-    (props.layout === "cursive" && "rgba(0, 0, 0, 1)") ||
+    (props.layout === "handwritten" && "rgba(0, 0, 0, 1)") ||
     (props.layout === "altcursive" && "rgba(0,0,0, 1)")};
   font-size: ${(props) =>
     (props.layout === "modern" && "0.9rem") ||
-    (props.layout === "cursive" && "2rem") ||
+    (props.layout === "handwritten" && "2rem") ||
     (props.layout === "altcursive" && "2rem")};
   font-weight: 400;
 `;
