@@ -5,14 +5,14 @@ const Modal = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
-  height: 50%;
+  width: 30%;
+  height: 40%;
   background-color: #1976d2;
   border-radius: 12px;
   z-index: 1;
   position: fixed;
   top: 25vh;
-  left: 5vw;
+  left: 35vw;
   h5 {
     font-weight: 700;
     font-size: 1.2rem;
@@ -20,7 +20,6 @@ const Modal = styled.div`
     text-align: center;
   }
 `;
-
 const Container = styled.div`
   display: flex;
   justify-content: center;
