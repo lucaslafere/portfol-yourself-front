@@ -118,7 +118,6 @@ const Container = styled.div`
     (props.layout === "modern" && "Roboto") ||
     (props.layout === "handwritten" && "Cedarville Cursive") ||
     (props.layout === "altcursive" && "The Girl Next Door")};
-    height: 100vh;
 `;
 
 const ButtonsContainer = styled.div`
