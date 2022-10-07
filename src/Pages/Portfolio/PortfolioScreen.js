@@ -18,7 +18,7 @@ export default function PortfolioScreen() {
 
   function getPortfolioById() {
     axios
-      .get(`http://localhost:5000/portfolios/${portfolioId}`)
+      .get(`https://portfol-yourself.herokuapp.com/portfolios/${portfolioId}`)
 
       .then((res) => {
         setLayout({

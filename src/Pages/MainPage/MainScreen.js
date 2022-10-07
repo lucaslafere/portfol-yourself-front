@@ -7,7 +7,7 @@ import TokenContext from "../../Contexts/TokenContext";
 export default function MainScreen() {
   const navigate = useNavigate();
   const [portfoliosData, setPortfoliosData] = useState([]);
-  const portfoliosURL = "http://localhost:5000/portfolios";
+  const portfoliosURL = "https://portfol-yourself.herokuapp.com/portfolios";
   const { token } = useContext(TokenContext);
   const [boxSize, setBoxSize] = useState("medium");
   function getPortfolios() {

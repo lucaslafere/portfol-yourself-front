@@ -25,8 +25,8 @@ export default function DashboardScreen() {
   const [edit, setEdit] = useState("");
   const userURL = `localhost:3000/portfolio/${portfolioId}`
   const { token } = useContext(TokenContext);
-  const dashboardURL = `http://localhost:5000/dashboard`;
-  const portfoliosURL = `http://localhost:5000/portfolios/${portfolioId}`;
+  const dashboardURL = `https://portfol-yourself.herokuapp.com/dashboard`;
+  const portfoliosURL = `https://portfol-yourself.herokuapp.com/portfolios/${portfolioId}`;
   const body = {
     boxSize: layout.boxSize,
     style: layout.style,
@@ -81,7 +81,7 @@ export default function DashboardScreen() {
     );
   }
   function deleteItem(title, imageUrl, description, id){
-    const itemsURL = `http://localhost:5000/items/${id}`;
+    const itemsURL = `https://portfol-yourself.herokuapp.com/items/${id}`;
     const data = {
       title,
       imageUrl,

@@ -13,7 +13,7 @@ export default function CreationScreen() {
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
-  const URL = "http://localhost:5000/items";
+  const URL = "https://portfol-yourself.herokuapp.com/items";
   const navigate = useNavigate();
   const body = {
     title,

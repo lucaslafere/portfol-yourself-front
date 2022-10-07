@@ -12,7 +12,7 @@ export default function SignUpScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const URL = "http://localhost:5000/sign-up";
+  const URL = "https://portfol-yourself.herokuapp.com/sign-up";
   const navigate = useNavigate();
   const body = {
     email,
