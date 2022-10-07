@@ -63,6 +63,7 @@ const Container = styled.div`
     (props.layout === "modern" && "Roboto") ||
     (props.layout === "cursive" && "Cedarville Cursive") ||
     (props.layout === "altcursive" && "The Girl Next Door")};
+  height: 100vh;
 `;
 const TopSection = styled.div`
   display: flex;
