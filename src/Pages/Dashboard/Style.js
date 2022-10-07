@@ -65,8 +65,8 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  background-color: #1976d2;
-  color: #fff;
+  background-color: ${(props) => (props.layout === "modern" && "#1976d2") || (props.layout === "cursive" && "#fff") || (props.layout ==="altcursive" && "#fff")};
+  color: ${(props) => (props.layout === "modern" && "#fff") || (props.layout === "cursive" && "rgba(0, 0, 0, 0.87)") || (props.layout ==="altcursive" && "rgba(0, 0, 0, 0.87)")};
   font-size: 1.25rem;
   font-weight: 500;
   overflow: hidden;
@@ -270,29 +270,16 @@ const ItemBox = styled.div`
     font-size: 1.5rem;
     color: red;
     cursor: pointer;
+    display: none;
+  }
+  :hover {
+    ion-icon {
+      display: block;
+    }
+    
   }
 `;
 
-const Modal = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  height: 50%;
-  background-color: #1976d2;
-  border-radius: 12px;
-  z-index: 1;
-  position: fixed;
-  top: 25vh;
-  left: 5vw;
-  h5 {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #fff;
-    text-align: center;
-  }
-`;
 
 const Pin = styled.div`
   justify-self: flex-start;
@@ -391,7 +378,6 @@ export {
   Title,
   Content,
   ItemBox,
-  Modal,
   Pin,
   ItemImage,
   ItemTitle,

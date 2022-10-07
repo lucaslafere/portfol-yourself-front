@@ -237,7 +237,7 @@ export default function DashboardScreen() {
           </S.SideBarItem>
           {renderEditting}
         </S.SideBar>
-        <S.Header>
+        <S.Header layout={layout.style}>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>
           <S.Logo>
             <img src={layout.logo} alt="" />
