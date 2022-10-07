@@ -10,54 +10,6 @@ const HeaderContainer = styled.div`
   display: flex;
   z-index: 2;
 `;
-const SideBar = styled.div`
-  width: 20%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 1rem;
-  font-weight: 400;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
-  gap: 8px;
-  position: relative;
-`;
-const SideBarTopBox = styled.div`
-  height: 70px;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  padding: 8px;
-  margin-bottom: 8px;
-`;
-const SideBarItem = styled.div`
-  width: 100%;
-  height: 48px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: transparent;
-  -webkit-tap-highlight-color: transparent;
-  ion-icon {
-    font-size: 2rem;
-    margin-right: 2rem;
-  }
-  cursor: pointer;
-  :hover {
-    background-color: #f5f5f5;
-  }
-  :nth-child(8) {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    color: #1976d2;
-  }
-`;
 const Header = styled.div`
   width: 100%;
   padding: 2rem;
@@ -113,101 +65,7 @@ const Container = styled.div`
     (props.layout === "altcursive" && "The Girl Next Door")};
 `;
 
-const ButtonsContainer = styled.div`
-  width: 100%;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
-  border-radius: 60px;
-`;
-const BlueButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.875rem;
-  min-width: 90px;
-  padding: 6px 16px;
-  border-radius: 60px;
-  border: 1px solid #1976d2;
-  background-color: #1976d2;
-  color: #fff;
-  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
-    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-  -webkit-tap-highlight-color: transparent;
 
-  :hover {
-    filter: brightness(120%);
-  }
-`;
-const WhiteButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.875rem;
-  min-width: 90px;
-  padding: 6px 16px;
-  border-radius: 60px;
-  border: 1px solid rgba(25, 118, 210, 0.5);
-  background-color: #fff;
-  color: #1976d2;
-  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
-    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-  -webkit-tap-highlight-color: transparent;
-
-  :hover {
-    filter: brightness(120%);
-  }
-`;
-const GreenButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.875rem;
-  min-width: 90px;
-  padding: 6px 16px;
-  border-radius: 60px;
-  border: 1px solid rgba(25, 118, 210, 0.5);
-  background-color: green;
-  color: #fff;
-  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
-    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-  -webkit-tap-highlight-color: transparent;
-
-  :hover {
-    filter: brightness(120%);
-  }
-`;
-const YellowButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.875rem;
-  min-width: 90px;
-  padding: 6px 16px;
-  border-radius: 60px;
-  border: 1px solid yellow;
-  background-color: yellow;
-  color: black;
-  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
-    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-  -webkit-tap-highlight-color: transparent;
-
-  :hover {
-    filter: brightness(120%);
-  }
-`;
 
 const TopSection = styled.div`
   display: flex;
@@ -217,7 +75,6 @@ const TopSection = styled.div`
   gap: 1rem;
   width: 60%;
   margin-bottom: 3rem;
-  margin-left: 240px;
 `;
 const Title = styled.div`
   color: rgba(0, 0, 0, 1);
@@ -234,7 +91,6 @@ const Content = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: 240px;
   padding: 1rem;
 `;
 const ItemBox = styled.div`
@@ -347,7 +203,6 @@ const Footer = styled.div`
   flex-direction: column;
   align-items: center;
   font-weight: 500;
-  margin-left: 240px;
 `;
 const Copyright = styled.div`
   margin-top: 40px;
@@ -361,40 +216,12 @@ const Copyright = styled.div`
     (props.layout === "altcursive" && "2rem")};
   font-weight: 400;
 `;
-const Modal = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  height: 50%;
-  background-color: #1976d2;
-  border-radius: 12px;
-  z-index: 3;
-  position: fixed;
-  top: 25vh;
-  left: 5vw;
-  h5 {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #fff;
-    text-align: center;
-  }
-`;
 
 export {
   HeaderContainer,
-  SideBar,
-  SideBarTopBox,
-  SideBarItem,
   Header,
   Logo,
   Container,
-  ButtonsContainer,
-  BlueButton,
-  WhiteButton,
-  GreenButton,
-  YellowButton,
   TopSection,
   Title,
   Content,
@@ -406,5 +233,4 @@ export {
   ItemPriceTag,
   Footer,
   Copyright,
-  Modal
 };

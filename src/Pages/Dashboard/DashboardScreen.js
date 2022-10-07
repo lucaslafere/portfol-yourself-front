@@ -22,7 +22,7 @@ export default function DashboardScreen() {
   const [failureModal, setFailureModal] = useState(false)
   const [incompleteModal, setIncompleteModal] = useState(false);
   const [edit, setEdit] = useState("");
-  const userURL = `vercellink/portfolio/${portfolioId}`
+  const userURL = `localhost:3000/portfolio/${portfolioId}`
   const { token } = useContext(TokenContext);
   const dashboardURL = `http://localhost:5000/dashboard`;
   const portfoliosURL = `http://localhost:5000/portfolios/${portfolioId}`;
@@ -65,10 +65,18 @@ export default function DashboardScreen() {
         setPortfolioId(res.data.portfolio.id);
       })
       .catch((err) => {
-        console.log(err);
+        openErrorModal();
       });
   }
 
+  function openErrorModal () {
+    return (
+      <S.Modal onClick={() => navigate("/")}>
+        <h5>You don't have a portfolio, so you can't open your dashboard</h5>
+        <h5>Click anywhere inside the box to go back</h5>
+      </S.Modal>
+    );
+  }
   function deleteItem(title, imageUrl, description, id){
     const itemsURL = `http://localhost:5000/items/${id}`;
     const data = {
@@ -245,6 +253,7 @@ export default function DashboardScreen() {
   const renderSucessModal = openSuccessModal();
   const renderFailureModal = openFailureModal();
   const renderIncompleteModal = openIncompleteFeatureModal();
+  const renderError = openErrorModal();
   return (
     <>
       <S.HeaderContainer>
@@ -291,6 +300,7 @@ export default function DashboardScreen() {
         </S.Header>
       </S.HeaderContainer>
       {renderLayout}
+      {renderError}
     </>
   );
 }
