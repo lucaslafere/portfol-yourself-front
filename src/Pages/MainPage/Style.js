@@ -19,6 +19,7 @@ const Header = styled.div`
   margin-bottom: 3rem;
   p {
     cursor: pointer;
+    padding: 2rem;
   }
   
 `;
