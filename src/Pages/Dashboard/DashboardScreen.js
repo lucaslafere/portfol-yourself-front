@@ -21,6 +21,7 @@ export default function DashboardScreen() {
   const [modal, setModal] = useState(false)
   const [failureModal, setFailureModal] = useState(false)
   const [incompleteModal, setIncompleteModal] = useState(false);
+  const [error, setError] = useState(false)
   const [edit, setEdit] = useState("");
   const userURL = `localhost:3000/portfolio/${portfolioId}`
   const { token } = useContext(TokenContext);
@@ -65,11 +66,13 @@ export default function DashboardScreen() {
         setPortfolioId(res.data.portfolio.id);
       })
       .catch((err) => {
-        openErrorModal();
+        console.log(err)
+        setError(true)
       });
   }
 
   function openErrorModal () {
+    if (error)
     return (
       <S.Modal onClick={() => navigate("/")}>
         <h5>You don't have a portfolio, so you can't open your dashboard</h5>

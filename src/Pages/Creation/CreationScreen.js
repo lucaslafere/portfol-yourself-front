@@ -74,7 +74,8 @@ export default function CreationScreen() {
         setLoading(false);
         setDisabled(false);
         setErrorText(
-            `There was an error creating your portfolio. ${err.message}`
+            `There was an error creating your portfolio. ${err.message}.
+            Are you sure you don't have a portfolio yet?`
           );
           setError(true);
     });

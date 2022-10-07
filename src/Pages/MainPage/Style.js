@@ -103,7 +103,7 @@ const WhiteButton = styled.button`
   }
 `;
 const Content = styled.div`
-  max-width: 1300px;
+  max-width: 900px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -136,7 +136,10 @@ const PortfolioBox = styled.div`
 `;
 const PortfolioLogo = styled.div`
   img {
-    width: 100%;
+    width: ${(props) =>
+    (props.boxSize === "medium" && "300px") ||
+    (props.boxSize === "small" && "200px") ||
+    (props.boxSize === "large" && "400px")};
     height: ${(props) =>
     (props.boxSize === "medium" && "200px") ||
     (props.boxSize === "small" && "150px") ||
