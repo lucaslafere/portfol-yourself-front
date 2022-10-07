@@ -5,6 +5,8 @@ import { ThreeDots } from "react-loader-spinner";
 import TokenContext from "../../Contexts/TokenContext";
 import * as S from "./Style";
 import pin from '../../Assets/pin.png'
+import SuccessModal from "../../Components/SuccessModal/SuccessModal";
+import FailureModal from '../../Components/FailureModal/Failuremodal'
 
 export default function DashboardScreen() {
   const [itemsData, setItemsData] = useState([]);
@@ -16,6 +18,8 @@ export default function DashboardScreen() {
     style: "modern",
     isStore: false,
   });
+  const [modal, setModal] = useState(false)
+  const [failureModal, setFailureModal] = useState(false)
   const [edit, setEdit] = useState("");
   const userURL = `vercellink/portfolio/${portfolioId}`
   const { token } = useContext(TokenContext);
@@ -37,10 +41,11 @@ export default function DashboardScreen() {
     axios
       .put(portfoliosURL, body, config)
       .then((res) => {
-        console.log(`saved sucessful: ${res.data}`);
+        setModal(true)
       })
       .catch((err) => {
         console.log(err);
+        setFailureModal(true)
       });
   }
 
@@ -72,11 +77,12 @@ export default function DashboardScreen() {
     }
     axios.delete(itemsURL, config, data)
     .then(() => {
-      console.log("deletado com sucesso")
       getLoggedUserPortfolioByToken()
+      setModal(true)
     })
     .catch((err) => {
       console.log(err)
+      setFailureModal(true)
     })
 
   }
@@ -196,12 +202,30 @@ export default function DashboardScreen() {
         </S.Container>
       );
     }
-  
+  function openSuccessModal () {
+      if (modal){
+        setTimeout(() => setModal(false), 2000);
+        return (
+          <SuccessModal/>
+        )
+      }
+      
+    }
+  function openFailureModal () {
+    if (failureModal) {
+      setTimeout(() => setFailureModal(false), 2000);
+      return (
+        <FailureModal/>
+      )
+    }
+  }
+
   useEffect(() => getLoggedUserPortfolioByToken(), []);
   const renderItems = mountItems();
   const renderEditting = mountEditting();
   const renderLayout = mountLayout();
-
+  const renderSucessModal = openSuccessModal();
+  const renderFailureModal = openFailureModal();
   return (
     <>
       <S.HeaderContainer>
@@ -236,6 +260,8 @@ export default function DashboardScreen() {
             Save Changes
           </S.SideBarItem>
           {renderEditting}
+          {renderSucessModal}
+          {renderFailureModal}
         </S.SideBar>
         <S.Header layout={layout.style}>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>

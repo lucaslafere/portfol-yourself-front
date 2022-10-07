@@ -26,6 +26,7 @@ const SideBar = styled.div`
   white-space: nowrap;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
   gap: 8px;
+  position: relative;
 `;
 const SideBarTopBox = styled.div`
   height: 70px;
