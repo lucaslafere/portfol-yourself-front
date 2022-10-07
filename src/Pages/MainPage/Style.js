@@ -17,7 +17,11 @@ const Header = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 3rem;
-  cursor: pointer;
+  p {
+    cursor: pointer;
+    padding: 2rem;
+  }
+  
 `;
 
 const HeaderButtonsContainer = styled.div`

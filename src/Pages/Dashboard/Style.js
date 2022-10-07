@@ -55,8 +55,15 @@ const SideBarItem = styled.div`
   :nth-child(8) {
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
     color: #1976d2;
+    margin-bottom: -8px;
   }
+  :nth-child(9) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    color: red;
+  }
+  
 `;
 const Header = styled.div`
   width: 100%;
