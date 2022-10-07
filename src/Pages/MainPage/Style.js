@@ -123,7 +123,7 @@ const PortfolioBox = styled.div`
     (props.boxSize === "large" && "400px")};
   height: ${(props) =>
     (props.boxSize === "medium" && "300px") ||
-    (props.boxSize === "small" && "200px") ||
+    (props.boxSize === "small" && "220px") ||
     (props.boxSize === "large" && "400px")};
   gap: ${(props) =>
     (props.boxSize === "medium" && "1rem") ||
@@ -151,7 +151,7 @@ const PortfolioLogo = styled.div`
 const PortfolioTitle = styled.div`
   font-weight: 400;
   font-size: ${(props) =>
-    (props.boxSize === "medium" && "1.5rem") ||
+    (props.boxSize === "medium" && "1.25rem") ||
     (props.boxSize === "small" && "0.75rem") ||
     (props.boxSize === "large" && "1.5rem")};
   text-overflow: ellipsis;

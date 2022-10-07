@@ -177,8 +177,8 @@ export default function DashboardScreen() {
     if (edit === "layouts") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton onClick={() => setLayout({...layout, style: "cursive"})}>Cursive</S.BlueButton>
-          <S.WhiteButton onClick={() => setLayout({...layout, style: "modern"})}>Modern</S.WhiteButton>
+          <S.BlueButton onClick={() => setLayout({...layout, style: "modern"})}>Modern</S.BlueButton>
+          <S.WhiteButton onClick={() => setLayout({...layout, style: "cursive"})}>Cursive</S.WhiteButton>
           <S.BlueButton onClick={() => setLayout({...layout, style: "altcursive"})}>Alt.Cursive</S.BlueButton>
         </S.ButtonsContainer>
       );
