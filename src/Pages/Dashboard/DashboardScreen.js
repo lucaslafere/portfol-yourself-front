@@ -280,7 +280,11 @@ export default function DashboardScreen() {
     <>
       <S.HeaderContainer>
         <S.SideBar>
-          <S.SideBarTopBox />
+          <S.SideBarTopBox>
+          {renderSucessModal}
+          {renderFailureModal}
+          {renderIncompleteModal}
+          </S.SideBarTopBox>
           <S.SideBarItem onClick={() => navigate("/add")}>
           <ion-icon name="add-circle-outline"></ion-icon>
             Add New Item
@@ -314,9 +318,7 @@ export default function DashboardScreen() {
             Delete Page
           </S.SideBarItem>
           {renderEditting}
-          {renderSucessModal}
-          {renderFailureModal}
-          {renderIncompleteModal}
+          
         </S.SideBar>
         <S.Header layout={layout.style}>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>
