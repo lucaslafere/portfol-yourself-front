@@ -64,7 +64,7 @@ export default function MainScreen() {
   return (
     <>
       <S.Header onClick={() => navigate("/")}>
-        Portfol-Yourself
+        <p>Portfol-Yourself</p>
         <S.HeaderButtonsContainer>
           Try it now:
           <S.WhiteButton onClick={() => setBoxSize("small") }>Small</S.WhiteButton>
