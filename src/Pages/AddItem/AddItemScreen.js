@@ -18,14 +18,14 @@ export default function CreationScreen() {
   const body = {
     title,
     imageUrl,
-    description
+    description,
   };
-  const { token } = useContext(TokenContext)
+  const { token } = useContext(TokenContext);
 
   const config = {
     headers: {
-        Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   };
 
   function create(event) {
@@ -35,71 +35,77 @@ export default function CreationScreen() {
     creationSchema();
   }
   function creationSchema() {
-    const regexImageUrl = new RegExp(/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/g);
+    const regexImageUrl = new RegExp(
+      /(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/g
+    );
 
     if (imageUrl.length < 1) {
-      setDisabled(false);
-      setLoading(false);
+      setDisabled(true);
+      setLoading(true);
       setErrorText("The ImageURL field is obligatory");
       setError(true);
       return;
     }
     if (title.length < 1) {
-      setDisabled(false);
-      setLoading(false);
+      setDisabled(true);
+      setLoading(true);
       setErrorText("The Title field is obligatory");
       setError(true);
       return;
     }
-    if (title.length > 20){
-        setDisabled(false);
-      setLoading(false);
+    if (title.length > 20) {
+      setDisabled(true);
+      setLoading(true);
       setErrorText("The Title field can only be 20 characters long");
       setError(true);
       return;
     }
     if (description.length < 1) {
-      setDisabled(false);
-      setLoading(false);
+      setDisabled(true);
+      setLoading(true);
       setErrorText("The description field is obligatory");
       setError(true);
       return;
     }
-    if (description.length > 30){
-        setDisabled(false);
-      setLoading(false);
+    if (description.length > 30) {
+      setDisabled(true);
+      setLoading(true);
       setErrorText("The description field can only be 30 characters long");
       setError(true);
       return;
     }
-    const testUrl = regexImageUrl.test(imageUrl)
-  if (!testUrl) {
-    setDisabled(false);
-      setLoading(false);
+    const testUrl = regexImageUrl.test(imageUrl);
+    if (!testUrl) {
+      setDisabled(true);
+      setLoading(true);
       setErrorText("The link must be an image URL");
       setError(true);
       return;
-  }
-  else {
-    axios.post(URL, body, config)
-    .then (() => {
-        setLoading(false);
-        navigate("/dashboard");
-    })
-    .catch((err) => {
-        setLoading(false);
+    } else {
+      axios
+        .post(URL, body, config)
+        .then(() => {
+          setDisabled(true);
+      setLoading(true);
+          navigate("/dashboard");
+        })
+        .catch((err) => {
+          setLoading(false);
         setDisabled(false);
-        setErrorText(
-            `There was an error creating your item. ${err.message}`
-          );
+          setErrorText(`There was an error creating your item. ${err.message}`);
           setError(true);
-    });
+        });
+    }
   }
+  function resetError() {
+    setDisabled(false);
+    setLoading(false);
+    setError(false);
   }
   function openModal() {
     if (error) {
       return (
-        <S.Modal onClick={() => setError(false)}>
+        <S.Modal onClick={() => resetError()}>
           <h5>An error occurred: {errorText}</h5>
           <h5>Click anywhere inside the box to continue and try again</h5>
         </S.Modal>
@@ -113,7 +119,7 @@ export default function CreationScreen() {
       {error ? openError : null}
       <S.Container>
         <S.Title>
-        <ion-icon name="image-outline"></ion-icon>
+          <ion-icon name="image-outline"></ion-icon>
           <h1>Create your Item</h1>
         </S.Title>
         <S.Form onSubmit={create}>
@@ -154,9 +160,7 @@ export default function CreationScreen() {
             <S.TextLink>Main page</S.TextLink>
           </Link>
           <Link to={"/dashboard"}>
-            <S.TextLink>
-              Back to dashboard
-            </S.TextLink>
+            <S.TextLink>Back to dashboard</S.TextLink>
           </Link>
         </S.ContainerLinks>
         <S.Copyright>

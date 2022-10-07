@@ -34,9 +34,10 @@ export default function LoginPage() {
     axios
       .post(URL, body)
       .then((res) => {
+        setDisabled(true);
+      setLoading(true);
         setToken(res.data.token);
         setUserData({ userId: res.data.userId });
-        setLoading(false);
         navigate("/");
       })
       .catch((err) => {
@@ -51,12 +52,17 @@ export default function LoginPage() {
   function openModal() {
     if (error) {
       return (
-        <S.Modal onClick={() => setError(false)}>
+        <S.Modal onClick={() => resetError()}>
           <h5>An error occurred: {errorText}</h5>
           <h5>Click anywhere inside the box to continue and try again</h5>
         </S.Modal>
       );
     }
+  }
+  function resetError() {
+    setDisabled(false);
+    setLoading(false);
+    setError(false);
   }
   const openError = openModal();
 

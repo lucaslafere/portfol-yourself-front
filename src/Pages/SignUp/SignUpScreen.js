@@ -28,38 +28,38 @@ export default function SignUpScreen() {
   }
   function signUpSchema() {
     if (password !== confirmPassword) {
-      setDisabled(false);
-      setLoading(false);
+      setDisabled(true);
+      setLoading(true);
       setErrorText("Passwords are different");
       setError(true);
       return;
     }
     if (email.length < 1) {
-      setDisabled(false);
-      setLoading(false);
+      setDisabled(true);
+      setLoading(true);
       setErrorText("The Email field is obligatory");
       setError(true);
       return;
     }
     if (password.length < 1) {
-      setDisabled(false);
-      setLoading(false);
-      setErrorText("The Password field is obligatory")
-      setError(true)
-      return;
-    }
-    if (confirmPassword.length < 1) {
-      setDisabled(false);
-      setLoading(false);
-      setErrorText("The Confirm Password field is obligatory")
+      setDisabled(true);
+      setLoading(true);
+      setErrorText("The Password field is obligatory");
       setError(true);
       return;
     }
-    else {
+    if (confirmPassword.length < 1) {
+      setDisabled(true);
+      setLoading(true);
+      setErrorText("The Confirm Password field is obligatory");
+      setError(true);
+      return;
+    } else {
       axios
         .post(URL, body)
         .then(() => {
-          setLoading(false);
+          setDisabled(true);
+          setLoading(true);
           navigate("/");
         })
         .catch((err) => {
@@ -75,12 +75,17 @@ export default function SignUpScreen() {
   function openModal() {
     if (error) {
       return (
-        <S.Modal onClick={() => setError(false)}>
+        <S.Modal onClick={() => resetError()}>
           <h5>An error occurred: {errorText}</h5>
           <h5>Click anywhere inside the box to continue and try again</h5>
         </S.Modal>
       );
     }
+  }
+  function resetError() {
+    setDisabled(false);
+    setLoading(false);
+    setError(false);
   }
   const openError = openModal();
 
