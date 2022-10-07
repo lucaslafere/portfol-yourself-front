@@ -5,7 +5,8 @@ import TokenContext from "../../Contexts/TokenContext";
 import * as S from "./Style";
 import pin from '../../Assets/pin.png'
 import SuccessModal from "../../Components/SuccessModal/SuccessModal";
-import FailureModal from '../../Components/FailureModal/Failuremodal'
+import FailureModal from '../../Components/FailureModal/Failuremodal';
+import IncompleteFeatureModal from '../../Components/IncompleteFeatureModal/IncompleteFeature';
 
 export default function DashboardScreen() {
   const [itemsData, setItemsData] = useState([]);
@@ -19,6 +20,7 @@ export default function DashboardScreen() {
   });
   const [modal, setModal] = useState(false)
   const [failureModal, setFailureModal] = useState(false)
+  const [incompleteModal, setIncompleteModal] = useState(false);
   const [edit, setEdit] = useState("");
   const userURL = `vercellink/portfolio/${portfolioId}`
   const { token } = useContext(TokenContext);
@@ -155,9 +157,9 @@ export default function DashboardScreen() {
     if (edit === "color") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton>Blue</S.BlueButton>
-          <S.GreenButton>Green</S.GreenButton>
-          <S.YellowButton>Yellow</S.YellowButton>
+          <S.BlueButton onClick={() => callIncomplete()}>Blue</S.BlueButton>
+          <S.GreenButton onClick={() => callIncomplete()}>Green</S.GreenButton>
+          <S.YellowButton onClick={() => callIncomplete()}>Yellow</S.YellowButton>
         </S.ButtonsContainer>
       );
     }
@@ -173,8 +175,8 @@ export default function DashboardScreen() {
     if (edit === "store-options") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton>Switch to non-store</S.BlueButton>
-          <S.WhiteButton>Switch to store</S.WhiteButton>
+          <S.BlueButton onClick={() => callIncomplete()}>Switch to non-store</S.BlueButton>
+          <S.WhiteButton onClick={() => callIncomplete()}>Switch to store</S.WhiteButton>
         </S.ButtonsContainer>
       );
     }
@@ -223,6 +225,18 @@ export default function DashboardScreen() {
       )
     }
   }
+  function openIncompleteFeatureModal () {
+    if (incompleteModal) {
+      setTimeout(() => setIncompleteModal(false), 2000);
+      return (
+        <IncompleteFeatureModal/>
+      )
+    }
+  }
+
+  function callIncomplete () {
+    setIncompleteModal(true)
+  }
 
   useEffect(() => getLoggedUserPortfolioByToken(), []);
   const renderItems = mountItems();
@@ -230,13 +244,14 @@ export default function DashboardScreen() {
   const renderLayout = mountLayout();
   const renderSucessModal = openSuccessModal();
   const renderFailureModal = openFailureModal();
+  const renderIncompleteModal = openIncompleteFeatureModal();
   return (
     <>
       <S.HeaderContainer>
         <S.SideBar>
           <S.SideBarTopBox />
           <S.SideBarItem onClick={() => navigate("/add")}>
-          <ion-icon name="build-outline"></ion-icon>
+          <ion-icon name="add-circle-outline"></ion-icon>
             Add New Item
           </S.SideBarItem>
           <S.SideBarItem onClick={() => setEdit("box")}>
@@ -266,6 +281,7 @@ export default function DashboardScreen() {
           {renderEditting}
           {renderSucessModal}
           {renderFailureModal}
+          {renderIncompleteModal}
         </S.SideBar>
         <S.Header layout={layout.style}>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>
