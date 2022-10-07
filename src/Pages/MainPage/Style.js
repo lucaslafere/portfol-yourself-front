@@ -118,7 +118,7 @@ const PortfolioBox = styled.div`
   display: flex;
   flex-direction: column;
   width: ${(props) =>
-    (props.boxSize === "medium" && "300px") ||
+    (props.boxSize === "medium" && "250px") ||
     (props.boxSize === "small" && "200px") ||
     (props.boxSize === "large" && "400px")};
   height: ${(props) =>

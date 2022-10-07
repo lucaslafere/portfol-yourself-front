@@ -64,9 +64,6 @@ const Container = styled.div`
     (props.layout === "cursive" && "Cedarville Cursive") ||
     (props.layout === "altcursive" && "The Girl Next Door")};
 `;
-
-
-
 const TopSection = styled.div`
   display: flex;
   align-items: center;
@@ -120,21 +117,7 @@ const ItemBox = styled.div`
   margin-bottom: 2rem;
   background-color: #fff;
   position: relative;
-  ion-icon {
-    position: absolute;
-    align-self: flex-end;
-    z-index: 1;
-    font-size: 1.5rem;
-    color: red;
-    cursor: pointer;
-    display: none;
-  }
-  :hover {
-    ion-icon {
-      display: block;
-    }
-    
-  }
+
 `;
 
 
