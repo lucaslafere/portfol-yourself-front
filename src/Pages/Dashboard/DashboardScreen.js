@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ThreeDots } from "react-loader-spinner";
 import TokenContext from "../../Contexts/TokenContext";
 import * as S from "./Style";
 import pin from '../../Assets/pin.png'
@@ -182,10 +181,14 @@ export default function DashboardScreen() {
     if (edit === "link") {
       return (
         <S.ButtonsContainer>
-          <S.WhiteButton onClick={() =>  navigator.clipboard.writeText(userURL)}>{userURL}</S.WhiteButton>
+          <S.WhiteButton onClick={() =>  copyLinkOnClick()}>Click to copy your link</S.WhiteButton>
         </S.ButtonsContainer>
       );
     }
+  }
+  function copyLinkOnClick () {
+    navigator.clipboard.writeText(userURL)
+    setModal(true)
   }
   function mountLayout() {
       return (
