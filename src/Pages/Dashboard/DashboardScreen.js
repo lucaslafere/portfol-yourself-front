@@ -181,6 +181,7 @@ export default function DashboardScreen() {
     if (edit === "link") {
       return (
         <S.ButtonsContainer>
+          <S.BlueButton onClick={() => navigate(`/portfolio/${portfolioId}`)}>Visit your page</S.BlueButton>
           <S.WhiteButton onClick={() =>  copyLinkOnClick()}>Click to copy your link</S.WhiteButton>
         </S.ButtonsContainer>
       );
