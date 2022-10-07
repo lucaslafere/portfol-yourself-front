@@ -199,6 +199,25 @@ export default function DashboardScreen() {
         </S.ButtonsContainer>
       );
     }
+    if (edit === "delete") {
+      return (
+        <S.ButtonsContainer>
+          <S.BlueButton onClick={() => deletePortfolio()}>Confirm deletion</S.BlueButton>
+          <S.WhiteButton onClick={() =>  setEdit("")}>Cancel</S.WhiteButton>
+        </S.ButtonsContainer>
+      );
+    }
+  }
+  function deletePortfolio () {
+    axios.delete(portfoliosURL, config)
+    .then(() => {
+      setModal(true)
+      setTimeout(() => navigate("/", 2000))
+    })
+    .catch ((err) => {
+      console.log(err)
+      setFailureModal(true)
+    })
   }
   function copyLinkOnClick () {
     navigator.clipboard.writeText(userURL)
@@ -289,6 +308,10 @@ export default function DashboardScreen() {
           <S.SideBarItem onClick={() => putSaveChanges()}>
             <ion-icon name="checkmark-circle-outline"></ion-icon>
             Save Changes
+          </S.SideBarItem>
+          <S.SideBarItem onClick={() => setEdit("delete")}>
+          <ion-icon name="close-circle-outline"></ion-icon>
+            Delete Page
           </S.SideBarItem>
           {renderEditting}
           {renderSucessModal}
