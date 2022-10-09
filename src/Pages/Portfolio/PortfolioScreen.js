@@ -82,7 +82,7 @@ export default function PortfolioScreen() {
     return (
       <S.Container layout={layout.style}>
         <S.TopSection>
-          <S.Title>{layout.title}</S.Title>
+          <S.Title layout={layout.style}>{layout.title}</S.Title>
         </S.TopSection>
         <S.Content>{renderItems}</S.Content>
         <S.Footer layout={layout.style}>
