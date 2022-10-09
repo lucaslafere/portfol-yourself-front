@@ -236,6 +236,11 @@ const Title = styled.div`
   text-align: center;
   font-weight: 300;
   margin-top: 80px;
+  color: ${(props) =>
+    (props.layout === "modern" && "rgba(0, 0, 0, 1)") ||
+    (props.layout === "handwritten" && "#fff") ||
+    (props.layout === "altcursive" && "#fff")};
+    text-shadow: 1px 1px black;
 `;
 
 const Content = styled.div`
@@ -364,8 +369,9 @@ const Copyright = styled.div`
   margin-top: 40px;
   color: ${(props) =>
     (props.layout === "modern" && "rgba(0, 0, 0, 0.6)") ||
-    (props.layout === "handwritten" && "rgba(0, 0, 0, 1)") ||
-    (props.layout === "altcursive" && "rgba(0,0,0, 1)")};
+    (props.layout === "handwritten" && "#fff") ||
+    (props.layout === "altcursive" && "#fff")};
+    text-shadow: 1px 1px black;
   font-size: ${(props) =>
     (props.layout === "modern" && "0.9rem") ||
     (props.layout === "handwritten" && "2rem") ||
