@@ -12,7 +12,7 @@
 
 ##  :clipboard: Description
 
-Have you ever wanted to build a simple website, to show your portfolio, but didn't want to mess with WordPress as it can be complicated to use at times?
+Have you ever wanted to build a simple website to show your portfolio, but didn't want to mess with WordPress as it can be complicated to use at times?
 
 Or maybe you're a web dev, and you always got these relatives and friends asking you for a little hand on some "simple landing pages"? 
 
