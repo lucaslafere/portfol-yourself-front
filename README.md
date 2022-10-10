@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# <p align = "center"> Portfol-Yourself </p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/72531277/178094665-f46c6a55-c821-42a0-bb9c-d5dd5f2d69fa.png"/>
+</p>
 
-## Available Scripts
+<p align = "center">
+   <img src="https://img.shields.io/badge/author-lucaslafere-4dae71?style=flat-square" />
+   <img src="https://img.shields.io/github/languages/count/lucaslafere/portfol-yourself-front?color=4dae71&style=flat-square" />
+</p>
 
-In the project directory, you can run:
 
-### `npm start`
+##  :clipboard: Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Have you ever wanted to build a simple website, to show your portfolio, but didn't want to mess with WordPress as it can be complicated to use at times?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Or maybe you're a web dev, and you always got these relatives and friends asking you for a little hand on some "simple landing pages"? 
 
-### `npm test`
+We got you! With Portfol-Yourself, anyone can build their own portfolio, for free, with just a few button clicks. No messy interfaces, no over-complicated stuff. Just create your account, portfolio, and pick different layouts from a set of pre-build layout designs, with different sizes and styles to pick from. Completely no-code, user-friendly.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+***
 
-### `npm run build`
+## :computer:	 Technologies and Concepts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- Styled-Components
+- JWT
+- Interfaces built from scratch
+- User-friendly UI and UX
+- Fast and simple editting
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+***
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🏁 Running the app
 
-### `npm run eject`
+This project was built with [Create React App](https://github.com/facebook/create-react-app), so make sure you've got the latest stable version of both [Node.js](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/) running locally.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For easier testing, you can just try out the latest deployed version by clicking [here](https://portfol-yourself-front.vercel.app). If you want to test it locally, keep reading:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+First, clone this repository in your machine: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+git clone https://github.com/lucaslafere/portfol-yourself-front.git
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Then, inside the cloned folder, run the following command to install the dependencies:
 
-## Learn More
+```
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+When finished, just start the server, using the following command:
+```
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+:stop_sign: Don't forget to follow the steps mentioned above with the back-end [repository](https://github.com/lucaslafere/portfol-yourself-API), which contains the application's API, so you can fully test this project.
