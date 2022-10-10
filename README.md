@@ -14,7 +14,7 @@
 
 Have you ever wanted to build a simple website to show your portfolio, but didn't want to mess with WordPress as it can be complicated to use at times?
 
-Or maybe you're a web dev, and you always got these relatives and friends asking you for a little hand on some "simple landing pages"? 
+Or maybe you're a web dev, and you've always got these relatives and friends asking you for just "a little hand" on some "simple landing pages"? 
 
 We got you! With Portfol-Yourself, anyone can build their own portfolio, for free, with just a few button clicks. No messy interfaces, no over-complicated stuff. Just create your account, portfolio, and pick different layouts from a set of pre-build layout designs, with different sizes and styles to pick from. Completely no-code, user-friendly.
 
