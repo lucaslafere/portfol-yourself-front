@@ -26,7 +26,7 @@ We got you! With Portfol-Yourself, anyone can build their own portfolio, for fre
 - Styled-Components
 - JWT
 - Interfaces built from scratch
-- User-friendly UI and UX
+- User-friendly UI
 - Fast and simple editting
 
 ***
