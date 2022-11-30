@@ -21,7 +21,6 @@ const Header = styled.div`
     cursor: pointer;
     padding: 2rem;
   }
-  
 `;
 
 const HeaderButtonsContainer = styled.div`
@@ -121,18 +120,18 @@ const PortfolioBox = styled.div`
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: column;
-  width: ${(props) =>
-    (props.boxSize === "medium" && "250px") ||
-    (props.boxSize === "small" && "200px") ||
-    (props.boxSize === "large" && "400px")};
-  height: ${(props) =>
-    (props.boxSize === "medium" && "300px") ||
-    (props.boxSize === "small" && "220px") ||
-    (props.boxSize === "large" && "400px")};
-  gap: ${(props) =>
-    (props.boxSize === "medium" && "1rem") ||
-    (props.boxSize === "small" && "0.5rem") ||
-    (props.boxSize === "large" && "1rem")};
+  width: ${({ boxSize }) =>
+    (boxSize === "medium" && "250px") ||
+    (boxSize === "small" && "200px") ||
+    (boxSize === "large" && "400px")};
+  height: ${({ boxSize }) =>
+    (boxSize === "medium" && "300px") ||
+    (boxSize === "small" && "220px") ||
+    (boxSize === "large" && "400px")};
+  gap: ${({ boxSize }) =>
+    (boxSize === "medium" && "1rem") ||
+    (boxSize === "small" && "0.5rem") ||
+    (boxSize === "large" && "1rem")};
   align-items: center;
   overflow: hidden;
   white-space: nowrap;
@@ -140,24 +139,24 @@ const PortfolioBox = styled.div`
 `;
 const PortfolioLogo = styled.div`
   img {
-    width: ${(props) =>
-    (props.boxSize === "medium" && "300px") ||
-    (props.boxSize === "small" && "200px") ||
-    (props.boxSize === "large" && "400px")};
-    height: ${(props) =>
-    (props.boxSize === "medium" && "200px") ||
-    (props.boxSize === "small" && "150px") ||
-    (props.boxSize === "large" && "300px")};
+    width: ${({ boxSize }) =>
+      (boxSize === "medium" && "300px") ||
+      (boxSize === "small" && "200px") ||
+      (boxSize === "large" && "400px")};
+    height: ${({ boxSize }) =>
+      (boxSize === "medium" && "200px") ||
+      (boxSize === "small" && "150px") ||
+      (boxSize === "large" && "300px")};
     object-fit: cover;
     border-radius: 6px;
   }
 `;
 const PortfolioTitle = styled.div`
   font-weight: 400;
-  font-size: ${(props) =>
-    (props.boxSize === "medium" && "1.25rem") ||
-    (props.boxSize === "small" && "0.75rem") ||
-    (props.boxSize === "large" && "1.5rem")};
+  font-size: ${({ boxSize }) =>
+    (boxSize === "medium" && "1.25rem") ||
+    (boxSize === "small" && "0.75rem") ||
+    (boxSize === "large" && "1.5rem")};
   text-overflow: ellipsis;
 `;
 const ViewLink = styled.button`
@@ -166,10 +165,10 @@ const ViewLink = styled.button`
   justify-content: center;
   cursor: pointer;
   font-weight: 500;
-  font-size: ${(props) =>
-    (props.boxSize === "medium" && "0.875rem") ||
-    (props.boxSize === "small" && "0.4rem") ||
-    (props.boxSize === "large" && "0.875rem")};
+  font-size: ${({ boxSize }) =>
+    (boxSize === "medium" && "0.875rem") ||
+    (boxSize === "small" && "0.4rem") ||
+    (boxSize === "large" && "0.875rem")};
   width: 30%;
   padding: 6px 16px;
   border-radius: 6px;
