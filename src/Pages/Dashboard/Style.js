@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-const lightCorkboard = "https://c1.wallpaperflare.com/preview/907/581/284/backdrop-background-blank-board.jpg"
-const darkCorkboard = 'https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1'
+const lightCorkboard =
+  "https://c1.wallpaperflare.com/preview/907/581/284/backdrop-background-blank-board.jpg";
+const darkCorkboard =
+  "https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1";
 
 const HeaderContainer = styled.div`
   width: 100%;
@@ -63,7 +65,6 @@ const SideBarItem = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     color: red;
   }
-  
 `;
 const Header = styled.div`
   width: 100%;
@@ -73,8 +74,14 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  background-color: ${(props) => (props.layout === "modern" && "#1976d2") || (props.layout === "handwritten" && "#fff") || (props.layout ==="altcursive" && "#fff")};
-  color: ${(props) => (props.layout === "modern" && "#fff") || (props.layout === "handwritten" && "rgba(0, 0, 0, 0.87)") || (props.layout ==="altcursive" && "rgba(0, 0, 0, 0.87)")};
+  background-color: ${({ layout }) =>
+    (layout === "modern" && "#1976d2") ||
+    (layout === "handwritten" && "#fff") ||
+    (layout === "altcursive" && "#fff")};
+  color: ${({ layout }) =>
+    (layout === "modern" && "#fff") ||
+    (layout === "handwritten" && "rgba(0, 0, 0, 0.87)") ||
+    (layout === "altcursive" && "rgba(0, 0, 0, 0.87)")};
   font-size: 1.25rem;
   font-weight: 500;
   overflow: hidden;
@@ -104,24 +111,22 @@ const Container = styled.div`
   align-items: center;
   padding: 1rem;
   margin: 0 auto;
-  background-image: ${(props) =>
-    (props.layout === "modern" && "") ||
-    (props.layout === "handwritten" &&
-      `url(${darkCorkboard})`) ||
-    (props.layout === "altcursive" &&
-      `url(${darkCorkboard})`)};
-  background-color: ${(props) =>
-    (props.layout === "modern" && "#f5f5f5") ||
-    (props.layout === "handwritten" && "#fff") ||
-    (props.layout === "altcursive" && "#fff")};
-  font-family: ${(props) =>
-    (props.layout === "modern" && "Roboto") ||
-    (props.layout === "handwritten" && "Cedarville Cursive") ||
-    (props.layout === "altcursive" && "The Girl Next Door")};
-    height: ${(props) =>
-    (props.boxSize === "small" && "100vh") ||
-    (props.boxSize === "medium" && "auto") ||
-    (props.boxSize === "large" && "auto")};
+  background-image: ${({ layout }) =>
+    (layout === "modern" && "") ||
+    (layout === "handwritten" && `url(${darkCorkboard})`) ||
+    (layout === "altcursive" && `url(${darkCorkboard})`)};
+  background-color: ${({ layout }) =>
+    (layout === "modern" && "#f5f5f5") ||
+    (layout === "handwritten" && "#fff") ||
+    (layout === "altcursive" && "#fff")};
+  font-family: ${({ layout }) =>
+    (layout === "modern" && "Roboto") ||
+    (layout === "handwritten" && "Cedarville Cursive") ||
+    (layout === "altcursive" && "The Girl Next Door")};
+  height: ${({ boxSize }) =>
+    (boxSize === "small" && "100vh") ||
+    (boxSize === "medium" && "auto") ||
+    (boxSize === "large" && "auto")};
 `;
 
 const ButtonsContainer = styled.div`
@@ -236,11 +241,11 @@ const Title = styled.div`
   text-align: center;
   font-weight: 300;
   margin-top: 80px;
-  color: ${(props) =>
-    (props.layout === "modern" && "rgba(0, 0, 0, 1)") ||
-    (props.layout === "handwritten" && "#fff") ||
-    (props.layout === "altcursive" && "#fff")};
-    text-shadow: 1px 1px black;
+  color: ${({ layout }) =>
+    (layout === "modern" && "rgba(0, 0, 0, 1)") ||
+    (layout === "handwritten" && "#fff") ||
+    (layout === "altcursive" && "#fff")};
+  text-shadow: 1px 1px black;
 `;
 
 const Content = styled.div`
@@ -254,26 +259,26 @@ const Content = styled.div`
   padding: 1rem;
 `;
 const ItemBox = styled.div`
-  border-radius: ${(props) =>
-    (props.layout === "modern" && "6px") ||
-    (props.layout === "handwritten" && "0px") ||
-    (props.layout === "altcursive" && "0px")};
+  border-radius: ${({ layout }) =>
+    (layout === "modern" && "6px") ||
+    (layout === "handwritten" && "0px") ||
+    (layout === "altcursive" && "0px")};
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: column;
-  width: ${(props) =>
-    (props.boxSize === "medium" && "250px") ||
-    (props.boxSize === "small" && "200px") ||
-    (props.boxSize === "large" && "400px")};
-  height: ${(props) =>
-    (props.boxSize === "medium" && "250px") ||
-    (props.boxSize === "small" && "200px") ||
-    (props.boxSize === "large" && "400px")};
-  gap: ${(props) =>
-    (props.boxSize === "medium" && "0.5rem") ||
-    (props.boxSize === "small" && "0.3rem") ||
-    (props.boxSize === "large" && "0.6rem")};
+  width: ${({ boxSize }) =>
+    (boxSize === "medium" && "250px") ||
+    (boxSize === "small" && "200px") ||
+    (boxSize === "large" && "400px")};
+  height: ${({ boxSize }) =>
+    (boxSize === "medium" && "250px") ||
+    (boxSize === "small" && "200px") ||
+    (boxSize === "large" && "400px")};
+  gap: ${({ boxSize }) =>
+    (boxSize === "medium" && "0.5rem") ||
+    (boxSize === "small" && "0.3rem") ||
+    (boxSize === "large" && "0.6rem")};
   align-items: center;
   overflow: hidden;
   white-space: nowrap;
@@ -293,10 +298,8 @@ const ItemBox = styled.div`
     ion-icon {
       display: block;
     }
-    
   }
 `;
-
 
 const Pin = styled.div`
   justify-self: flex-start;
@@ -305,57 +308,57 @@ const Pin = styled.div`
   position: absolute;
   top: 0;
   img {
-    width: ${(props) =>
-    (props.boxSize === "medium" && "40px") ||
-    (props.boxSize === "small" && "36px") ||
-    (props.boxSize === "large" && "60px")};
-    height: ${(props) =>
-    (props.boxSize === "medium" && "40px") ||
-    (props.boxSize === "small" && "36px") ||
-    (props.boxSize === "large" && "60px")};
+    width: ${({ boxSize }) =>
+      (boxSize === "medium" && "40px") ||
+      (boxSize === "small" && "36px") ||
+      (boxSize === "large" && "60px")};
+    height: ${({ boxSize }) =>
+      (boxSize === "medium" && "40px") ||
+      (boxSize === "small" && "36px") ||
+      (boxSize === "large" && "60px")};
   }
 `;
 
 const ItemImage = styled.div`
   img {
-    width: ${(props) =>
-      (props.boxSize === "medium" && "250px") ||
-      (props.boxSize === "small" && "200px") ||
-      (props.boxSize === "large" && "400px")};
-    height: ${(props) =>
-      (props.boxSize === "medium" && "175px") ||
-      (props.boxSize === "small" && "150px") ||
-      (props.boxSize === "large" && "300px")};
-    padding: ${(props) =>
-      (props.layout === "modern" && "0px") ||
-      (props.layout === "handwritten" && "1rem 0.75rem") ||
-      (props.layout === "altcursive" && "1rem 0.75rem")};
+    width: ${({ boxSize }) =>
+      (boxSize === "medium" && "250px") ||
+      (boxSize === "small" && "200px") ||
+      (boxSize === "large" && "400px")};
+    height: ${({ boxSize }) =>
+      (boxSize === "medium" && "175px") ||
+      (boxSize === "small" && "150px") ||
+      (boxSize === "large" && "300px")};
+    padding: ${({ layout }) =>
+      (layout === "modern" && "0px") ||
+      (layout === "handwritten" && "1rem 0.75rem") ||
+      (layout === "altcursive" && "1rem 0.75rem")};
     object-fit: cover;
     border-radius: 6px;
   }
 `;
 const ItemTitle = styled.div`
   font-weight: 400;
-  font-size: ${(props) =>
-    (props.boxSize === "medium" && "1.5rem") ||
-    (props.boxSize === "small" && "0.75rem") ||
-    (props.boxSize === "large" && "1.75rem")};
+  font-size: ${({ boxSize }) =>
+    (boxSize === "medium" && "1.5rem") ||
+    (boxSize === "small" && "0.75rem") ||
+    (boxSize === "large" && "1.75rem")};
   text-overflow: ellipsis;
 `;
 const ItemDescription = styled.div`
   font-weight: 400;
-  font-size: ${(props) =>
-    (props.boxSize === "medium" && "1rem") ||
-    (props.boxSize === "small" && "0.8rem") ||
-    (props.boxSize === "large" && "1.75rem")};
+  font-size: ${({ boxSize }) =>
+    (boxSize === "medium" && "1rem") ||
+    (boxSize === "small" && "0.8rem") ||
+    (boxSize === "large" && "1.75rem")};
   text-overflow: ellipsis;
 `;
 const ItemPriceTag = styled.span`
   font-weight: 400;
-  font-size: ${(props) =>
-    (props.boxSize === "medium" && "1rem") ||
-    (props.boxSize === "small" && "0.5rem") ||
-    (props.boxSize === "large" && "1rem")};
+  font-size: ${({ boxSize }) =>
+    (boxSize === "medium" && "1rem") ||
+    (boxSize === "small" && "0.5rem") ||
+    (boxSize === "large" && "1rem")};
   text-overflow: ellipsis;
 `;
 const Footer = styled.div`
@@ -367,15 +370,15 @@ const Footer = styled.div`
 `;
 const Copyright = styled.div`
   margin-top: 40px;
-  color: ${(props) =>
-    (props.layout === "modern" && "rgba(0, 0, 0, 0.6)") ||
-    (props.layout === "handwritten" && "#fff") ||
-    (props.layout === "altcursive" && "#fff")};
-    text-shadow: 1px 1px black;
-  font-size: ${(props) =>
-    (props.layout === "modern" && "0.9rem") ||
-    (props.layout === "handwritten" && "2rem") ||
-    (props.layout === "altcursive" && "2rem")};
+  color: ${({ layout }) =>
+    (layout === "modern" && "rgba(0, 0, 0, 0.6)") ||
+    (layout === "handwritten" && "#fff") ||
+    (layout === "altcursive" && "#fff")};
+  text-shadow: 1px 1px black;
+  font-size: ${({ layout }) =>
+    (layout === "modern" && "0.9rem") ||
+    (layout === "handwritten" && "2rem") ||
+    (layout === "altcursive" && "2rem")};
   font-weight: 400;
 `;
 const Modal = styled.div`
@@ -423,5 +426,5 @@ export {
   ItemPriceTag,
   Footer,
   Copyright,
-  Modal
+  Modal,
 };

@@ -30,7 +30,6 @@ const Container = styled.div`
   max-width: 600px;
   padding: 1rem;
   margin: 0 auto;
-
 `;
 const Title = styled.div`
   margin-bottom: 2rem;
@@ -59,7 +58,7 @@ const Input = styled.input`
   border-radius: 6px;
   padding: 16px;
   border: 1px solid #afafaf;
-  opacity: ${(props) => (props.disabled ? 0.7 : 1)};
+  opacity: ${({ disabled }) => (disabled ? 0.7 : 1)};
   font-weight: 500;
   font-size: 1rem;
   color: #000;
@@ -81,7 +80,7 @@ const Button = styled.button`
   background-color: #1976d2;
   line-height: 1.75;
   padding: 6px 16px;
-  opacity: ${(props) => (props.disabled ? 0.7 : 1)};
+  opacity: ${({ disabled }) => (disabled ? 0.7 : 1)};
   font-style: normal;
   font-weight: 700;
   font-size: 0.875rem;
@@ -107,7 +106,6 @@ const ContainerLinks = styled.div`
 `;
 
 const Copyright = styled.div`
-
   margin-top: 40px;
   color: rgba(0, 0, 0, 0.6);
   font-size: 0.9rem;
