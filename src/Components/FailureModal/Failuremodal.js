@@ -5,7 +5,7 @@ export default function FailureModal() {
     <S.Modal>
       <p>Failure!</p>
       <S.ClickableIcon>
-      <ion-icon name="close"></ion-icon>
+        <ion-icon name="close"></ion-icon>
       </S.ClickableIcon>
     </S.Modal>
   );

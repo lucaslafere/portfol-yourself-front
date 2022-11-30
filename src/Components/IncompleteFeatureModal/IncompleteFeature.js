@@ -5,7 +5,7 @@ export default function IncompleteFeatureModal() {
     <S.Modal>
       <p>Not implemented yet</p>
       <S.ClickableIcon>
-      <ion-icon name="build-outline"></ion-icon>
+        <ion-icon name="build-outline"></ion-icon>
       </S.ClickableIcon>
     </S.Modal>
   );
