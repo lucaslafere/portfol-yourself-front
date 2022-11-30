@@ -5,7 +5,7 @@ import { ThreeDots } from "react-loader-spinner";
 import * as S from "./Style";
 import TokenContext from "../../Contexts/TokenContext";
 
-export default function CreationScreen() {
+export default function AddItemScreen() {
   const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -86,12 +86,12 @@ export default function CreationScreen() {
         .post(URL, body, config)
         .then(() => {
           setDisabled(true);
-      setLoading(true);
+          setLoading(true);
           navigate("/dashboard");
         })
         .catch((err) => {
           setLoading(false);
-        setDisabled(false);
+          setDisabled(false);
           setErrorText(`There was an error creating your item. ${err.message}`);
           setError(true);
         });
