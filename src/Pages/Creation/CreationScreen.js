@@ -70,7 +70,7 @@ export default function CreationScreen() {
         .post(URL, body, config)
         .then(() => {
           setDisabled(true);
-      setLoading(true);
+          setLoading(true);
           navigate("/dashboard");
         })
         .catch((err) => {
@@ -126,9 +126,15 @@ export default function CreationScreen() {
             value={logo}
             onChange={(e) => setLogo(e.target.value)}
           />
-          <S.Button disabled={disabled} type="submit">
+          <S.Button
+            disabled={disabled}
+            type="submit">
             {loading ? (
-              <ThreeDots color="#1976d2" height={80} width={80} />
+              <ThreeDots
+                color="#1976d2"
+                height={80}
+                width={80}
+              />
             ) : (
               "Create now"
             )}

@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as S from "./Style";
 import TokenContext from "../../Contexts/TokenContext";
 
@@ -25,9 +25,16 @@ export default function MainScreen() {
       return <h2>No portfolios created yet</h2>;
     } else {
       return portfoliosData.map((el, index) => (
-        <S.PortfolioBox boxSize={boxSize} key={index} title={el.title} logo={el.logo}>
+        <S.PortfolioBox
+          boxSize={boxSize}
+          key={index}
+          title={el.title}
+          logo={el.logo}>
           <S.PortfolioLogo boxSize={boxSize}>
-            <img src={el.logo} alt="" />
+            <img
+              src={el.logo}
+              alt=""
+            />
           </S.PortfolioLogo>
           <S.PortfolioTitle boxSize={boxSize}>{el.title}</S.PortfolioTitle>
           <S.ViewLink onClick={() => navigate(`/portfolio/${el.id}`)}>
@@ -47,7 +54,9 @@ export default function MainScreen() {
         <S.BlueButton onClick={() => navigate("/dashboard")}>
           Dashboard
         </S.BlueButton>
-        <S.WhiteButton onClick={() => navigate("/create")}>Create now</S.WhiteButton>
+        <S.WhiteButton onClick={() => navigate("/create")}>
+          Create now
+        </S.WhiteButton>
       </>
     );
   }
@@ -67,9 +76,15 @@ export default function MainScreen() {
         <p>Portfol-Yourself</p>
         <S.HeaderButtonsContainer>
           Try it now:
-          <S.WhiteButton onClick={() => setBoxSize("small") }>Small</S.WhiteButton>
-          <S.WhiteButton onClick={() => setBoxSize("medium") }>Medium</S.WhiteButton>
-          <S.WhiteButton onClick={() => setBoxSize("large") }>Large</S.WhiteButton>
+          <S.WhiteButton onClick={() => setBoxSize("small")}>
+            Small
+          </S.WhiteButton>
+          <S.WhiteButton onClick={() => setBoxSize("medium")}>
+            Medium
+          </S.WhiteButton>
+          <S.WhiteButton onClick={() => setBoxSize("large")}>
+            Large
+          </S.WhiteButton>
         </S.HeaderButtonsContainer>
       </S.Header>
       <S.Container>

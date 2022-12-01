@@ -35,7 +35,7 @@ export default function LoginPage() {
       .post(URL, body)
       .then((res) => {
         setDisabled(true);
-      setLoading(true);
+        setLoading(true);
         setToken(res.data.token);
         setUserData({ userId: res.data.userId });
         navigate("/");
@@ -91,9 +91,15 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <S.Button disabled={disabled} type="submit">
+          <S.Button
+            disabled={disabled}
+            type="submit">
             {loading ? (
-              <ThreeDots color="#1976d2" height={80} width={80} />
+              <ThreeDots
+                color="#1976d2"
+                height={80}
+                width={80}
+              />
             ) : (
               "Login"
             )}

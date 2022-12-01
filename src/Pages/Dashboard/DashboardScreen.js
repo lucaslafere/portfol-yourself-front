@@ -1,12 +1,12 @@
 import { useState, useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import TokenContext from "../../Contexts/TokenContext";
 import * as S from "./Style";
-import pin from '../../Assets/pin.png'
+import pin from "../../Assets/pin.png";
 import SuccessModal from "../../Components/SuccessModal/SuccessModal";
-import FailureModal from '../../Components/FailureModal/Failuremodal';
-import IncompleteFeatureModal from '../../Components/IncompleteFeatureModal/IncompleteFeature';
+import FailureModal from "../../Components/FailureModal/Failuremodal";
+import IncompleteFeatureModal from "../../Components/IncompleteFeatureModal/IncompleteFeature";
 
 export default function DashboardScreen() {
   const [itemsData, setItemsData] = useState([]);
@@ -18,14 +18,14 @@ export default function DashboardScreen() {
     style: "modern",
     isStore: false,
   });
-  const [modal, setModal] = useState(false)
-  const [failureModal, setFailureModal] = useState(false)
+  const [modal, setModal] = useState(false);
+  const [failureModal, setFailureModal] = useState(false);
   const [incompleteModal, setIncompleteModal] = useState(false);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
   const [edit, setEdit] = useState("");
-  const userURL = `localhost:3000/portfolio/${portfolioId}`
+  const userURL = `localhost:3000/portfolio/${portfolioId}`;
   const { token } = useContext(TokenContext);
-  const dashboardURL = `https://portfol-yourself.herokuapp.com/dashboard`;
+  const dashboardURL = "https://portfol-yourself.herokuapp.com/dashboard";
   const portfoliosURL = `https://portfol-yourself.herokuapp.com/portfolios/${portfolioId}`;
   const body = {
     boxSize: layout.boxSize,
@@ -42,12 +42,12 @@ export default function DashboardScreen() {
   function putSaveChanges() {
     axios
       .put(portfoliosURL, body, config)
-      .then((res) => {
-        setModal(true)
+      .then(() => {
+        setModal(true);
       })
       .catch((err) => {
         console.log(err);
-        setFailureModal(true)
+        setFailureModal(true);
       });
   }
 
@@ -66,55 +66,68 @@ export default function DashboardScreen() {
         setPortfolioId(res.data.portfolio.id);
       })
       .catch((err) => {
-        console.log(err)
-        setError(true)
+        console.log(err);
+        setError(true);
       });
   }
 
-  function openErrorModal () {
+  function openErrorModal() {
     if (error)
-    return (
-      <S.Modal onClick={() => navigate("/")}>
-        <h5>You don't have a portfolio, so you can't open your dashboard</h5>
-        <h5>Click anywhere inside the box to go back</h5>
-      </S.Modal>
-    );
+      return (
+        <S.Modal onClick={() => navigate("/")}>
+          <h5>You don't have a portfolio, so you can't open your dashboard</h5>
+          <h5>Click anywhere inside the box to go back</h5>
+        </S.Modal>
+      );
   }
-  function deleteItem(title, imageUrl, description, id){
+  function deleteItem(title, imageUrl, description, id) {
     const itemsURL = `https://portfol-yourself.herokuapp.com/items/${id}`;
     const data = {
       title,
       imageUrl,
-      description
-    }
-    axios.delete(itemsURL, config, data)
-    .then(() => {
-      getLoggedUserPortfolioByToken()
-      setModal(true)
-    })
-    .catch((err) => {
-      console.log(err)
-      setFailureModal(true)
-    })
-
+      description,
+    };
+    axios
+      .delete(itemsURL, config, data)
+      .then(() => {
+        getLoggedUserPortfolioByToken();
+        setModal(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        setFailureModal(true);
+      });
   }
   function mountItems() {
-    
     if (layout.isStore === false) {
       return itemsData.map((el, index) => (
-        
         <S.ItemBox
           boxSize={layout.boxSize}
           key={index}
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}
-          layout={layout.style}
-        >
-          {layout.style === "modern" ? null : <S.Pin boxSize={layout.boxSize}><img src={pin} alt="" /></S.Pin>}
-          <ion-icon name="close-circle" onClick={() => deleteItem(el.title, el.imageUrl, el.description, el.id)}></ion-icon>
-          <S.ItemImage boxSize={layout.boxSize} layout={layout.style}>
-            <img src={el.imageUrl} alt="" />
+          layout={layout.style}>
+          {layout.style === "modern" ? null : (
+            <S.Pin boxSize={layout.boxSize}>
+              <img
+                src={pin}
+                alt=""
+              />
+            </S.Pin>
+          )}
+          <ion-icon
+            name="close-circle"
+            onClick={() =>
+              deleteItem(el.title, el.imageUrl, el.description, el.id)
+            }></ion-icon>
+          <S.ItemImage
+            boxSize={layout.boxSize}
+            layout={layout.style}>
+            <img
+              src={el.imageUrl}
+              alt=""
+            />
           </S.ItemImage>
           <S.ItemTitle boxSize={layout.boxSize}>{el.title}</S.ItemTitle>
           <S.ItemDescription boxSize={layout.boxSize}>
@@ -122,7 +135,6 @@ export default function DashboardScreen() {
           </S.ItemDescription>
         </S.ItemBox>
       ));
-      
     } else {
       return itemsData.map((el, index) => (
         <S.ItemBox
@@ -131,10 +143,12 @@ export default function DashboardScreen() {
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}
-          price={el.price}
-        >
+          price={el.price}>
           <S.ItemImage>
-            <img src={el.imageUrl} alt="" />
+            <img
+              src={el.imageUrl}
+              alt=""
+            />
           </S.ItemImage>
           <S.ItemTitle>{el.title}</S.ItemTitle>
           <S.ItemDescription>{el.description}</S.ItemDescription>
@@ -148,18 +162,15 @@ export default function DashboardScreen() {
       return (
         <S.ButtonsContainer>
           <S.BlueButton
-            onClick={() => setLayout({ ...layout, boxSize: "small" })}
-          >
+            onClick={() => setLayout({ ...layout, boxSize: "small" })}>
             Small
           </S.BlueButton>
           <S.WhiteButton
-            onClick={() => setLayout({ ...layout, boxSize: "medium" })}
-          >
+            onClick={() => setLayout({ ...layout, boxSize: "medium" })}>
             Medium
           </S.WhiteButton>
           <S.BlueButton
-            onClick={() => setLayout({ ...layout, boxSize: "large" })}
-          >
+            onClick={() => setLayout({ ...layout, boxSize: "large" })}>
             Large
           </S.BlueButton>
         </S.ButtonsContainer>
@@ -170,102 +181,117 @@ export default function DashboardScreen() {
         <S.ButtonsContainer>
           <S.BlueButton onClick={() => callIncomplete()}>Blue</S.BlueButton>
           <S.GreenButton onClick={() => callIncomplete()}>Green</S.GreenButton>
-          <S.YellowButton onClick={() => callIncomplete()}>Yellow</S.YellowButton>
+          <S.YellowButton onClick={() => callIncomplete()}>
+            Yellow
+          </S.YellowButton>
         </S.ButtonsContainer>
       );
     }
     if (edit === "layouts") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton onClick={() => setLayout({...layout, style: "modern"})}>Modern</S.BlueButton>
-          <S.WhiteButton onClick={() => setLayout({...layout, style: "handwritten"})}>Handwritten Board</S.WhiteButton>
-          <S.BlueButton onClick={() => setLayout({...layout, style: "altcursive"})}>Alt.Cursive Board</S.BlueButton>
+          <S.BlueButton
+            onClick={() => setLayout({ ...layout, style: "modern" })}>
+            Modern
+          </S.BlueButton>
+          <S.WhiteButton
+            onClick={() => setLayout({ ...layout, style: "handwritten" })}>
+            Handwritten Board
+          </S.WhiteButton>
+          <S.BlueButton
+            onClick={() => setLayout({ ...layout, style: "altcursive" })}>
+            Alt.Cursive Board
+          </S.BlueButton>
         </S.ButtonsContainer>
       );
     }
     if (edit === "store-options") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton onClick={() => callIncomplete()}>Switch to non-store</S.BlueButton>
-          <S.WhiteButton onClick={() => callIncomplete()}>Switch to store</S.WhiteButton>
+          <S.BlueButton onClick={() => callIncomplete()}>
+            Switch to non-store
+          </S.BlueButton>
+          <S.WhiteButton onClick={() => callIncomplete()}>
+            Switch to store
+          </S.WhiteButton>
         </S.ButtonsContainer>
       );
     }
     if (edit === "link") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton onClick={() => navigate(`/portfolio/${portfolioId}`)}>Visit your page</S.BlueButton>
-          <S.WhiteButton onClick={() =>  copyLinkOnClick()}>Click to copy your link</S.WhiteButton>
+          <S.BlueButton onClick={() => navigate(`/portfolio/${portfolioId}`)}>
+            Visit your page
+          </S.BlueButton>
+          <S.WhiteButton onClick={() => copyLinkOnClick()}>
+            Click to copy your link
+          </S.WhiteButton>
         </S.ButtonsContainer>
       );
     }
     if (edit === "delete") {
       return (
         <S.ButtonsContainer>
-          <S.BlueButton onClick={() => deletePortfolio()}>Confirm deletion</S.BlueButton>
-          <S.WhiteButton onClick={() =>  setEdit("")}>Cancel</S.WhiteButton>
+          <S.BlueButton onClick={() => deletePortfolio()}>
+            Confirm deletion
+          </S.BlueButton>
+          <S.WhiteButton onClick={() => setEdit("")}>Cancel</S.WhiteButton>
         </S.ButtonsContainer>
       );
     }
   }
-  function deletePortfolio () {
-    axios.delete(portfoliosURL, config)
-    .then(() => {
-      setModal(true)
-      setTimeout(() => navigate("/", 2000))
-    })
-    .catch ((err) => {
-      console.log(err)
-      setFailureModal(true)
-    })
+  function deletePortfolio() {
+    axios
+      .delete(portfoliosURL, config)
+      .then(() => {
+        setModal(true);
+        setTimeout(() => navigate("/", 2000));
+      })
+      .catch((err) => {
+        console.log(err);
+        setFailureModal(true);
+      });
   }
-  function copyLinkOnClick () {
-    navigator.clipboard.writeText(userURL)
-    setModal(true)
+  function copyLinkOnClick() {
+    navigator.clipboard.writeText(userURL);
+    setModal(true);
   }
   function mountLayout() {
-      return (
-        <S.Container layout={layout.style}>
-          <S.TopSection>
-            <S.Title layout={layout.style}>{layout.title}</S.Title>
-          </S.TopSection>
-          <S.Content>{renderItems}</S.Content>
-          <S.Footer layout={layout.style}>
-            <S.Copyright layout={layout.style}>
-              <p>Copyright © Portfol-Yourself 2022.</p>
-            </S.Copyright>
-          </S.Footer>
-        </S.Container>
-      );
-    }
-  function openSuccessModal () {
-      if (modal){
-        setTimeout(() => setModal(false), 2000);
-        return (
-          <SuccessModal/>
-        )
-      }
-      
-    }
-  function openFailureModal () {
-    if (failureModal) {
-      setTimeout(() => setFailureModal(false), 2000);
-      return (
-        <FailureModal/>
-      )
+    return (
+      <S.Container layout={layout.style}>
+        <S.TopSection>
+          <S.Title layout={layout.style}>{layout.title}</S.Title>
+        </S.TopSection>
+        <S.Content>{renderItems}</S.Content>
+        <S.Footer layout={layout.style}>
+          <S.Copyright layout={layout.style}>
+            <p>Copyright © Portfol-Yourself 2022.</p>
+          </S.Copyright>
+        </S.Footer>
+      </S.Container>
+    );
+  }
+  function openSuccessModal() {
+    if (modal) {
+      setTimeout(() => setModal(false), 2000);
+      return <SuccessModal />;
     }
   }
-  function openIncompleteFeatureModal () {
+  function openFailureModal() {
+    if (failureModal) {
+      setTimeout(() => setFailureModal(false), 2000);
+      return <FailureModal />;
+    }
+  }
+  function openIncompleteFeatureModal() {
     if (incompleteModal) {
       setTimeout(() => setIncompleteModal(false), 2000);
-      return (
-        <IncompleteFeatureModal/>
-      )
+      return <IncompleteFeatureModal />;
     }
   }
 
-  function callIncomplete () {
-    setIncompleteModal(true)
+  function callIncomplete() {
+    setIncompleteModal(true);
   }
 
   useEffect(() => getLoggedUserPortfolioByToken(), []);
@@ -281,12 +307,12 @@ export default function DashboardScreen() {
       <S.HeaderContainer>
         <S.SideBar>
           <S.SideBarTopBox>
-          {renderSucessModal}
-          {renderFailureModal}
-          {renderIncompleteModal}
+            {renderSucessModal}
+            {renderFailureModal}
+            {renderIncompleteModal}
           </S.SideBarTopBox>
           <S.SideBarItem onClick={() => navigate("/add")}>
-          <ion-icon name="add-circle-outline"></ion-icon>
+            <ion-icon name="add-circle-outline"></ion-icon>
             Add New Item
           </S.SideBarItem>
           <S.SideBarItem onClick={() => setEdit("box")}>
@@ -314,16 +340,18 @@ export default function DashboardScreen() {
             Save Changes
           </S.SideBarItem>
           <S.SideBarItem onClick={() => setEdit("delete")}>
-          <ion-icon name="close-circle-outline"></ion-icon>
+            <ion-icon name="close-circle-outline"></ion-icon>
             Delete Page
           </S.SideBarItem>
           {renderEditting}
-          
         </S.SideBar>
         <S.Header layout={layout.style}>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>
           <S.Logo>
-            <img src={layout.logo} alt="" />
+            <img
+              src={layout.logo}
+              alt=""
+            />
           </S.Logo>
         </S.Header>
       </S.HeaderContainer>

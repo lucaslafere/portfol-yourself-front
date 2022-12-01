@@ -1,7 +1,7 @@
+/* eslint-disable indent */
 import styled from "styled-components";
 
-const lightCorkboard =
-  "https://c1.wallpaperflare.com/preview/907/581/284/backdrop-background-blank-board.jpg";
+// const lightCorkboard = "https://c1.wallpaperflare.com/preview/907/581/284/backdrop-background-blank-board.jpg";
 const darkCorkboard =
   "https://cdn.cssauthor.com/wp-content/uploads/2012/12/Corkboard-Wood-Cork-Composite.jpg?strip=all&lossy=1&ssl=1";
 
