@@ -11,5 +11,5 @@ module.exports = {
   bracketSameLine: true,
   arrowParens: "always",
   htmlWhitespaceSensitivity: "css",
-  singleAttributePerLine: true,
+  singleAttributePerLine: false,
 };

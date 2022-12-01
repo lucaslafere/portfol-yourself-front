@@ -19,31 +19,12 @@ export default function App() {
       <UserDataContext.Provider value={{ userData, setUserData }}>
         <BrowserRouter>
           <Routes>
-            <Route
-              path="/"
-              element={<MainScreen />}
-            />
-            <Route
-              path="/sign-up"
-              element={<SignUpScreen />}
-            />
-            <Route
-              path="/login"
-              element={<LoginScreen />}
-            />
-
-            <Route
-              path="/create"
-              element={<CreationScreen />}
-            />
-            <Route
-              path="/dashboard"
-              element={<DashboardScreen />}
-            />
-            <Route
-              path="/add"
-              element={<AddItemScreen />}
-            />
+            <Route path="/" element={<MainScreen />} />
+            <Route path="/sign-up" element={<SignUpScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/create" element={<CreationScreen />} />
+            <Route path="/dashboard" element={<DashboardScreen />} />
+            <Route path="/add" element={<AddItemScreen />} />
             <Route
               path="/portfolio/:portfolioId"
               element={<PortfolioScreen />}

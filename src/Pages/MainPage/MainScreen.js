@@ -31,10 +31,7 @@ export default function MainScreen() {
           title={el.title}
           logo={el.logo}>
           <S.PortfolioLogo boxSize={boxSize}>
-            <img
-              src={el.logo}
-              alt=""
-            />
+            <img src={el.logo} alt="" />
           </S.PortfolioLogo>
           <S.PortfolioTitle boxSize={boxSize}>{el.title}</S.PortfolioTitle>
           <S.ViewLink onClick={() => navigate(`/portfolio/${el.id}`)}>

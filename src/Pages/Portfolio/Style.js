@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import styled from "styled-components";
 
 // const lightCorkboard = 'https://c1.wallpaperflare.com/preview/907/581/284/backdrop-background-blank-board.jpg';

@@ -110,10 +110,7 @@ export default function DashboardScreen() {
           layout={layout.style}>
           {layout.style === "modern" ? null : (
             <S.Pin boxSize={layout.boxSize}>
-              <img
-                src={pin}
-                alt=""
-              />
+              <img src={pin} alt="" />
             </S.Pin>
           )}
           <ion-icon
@@ -121,13 +118,8 @@ export default function DashboardScreen() {
             onClick={() =>
               deleteItem(el.title, el.imageUrl, el.description, el.id)
             }></ion-icon>
-          <S.ItemImage
-            boxSize={layout.boxSize}
-            layout={layout.style}>
-            <img
-              src={el.imageUrl}
-              alt=""
-            />
+          <S.ItemImage boxSize={layout.boxSize} layout={layout.style}>
+            <img src={el.imageUrl} alt="" />
           </S.ItemImage>
           <S.ItemTitle boxSize={layout.boxSize}>{el.title}</S.ItemTitle>
           <S.ItemDescription boxSize={layout.boxSize}>
@@ -145,10 +137,7 @@ export default function DashboardScreen() {
           description={el.description}
           price={el.price}>
           <S.ItemImage>
-            <img
-              src={el.imageUrl}
-              alt=""
-            />
+            <img src={el.imageUrl} alt="" />
           </S.ItemImage>
           <S.ItemTitle>{el.title}</S.ItemTitle>
           <S.ItemDescription>{el.description}</S.ItemDescription>
@@ -348,10 +337,7 @@ export default function DashboardScreen() {
         <S.Header layout={layout.style}>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>
           <S.Logo>
-            <img
-              src={layout.logo}
-              alt=""
-            />
+            <img src={layout.logo} alt="" />
           </S.Logo>
         </S.Header>
       </S.HeaderContainer>

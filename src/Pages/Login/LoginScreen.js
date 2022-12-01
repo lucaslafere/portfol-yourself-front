@@ -28,6 +28,7 @@ export default function LoginPage() {
     event.preventDefault();
     setDisabled(true);
     setLoading(true);
+
     requestLogin();
   }
   function requestLogin() {
@@ -91,15 +92,9 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <S.Button
-            disabled={disabled}
-            type="submit">
+          <S.Button disabled={disabled} type="submit">
             {loading ? (
-              <ThreeDots
-                color="#1976d2"
-                height={80}
-                width={80}
-              />
+              <ThreeDots color="#1976d2" height={80} width={80} />
             ) : (
               "Login"
             )}
