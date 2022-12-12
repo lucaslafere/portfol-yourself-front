@@ -7,7 +7,7 @@ import TokenContext from "../../Contexts/TokenContext";
 export default function MainScreen() {
   const navigate = useNavigate();
   const [portfoliosData, setPortfoliosData] = useState([]);
-  const portfoliosURL = "https://portfol-yourself.herokuapp.com/portfolios";
+  const portfoliosURL = "https://portfol-yourself.onrender.com/portfolios";
   const { token } = useContext(TokenContext);
   const [boxSize, setBoxSize] = useState("medium");
   function getPortfolios() {
@@ -29,7 +29,8 @@ export default function MainScreen() {
           boxSize={boxSize}
           key={index}
           title={el.title}
-          logo={el.logo}>
+          logo={el.logo}
+        >
           <S.PortfolioLogo boxSize={boxSize}>
             <img src={el.logo} alt="" />
           </S.PortfolioLogo>

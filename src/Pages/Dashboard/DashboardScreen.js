@@ -25,8 +25,8 @@ export default function DashboardScreen() {
   const [edit, setEdit] = useState("");
   const userURL = `localhost:3000/portfolio/${portfolioId}`;
   const { token } = useContext(TokenContext);
-  const dashboardURL = "https://portfol-yourself.herokuapp.com/dashboard";
-  const portfoliosURL = `https://portfol-yourself.herokuapp.com/portfolios/${portfolioId}`;
+  const dashboardURL = "https://portfol-yourself.onrender.com/dashboard";
+  const portfoliosURL = `https://portfol-yourself.onrender.com/portfolios/${portfolioId}`;
   const body = {
     boxSize: layout.boxSize,
     style: layout.style,
@@ -107,7 +107,8 @@ export default function DashboardScreen() {
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}
-          layout={layout.style}>
+          layout={layout.style}
+        >
           {layout.style === "modern" ? null : (
             <S.Pin boxSize={layout.boxSize}>
               <img src={pin} alt="" />
@@ -117,7 +118,8 @@ export default function DashboardScreen() {
             name="close-circle"
             onClick={() =>
               deleteItem(el.title, el.imageUrl, el.description, el.id)
-            }></ion-icon>
+            }
+          ></ion-icon>
           <S.ItemImage boxSize={layout.boxSize} layout={layout.style}>
             <img src={el.imageUrl} alt="" />
           </S.ItemImage>
@@ -135,7 +137,8 @@ export default function DashboardScreen() {
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}
-          price={el.price}>
+          price={el.price}
+        >
           <S.ItemImage>
             <img src={el.imageUrl} alt="" />
           </S.ItemImage>
@@ -151,15 +154,18 @@ export default function DashboardScreen() {
       return (
         <S.ButtonsContainer>
           <S.BlueButton
-            onClick={() => setLayout({ ...layout, boxSize: "small" })}>
+            onClick={() => setLayout({ ...layout, boxSize: "small" })}
+          >
             Small
           </S.BlueButton>
           <S.WhiteButton
-            onClick={() => setLayout({ ...layout, boxSize: "medium" })}>
+            onClick={() => setLayout({ ...layout, boxSize: "medium" })}
+          >
             Medium
           </S.WhiteButton>
           <S.BlueButton
-            onClick={() => setLayout({ ...layout, boxSize: "large" })}>
+            onClick={() => setLayout({ ...layout, boxSize: "large" })}
+          >
             Large
           </S.BlueButton>
         </S.ButtonsContainer>
@@ -180,15 +186,18 @@ export default function DashboardScreen() {
       return (
         <S.ButtonsContainer>
           <S.BlueButton
-            onClick={() => setLayout({ ...layout, style: "modern" })}>
+            onClick={() => setLayout({ ...layout, style: "modern" })}
+          >
             Modern
           </S.BlueButton>
           <S.WhiteButton
-            onClick={() => setLayout({ ...layout, style: "handwritten" })}>
+            onClick={() => setLayout({ ...layout, style: "handwritten" })}
+          >
             Handwritten Board
           </S.WhiteButton>
           <S.BlueButton
-            onClick={() => setLayout({ ...layout, style: "altcursive" })}>
+            onClick={() => setLayout({ ...layout, style: "altcursive" })}
+          >
             Alt.Cursive Board
           </S.BlueButton>
         </S.ButtonsContainer>

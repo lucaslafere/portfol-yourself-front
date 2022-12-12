@@ -13,7 +13,7 @@ export default function AddItemScreen() {
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
-  const URL = "https://portfol-yourself.herokuapp.com/items";
+  const URL = "https://portfol-yourself.onrender.com/items";
   const navigate = useNavigate();
   const body = {
     title,
@@ -147,15 +147,9 @@ export default function AddItemScreen() {
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
           />
-          <S.Button
-            disabled={disabled}
-            type="submit">
+          <S.Button disabled={disabled} type="submit">
             {loading ? (
-              <ThreeDots
-                color="#1976d2"
-                height={80}
-                width={80}
-              />
+              <ThreeDots color="#1976d2" height={80} width={80} />
             ) : (
               "Create now"
             )}

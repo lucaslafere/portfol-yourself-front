@@ -12,7 +12,7 @@ export default function CreationScreen() {
   const [errorText, setErrorText] = useState("");
   const [logo, setLogo] = useState("");
   const [title, setTitle] = useState("");
-  const URL = "https://portfol-yourself.herokuapp.com/portfolios";
+  const URL = "https://portfol-yourself.onrender.com/portfolios";
   const navigate = useNavigate();
   const body = {
     title,
@@ -126,15 +126,9 @@ export default function CreationScreen() {
             value={logo}
             onChange={(e) => setLogo(e.target.value)}
           />
-          <S.Button
-            disabled={disabled}
-            type="submit">
+          <S.Button disabled={disabled} type="submit">
             {loading ? (
-              <ThreeDots
-                color="#1976d2"
-                height={80}
-                width={80}
-              />
+              <ThreeDots color="#1976d2" height={80} width={80} />
             ) : (
               "Create now"
             )}

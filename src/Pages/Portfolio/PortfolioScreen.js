@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
-import * as S from './Style';
-import pin from '../../Assets/pin.png';
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import * as S from "./Style";
+import pin from "../../Assets/pin.png";
 
 export default function PortfolioScreen() {
   const [itemsData, setItemsData] = useState([]);
   const [layout, setLayout] = useState({
-    title: '',
-    logo: '',
-    boxSize: 'medium',
-    style: 'modern',
+    title: "",
+    logo: "",
+    boxSize: "medium",
+    style: "modern",
     isStore: false,
   });
   const { portfolioId } = useParams();
@@ -18,7 +18,7 @@ export default function PortfolioScreen() {
 
   function getPortfolioById() {
     axios
-      .get(`https://portfol-yourself.herokuapp.com/portfolios/${portfolioId}`)
+      .get(`https://portfol-yourself.onrender.com/portfolios/${portfolioId}`)
 
       .then((res) => {
         setLayout({
@@ -45,22 +45,13 @@ export default function PortfolioScreen() {
           description={el.description}
           layout={layout.style}
         >
-          {layout.style === 'modern' ? null : (
+          {layout.style === "modern" ? null : (
             <S.Pin boxSize={layout.boxSize}>
-              <img
-                src={pin}
-                alt=''
-              />
+              <img src={pin} alt="" />
             </S.Pin>
           )}
-          <S.ItemImage
-            boxSize={layout.boxSize}
-            layout={layout.style}
-          >
-            <img
-              src={el.imageUrl}
-              alt=''
-            />
+          <S.ItemImage boxSize={layout.boxSize} layout={layout.style}>
+            <img src={el.imageUrl} alt="" />
           </S.ItemImage>
           <S.ItemTitle boxSize={layout.boxSize}>{el.title}</S.ItemTitle>
           <S.ItemDescription boxSize={layout.boxSize}>
@@ -79,10 +70,7 @@ export default function PortfolioScreen() {
           price={el.price}
         >
           <S.ItemImage>
-            <img
-              src={el.imageUrl}
-              alt=''
-            />
+            <img src={el.imageUrl} alt="" />
           </S.ItemImage>
           <S.ItemTitle>{el.title}</S.ItemTitle>
           <S.ItemDescription>{el.description}</S.ItemDescription>
@@ -113,12 +101,9 @@ export default function PortfolioScreen() {
     <>
       <S.HeaderContainer>
         <S.Header layout={layout.style}>
-          <p onClick={() => navigate('/')}>Portfol-Yourself</p>
+          <p onClick={() => navigate("/")}>Portfol-Yourself</p>
           <S.Logo>
-            <img
-              src={layout.logo}
-              alt=''
-            />
+            <img src={layout.logo} alt="" />
           </S.Logo>
         </S.Header>
       </S.HeaderContainer>

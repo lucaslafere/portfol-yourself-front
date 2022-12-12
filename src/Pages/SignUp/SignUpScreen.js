@@ -12,7 +12,7 @@ export default function SignUpScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const URL = "https://portfol-yourself.herokuapp.com/sign-up";
+  const URL = "https://portfol-yourself.onrender.com/sign-up";
   const navigate = useNavigate();
   const body = {
     email,
@@ -122,15 +122,9 @@ export default function SignUpScreen() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <S.Button
-            disabled={disabled}
-            type="submit">
+          <S.Button disabled={disabled} type="submit">
             {loading ? (
-              <ThreeDots
-                color="#1976d2"
-                height={80}
-                width={80}
-              />
+              <ThreeDots color="#1976d2" height={80} width={80} />
             ) : (
               "SIGN UP"
             )}
