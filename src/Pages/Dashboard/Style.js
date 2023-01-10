@@ -268,7 +268,7 @@ const ItemBox = styled.div`
   flex-direction: column;
   width: ${({ boxSize }) =>
     (boxSize === "medium" && "250px") ||
-    (boxSize === "small" && "200px") ||
+    (boxSize === "small" && "180px") ||
     (boxSize === "large" && "400px")};
   height: ${({ boxSize }) =>
     (boxSize === "medium" && "250px") ||
