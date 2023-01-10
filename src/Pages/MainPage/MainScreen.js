@@ -16,17 +16,14 @@ export default function MainScreen() {
       .then((res) => {
         setPortfoliosData(res.data);
       })
-      .then(() => {
-        mountPortfolios();
-      })
+      .then(mountPortfolios())
+
       .catch((err) => {
-        console.log(err);
+        console.log(err + " deu erro aqui");
       });
   }
   function mountPortfolios() {
-    if (portfoliosData.length === 0) {
-      return <h2>No portfolios created yet</h2>;
-    } else {
+    if (portfoliosData.length > 0) {
       return portfoliosData.map((el, index) => (
         <S.PortfolioBox
           boxSize={boxSize}
@@ -43,6 +40,8 @@ export default function MainScreen() {
           </S.ViewLink>
         </S.PortfolioBox>
       ));
+    } else {
+      return <h2>No portfolios created yet</h2>;
     }
   }
   useEffect(() => getPortfolios(), []);
