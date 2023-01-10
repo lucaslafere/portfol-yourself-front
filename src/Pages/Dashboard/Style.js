@@ -104,7 +104,7 @@ const Logo = styled.div`
 `;
 const Container = styled.div`
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
