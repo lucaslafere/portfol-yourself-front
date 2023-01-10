@@ -114,7 +114,7 @@ const ItemBox = styled.div`
   flex-direction: column;
   width: ${({ boxSize }) =>
     (boxSize === "medium" && "250px") ||
-    (boxSize === "small" && "200px") ||
+    (boxSize === "small" && "180px") ||
     (boxSize === "large" && "400px")};
   height: ${({ boxSize }) =>
     (boxSize === "medium" && "250px") ||
@@ -162,8 +162,8 @@ const ItemImage = styled.div`
       (boxSize === "large" && "300px")};
     padding: ${({ layout }) =>
       (layout === "modern" && "0px") ||
-      (layout === "handwritten" && "1rem 0.75rem") ||
-      (layout === "altcursive" && "1rem 0.75rem")};
+      (layout === "handwritten" && "0.75rem 0.75rem") ||
+      (layout === "altcursive" && "0.75rem 0.75rem")};
     object-fit: cover;
     border-radius: 6px;
   }
