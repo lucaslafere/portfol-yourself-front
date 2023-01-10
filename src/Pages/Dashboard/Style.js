@@ -322,11 +322,11 @@ const ItemImage = styled.div`
   img {
     width: ${({ boxSize }) =>
       (boxSize === "medium" && "250px") ||
-      (boxSize === "small" && "200px") ||
+      (boxSize === "small" && "180px") ||
       (boxSize === "large" && "400px")};
     height: ${({ boxSize }) =>
       (boxSize === "medium" && "175px") ||
-      (boxSize === "small" && "150px") ||
+      (boxSize === "small" && "120px") ||
       (boxSize === "large" && "300px")};
     padding: ${({ layout }) =>
       (layout === "modern" && "0px") ||
@@ -340,7 +340,7 @@ const ItemTitle = styled.div`
   font-weight: 400;
   font-size: ${({ boxSize }) =>
     (boxSize === "medium" && "1.5rem") ||
-    (boxSize === "small" && "0.75rem") ||
+    (boxSize === "small" && "1.5rem") ||
     (boxSize === "large" && "1.75rem")};
   text-overflow: ellipsis;
 `;
@@ -348,7 +348,7 @@ const ItemDescription = styled.div`
   font-weight: 400;
   font-size: ${({ boxSize }) =>
     (boxSize === "medium" && "1rem") ||
-    (boxSize === "small" && "0.8rem") ||
+    (boxSize === "small" && "1rem") ||
     (boxSize === "large" && "1.75rem")};
   text-overflow: ellipsis;
 `;
