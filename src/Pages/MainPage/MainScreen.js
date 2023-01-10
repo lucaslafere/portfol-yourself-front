@@ -19,7 +19,7 @@ export default function MainScreen() {
       .then(mountPortfolios())
 
       .catch((err) => {
-        console.log(err + " deu erro aqui");
+        console.log(err);
       });
   }
   function mountPortfolios() {
