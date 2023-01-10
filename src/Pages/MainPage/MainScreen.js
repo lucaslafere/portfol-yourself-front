@@ -26,7 +26,7 @@ export default function MainScreen() {
     return portfoliosData.map((el, index) => (
       <S.PortfolioBox
         boxSize={boxSize}
-        key={(el, index)}
+        key={index}
         title={el.title}
         logo={el.logo}
       >
