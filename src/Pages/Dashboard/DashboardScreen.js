@@ -23,7 +23,7 @@ export default function DashboardScreen() {
   const [incompleteModal, setIncompleteModal] = useState(false);
   const [error, setError] = useState(false);
   const [edit, setEdit] = useState("");
-  const userURL = `${process.env.REACT_APP_API_BASE_URL}/portfolio/${portfolioId}`;
+  const userURL = `https://portfol-yourself-front.vercel.app/portfolio/${portfolioId}`;
   const { token } = useContext(TokenContext);
   const dashboardURL = `${process.env.REACT_APP_API_BASE_URL}/dashboard`;
   const portfoliosURL = `${process.env.REACT_APP_API_BASE_URL}/portfolios/${portfolioId}`;
