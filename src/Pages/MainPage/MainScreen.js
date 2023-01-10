@@ -6,14 +6,7 @@ import TokenContext from "../../Contexts/TokenContext";
 
 export default function MainScreen() {
   const navigate = useNavigate();
-  const [portfoliosData, setPortfoliosData] = useState([
-    {
-      id: 0,
-      title: "null",
-      userId: 0,
-      logo: "https://www.educolorir.com/imagem-vaca-dl21000.jpg",
-    },
-  ]);
+  const [portfoliosData, setPortfoliosData] = useState([]);
   const portfoliosURL = `${process.env.REACT_APP_API_BASE_URL}/portfolios`;
   const { token } = useContext(TokenContext);
   const [boxSize, setBoxSize] = useState("medium");
