@@ -36,10 +36,10 @@ export default function PortfolioScreen() {
   }
   function mountItems() {
     if (layout.isStore === false) {
-      return itemsData.map((el) => (
+      return itemsData.map((el, index) => (
         <S.ItemBox
           boxSize={layout.boxSize}
-          key={el}
+          key={index}
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}
@@ -60,10 +60,10 @@ export default function PortfolioScreen() {
         </S.ItemBox>
       ));
     } else {
-      return itemsData.map((el) => (
+      return itemsData.map((el, index) => (
         <S.ItemBox
           boxSize={layout.boxSize}
-          key={el}
+          key={index}
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}

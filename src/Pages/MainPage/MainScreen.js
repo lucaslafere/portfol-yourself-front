@@ -24,10 +24,10 @@ export default function MainScreen() {
     if (portfoliosData.length === 0) {
       return <h2>No portfolios created yet</h2>;
     } else {
-      return portfoliosData.map((el) => (
+      return portfoliosData.map((el, index) => (
         <S.PortfolioBox
           boxSize={boxSize}
-          key={el}
+          key={(el, index)}
           title={el.title}
           logo={el.logo}
         >
