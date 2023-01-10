@@ -100,10 +100,10 @@ export default function DashboardScreen() {
   }
   function mountItems() {
     if (layout.isStore === false) {
-      return itemsData.map((el, index) => (
+      return itemsData.map((el) => (
         <S.ItemBox
           boxSize={layout.boxSize}
-          key={index}
+          key={el}
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}
@@ -130,10 +130,10 @@ export default function DashboardScreen() {
         </S.ItemBox>
       ));
     } else {
-      return itemsData.map((el, index) => (
+      return itemsData.map((el) => (
         <S.ItemBox
           boxSize={layout.boxSize}
-          key={index}
+          key={el}
           title={el.title}
           imageUrl={el.imageUrl}
           description={el.description}
