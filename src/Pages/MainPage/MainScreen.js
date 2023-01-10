@@ -7,7 +7,7 @@ import TokenContext from "../../Contexts/TokenContext";
 export default function MainScreen() {
   const navigate = useNavigate();
   const [portfoliosData, setPortfoliosData] = useState([]);
-  const portfoliosURL = "https://portfol-yourself.onrender.com/portfolios";
+  const portfoliosURL = `${process.env.REACT_APP_API_BASE_URL}/portfolios`;
   const { token } = useContext(TokenContext);
   const [boxSize, setBoxSize] = useState("medium");
   function getPortfolios() {
@@ -24,10 +24,10 @@ export default function MainScreen() {
     if (portfoliosData.length === 0) {
       return <h2>No portfolios created yet</h2>;
     } else {
-      return portfoliosData.map((el, index) => (
+      return portfoliosData.map((el) => (
         <S.PortfolioBox
           boxSize={boxSize}
-          key={index}
+          key={el}
           title={el.title}
           logo={el.logo}
         >
