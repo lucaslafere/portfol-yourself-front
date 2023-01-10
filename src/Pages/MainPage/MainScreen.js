@@ -23,26 +23,22 @@ export default function MainScreen() {
       });
   }
   function mountPortfolios() {
-    if (portfoliosData.length > 0) {
-      return portfoliosData.map((el, index) => (
-        <S.PortfolioBox
-          boxSize={boxSize}
-          key={(el, index)}
-          title={el.title}
-          logo={el.logo}
-        >
-          <S.PortfolioLogo boxSize={boxSize}>
-            <img src={el.logo} alt="" />
-          </S.PortfolioLogo>
-          <S.PortfolioTitle boxSize={boxSize}>{el.title}</S.PortfolioTitle>
-          <S.ViewLink onClick={() => navigate(`/portfolio/${el.id}`)}>
-            Link
-          </S.ViewLink>
-        </S.PortfolioBox>
-      ));
-    } else {
-      return <h2>No portfolios created yet</h2>;
-    }
+    return portfoliosData.map((el, index) => (
+      <S.PortfolioBox
+        boxSize={boxSize}
+        key={(el, index)}
+        title={el.title}
+        logo={el.logo}
+      >
+        <S.PortfolioLogo boxSize={boxSize}>
+          <img src={el.logo} alt="" />
+        </S.PortfolioLogo>
+        <S.PortfolioTitle boxSize={boxSize}>{el.title}</S.PortfolioTitle>
+        <S.ViewLink onClick={() => navigate(`/portfolio/${el.id}`)}>
+          Link
+        </S.ViewLink>
+      </S.PortfolioBox>
+    ));
   }
   useEffect(() => getPortfolios(), []);
   const renderPortfolios = mountPortfolios();
@@ -99,7 +95,13 @@ export default function MainScreen() {
             {token.length > 0 ? renderLogged : renderDefault}
           </S.TopButtonsContainer>
         </S.TopSection>
-        <S.Content>{renderPortfolios}</S.Content>
+        <S.Content>
+          {portfoliosData.length ? (
+            renderPortfolios
+          ) : (
+            <h2>No portfolios created yet</h2>
+          )}
+        </S.Content>
         <S.Footer>
           <h5>Footer</h5>
           <S.Copyright>
