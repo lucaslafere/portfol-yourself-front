@@ -25,8 +25,8 @@ export default function DashboardScreen() {
   const [edit, setEdit] = useState("");
   const userURL = `localhost:3000/portfolio/${portfolioId}`;
   const { token } = useContext(TokenContext);
-  const dashboardURL = "https://portfol-yourself.onrender.com/dashboard";
-  const portfoliosURL = `https://portfol-yourself.onrender.com/portfolios/${portfolioId}`;
+  const dashboardURL = `${process.env.REACT_APP_API_BASE_URL}/dashboard`;
+  const portfoliosURL = `${process.env.REACT_APP_API_BASE_URL}/portfolios/${portfolioId}`;
   const body = {
     boxSize: layout.boxSize,
     style: layout.style,
@@ -81,7 +81,7 @@ export default function DashboardScreen() {
       );
   }
   function deleteItem(title, imageUrl, description, id) {
-    const itemsURL = `https://portfol-yourself.herokuapp.com/items/${id}`;
+    const itemsURL = `${process.env.REACT_APP_API_BASE_URL}/items/${id}`;
     const data = {
       title,
       imageUrl,

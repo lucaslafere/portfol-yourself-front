@@ -18,7 +18,7 @@ export default function PortfolioScreen() {
 
   function getPortfolioById() {
     axios
-      .get(`https://portfol-yourself.onrender.com/portfolios/${portfolioId}`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}/portfolios/${portfolioId}`)
 
       .then((res) => {
         setLayout({

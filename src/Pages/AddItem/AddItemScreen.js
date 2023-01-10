@@ -13,7 +13,7 @@ export default function AddItemScreen() {
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
-  const URL = "https://portfol-yourself.onrender.com/items";
+  const URL = `${process.env.REACT_APP_API_BASE_URL}/items`;
   const navigate = useNavigate();
   const body = {
     title,

@@ -13,7 +13,7 @@ export default function LoginPage() {
   const [errorText, setErrorText] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const URL = "https://portfol-yourself.onrender.com/sign-in";
+  const URL = `${process.env.REACT_APP_API_BASE_URL}/sign-in`;
   const navigate = useNavigate();
 
   const { setToken } = useContext(TokenContext);
