@@ -7,7 +7,7 @@ import pin from "../../Assets/pin.png";
 import SuccessModal from "../../Components/SuccessModal/SuccessModal";
 import FailureModal from "../../Components/FailureModal/Failuremodal";
 import IncompleteFeatureModal from "../../Components/IncompleteFeatureModal/IncompleteFeature";
-/* global navigator */
+/* eslint-env browser */
 
 export default function DashboardScreen() {
   const [itemsData, setItemsData] = useState([]);
