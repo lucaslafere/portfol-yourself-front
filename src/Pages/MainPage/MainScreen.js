@@ -7,7 +7,7 @@ import TokenContext from "../../Contexts/TokenContext";
 export default function MainScreen() {
   const navigate = useNavigate();
   const [portfoliosData, setPortfoliosData] = useState([]);
-  const portfoliosURL = `${process.env.REACT_APP_API_BASE_URL}/portfolios`;
+  const portfoliosURL = "https://portfol-yourself.onrender.com/portfolios";
   const { token } = useContext(TokenContext);
   const [boxSize, setBoxSize] = useState("medium");
   function getPortfolios() {
@@ -16,8 +16,6 @@ export default function MainScreen() {
       .then((res) => {
         setPortfoliosData(res.data);
       })
-      .then(mountPortfolios())
-
       .catch((err) => {
         console.log(err);
       });
