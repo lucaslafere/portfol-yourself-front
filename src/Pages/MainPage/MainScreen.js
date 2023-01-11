@@ -15,7 +15,6 @@ export default function MainScreen() {
       .get(portfoliosURL)
       .then((res) => {
         setPortfoliosData(res.data);
-        console.log(res.data);
       })
       .then(mountPortfolios())
 
