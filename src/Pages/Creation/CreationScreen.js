@@ -12,7 +12,7 @@ export default function CreationScreen() {
   const [errorText, setErrorText] = useState("");
   const [logo, setLogo] = useState("");
   const [title, setTitle] = useState("");
-  const URL = `https://portfol-yourself.onrender.com/portfolios`;
+  const URL = "https://portfol-yourself.onrender.com/portfolios";
   const navigate = useNavigate();
   const body = {
     title,

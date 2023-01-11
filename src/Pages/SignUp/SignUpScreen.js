@@ -12,7 +12,7 @@ export default function SignUpScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const URL = `https://portfol-yourself.onrender.com/sign-up`;
+  const URL = "https://portfol-yourself.onrender.com/sign-up";
   const navigate = useNavigate();
   const body = {
     email,

@@ -25,7 +25,7 @@ export default function DashboardScreen() {
   const [edit, setEdit] = useState("");
   const userURL = `https://portfol-yourself-front.vercel.app/portfolio/${portfolioId}`;
   const { token } = useContext(TokenContext);
-  const dashboardURL = `https://portfol-yourself.onrender.com/dashboard`;
+  const dashboardURL = "https://portfol-yourself.onrender.com/dashboard";
   const portfoliosURL = `https://portfol-yourself.onrender.com/portfolios/${portfolioId}`;
   const body = {
     boxSize: layout.boxSize,
