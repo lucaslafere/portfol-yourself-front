@@ -23,7 +23,7 @@ export default function MainScreen() {
       });
   }
   function mountPortfolios() {
-    return portfoliosData.map((el, index) => (
+    const items = portfoliosData.map((el, index) => (
       <S.PortfolioBox
         boxSize={boxSize}
         key={index}
@@ -39,6 +39,7 @@ export default function MainScreen() {
         </S.ViewLink>
       </S.PortfolioBox>
     ));
+    return items;
   }
   useEffect(() => getPortfolios(), []);
   const renderPortfolios = mountPortfolios();
