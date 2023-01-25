@@ -97,6 +97,12 @@ const Header = styled.div`
     cursor: pointer;
     padding: 2rem;
   }
+  @media (max-width: 600px) {
+    p {
+      display: none;
+    }
+    justify-content: center;
+  } ;
 `;
 const Logo = styled.div`
   width: 200px;
