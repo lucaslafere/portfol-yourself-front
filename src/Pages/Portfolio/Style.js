@@ -115,11 +115,11 @@ const ItemBox = styled.div`
   width: ${({ boxSize }) =>
     (boxSize === "medium" && "250px") ||
     (boxSize === "small" && "180px") ||
-    (boxSize === "large" && "400px")};
+    (boxSize === "large" && "300px")};
   height: ${({ boxSize }) =>
     (boxSize === "medium" && "250px") ||
     (boxSize === "small" && "200px") ||
-    (boxSize === "large" && "400px")};
+    (boxSize === "large" && "300px")};
   gap: ${({ boxSize }) =>
     (boxSize === "medium" && "0.5rem") ||
     (boxSize === "small" && "0.3rem") ||
@@ -155,11 +155,11 @@ const ItemImage = styled.div`
     width: ${({ boxSize }) =>
       (boxSize === "medium" && "250px") ||
       (boxSize === "small" && "180px") ||
-      (boxSize === "large" && "400px")};
+      (boxSize === "large" && "300px")};
     height: ${({ boxSize }) =>
       (boxSize === "medium" && "175px") ||
       (boxSize === "small" && "120px") ||
-      (boxSize === "large" && "300px")};
+      (boxSize === "large" && "200px")};
     padding: ${({ layout }) =>
       (layout === "modern" && "0px") ||
       (layout === "handwritten" && "0.75rem 0.75rem") ||

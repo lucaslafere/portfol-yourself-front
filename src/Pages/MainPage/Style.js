@@ -123,11 +123,11 @@ const PortfolioBox = styled.div`
   width: ${({ boxSize }) =>
     (boxSize === "medium" && "250px") ||
     (boxSize === "small" && "200px") ||
-    (boxSize === "large" && "400px")};
+    (boxSize === "large" && "300px")};
   height: ${({ boxSize }) =>
     (boxSize === "medium" && "300px") ||
     (boxSize === "small" && "220px") ||
-    (boxSize === "large" && "400px")};
+    (boxSize === "large" && "300px")};
   gap: ${({ boxSize }) =>
     (boxSize === "medium" && "1rem") ||
     (boxSize === "small" && "0.5rem") ||
@@ -140,13 +140,13 @@ const PortfolioBox = styled.div`
 const PortfolioLogo = styled.div`
   img {
     width: ${({ boxSize }) =>
-      (boxSize === "medium" && "300px") ||
+      (boxSize === "medium" && "250px") ||
       (boxSize === "small" && "200px") ||
-      (boxSize === "large" && "400px")};
-    height: ${({ boxSize }) =>
-      (boxSize === "medium" && "200px") ||
-      (boxSize === "small" && "150px") ||
       (boxSize === "large" && "300px")};
+    height: ${({ boxSize }) =>
+      (boxSize === "medium" && "175px") ||
+      (boxSize === "small" && "150px") ||
+      (boxSize === "large" && "200px")};
     object-fit: cover;
     border-radius: 6px;
   }
