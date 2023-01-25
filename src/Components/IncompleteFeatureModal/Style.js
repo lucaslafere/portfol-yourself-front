@@ -27,6 +27,9 @@ const Modal = styled.div`
       display: none;
     }
   }
+  ion-icon {
+    pointer-events: none;
+  }
 `;
 
 const ClickableIcon = styled.div`
