@@ -27,6 +27,9 @@ const SideBar = styled.div`
   border-right: 1px solid rgba(0, 0, 0, 0.12);
   gap: 8px;
   position: relative;
+  @media (max-width: 400px) {
+    display: none;
+  } ;
 `;
 const SideBarTopBox = styled.div`
   height: 70px;
@@ -247,6 +250,9 @@ const TopSection = styled.div`
   width: 60%;
   margin-bottom: 3rem;
   margin-left: 240px;
+  @media (max-width: 400px) {
+    margin-left: 0px;
+  }
 `;
 const Title = styled.div`
   color: rgba(0, 0, 0, 1);
@@ -270,6 +276,10 @@ const Content = styled.div`
   justify-content: space-evenly;
   margin-left: 240px;
   padding: 1rem;
+  @media (max-width: 400px) {
+    flex-direction: column;
+    margin-left: 0;
+  }
 `;
 const ItemBox = styled.div`
   border-radius: ${({ layout }) =>
@@ -380,6 +390,9 @@ const Footer = styled.div`
   align-items: center;
   font-weight: 500;
   margin-left: 240px;
+  @media (max-width: 400px) {
+    margin-left: 0px;
+  }
 `;
 const Copyright = styled.div`
   margin-top: 40px;
