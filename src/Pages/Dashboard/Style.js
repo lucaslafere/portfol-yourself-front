@@ -436,8 +436,33 @@ const Modal = styled.div`
 
 const MobileNavContainer = styled.div`
   width: 100%;
-  background-color: red;
   height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2px;
+`;
+const MobileButton = styled.div`
+  width: 12.5%;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  :hover {
+    background-color: #f5f5f5;
+  }
+  :nth-child(7) {
+    color: #1976d2;
+  }
+  :nth-child(8) {
+    color: red;
+  }
+  ion-icon {
+    height: 24px;
+    width: 100%;
+  }
 `;
 
 export {
@@ -466,4 +491,5 @@ export {
   Copyright,
   Modal,
   MobileNavContainer,
+  MobileButton,
 };

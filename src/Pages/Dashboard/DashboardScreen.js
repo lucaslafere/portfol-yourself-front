@@ -269,7 +269,6 @@ export default function DashboardScreen() {
             </S.Copyright>
           </S.Footer>
         </S.Container>
-        <S.MobileNavContainer />
       </>
     );
   }
@@ -291,22 +290,68 @@ export default function DashboardScreen() {
       return <IncompleteFeatureModal />;
     }
   }
-
+  function mountMobile() {
+    return (
+      <>
+        <S.MobileNavContainer>
+          <S.MobileButton
+            onClick={() => navigate("/add")}
+            title={"Add a new item"}
+          >
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </S.MobileButton>
+          <S.MobileButton
+            onClick={() => setEdit("box")}
+            title={"Change products sizes"}
+          >
+            <ion-icon name="cube-outline"></ion-icon>
+          </S.MobileButton>
+          <S.MobileButton
+            onClick={() => setEdit("color")}
+            title={"Change color palette (WIP)"}
+          >
+            <ion-icon name="color-palette-outline"></ion-icon>
+          </S.MobileButton>
+          <S.MobileButton
+            onClick={() => setEdit("link")}
+            title={"Get your portfolio link"}
+          >
+            <ion-icon name="at-outline"></ion-icon>
+          </S.MobileButton>
+          <S.MobileButton
+            onClick={() => setEdit("layouts")}
+            title={"Select a layout"}
+          >
+            <ion-icon name="image-outline"></ion-icon>
+          </S.MobileButton>
+          <S.MobileButton
+            onClick={() => setEdit("store-options")}
+            title={"Change to Store mode"}
+          >
+            <ion-icon name="storefront-outline"></ion-icon>
+          </S.MobileButton>
+          <S.MobileButton
+            onClick={() => putSaveChanges()}
+            title={"Save your changes"}
+          >
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </S.MobileButton>
+          <S.MobileButton
+            onClick={() => setEdit("delete")}
+            title={"Delete your page"}
+          >
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </S.MobileButton>
+        </S.MobileNavContainer>
+      </>
+    );
+  }
   function callIncomplete() {
     setIncompleteModal(true);
   }
-
-  useEffect(() => getLoggedUserPortfolioByToken(), []);
-  const renderItems = mountItems();
-  const renderEditting = mountEditting();
-  const renderLayout = mountLayout();
-  const renderSucessModal = openSuccessModal();
-  const renderFailureModal = openFailureModal();
-  const renderIncompleteModal = openIncompleteFeatureModal();
-  const renderError = openErrorModal();
-  return (
-    <>
-      <S.HeaderContainer>
+  function mountSideBar() {
+    return (
+      <>
         <S.SideBar>
           <S.SideBarTopBox>
             {renderSucessModal}
@@ -371,6 +416,24 @@ export default function DashboardScreen() {
           </S.SideBarItem>
           {renderEditting}
         </S.SideBar>
+      </>
+    );
+  }
+
+  useEffect(() => getLoggedUserPortfolioByToken(), []);
+  const renderItems = mountItems();
+  const renderEditting = mountEditting();
+  const renderLayout = mountLayout();
+  const renderSucessModal = openSuccessModal();
+  const renderFailureModal = openFailureModal();
+  const renderIncompleteModal = openIncompleteFeatureModal();
+  const renderError = openErrorModal();
+  const renderSideBar = mountSideBar();
+  const renderMobile = mountMobile();
+  return (
+    <>
+      <S.HeaderContainer>
+        {renderSideBar}
         <S.Header layout={layout.style}>
           <p onClick={() => navigate("/")}>Portfol-Yourself</p>
           <S.Logo>
@@ -379,6 +442,7 @@ export default function DashboardScreen() {
         </S.Header>
       </S.HeaderContainer>
       {renderLayout}
+      {renderMobile}
       {renderError}
     </>
   );
