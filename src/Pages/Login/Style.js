@@ -10,9 +10,10 @@ const Modal = styled.div`
   background-color: #1976d2;
   border-radius: 12px;
   z-index: 1;
-  position: fixed;
-  top: 25vh;
-  left: 35vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   h5 {
     font-weight: 700;
     font-size: 1.2rem;
