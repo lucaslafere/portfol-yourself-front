@@ -406,6 +406,9 @@ const Copyright = styled.div`
     (layout === "handwritten" && "2rem") ||
     (layout === "altcursive" && "2rem")};
   font-weight: 400;
+  @media (max-width: 400px) {
+    margin-top: 0px;
+  }
 `;
 const Modal = styled.div`
   display: flex;
@@ -426,6 +429,15 @@ const Modal = styled.div`
     color: #fff;
     text-align: center;
   }
+  @media (max-width: 400px) {
+    width: 80%;
+  }
+`;
+
+const MobileNavContainer = styled.div`
+  width: 100%;
+  background-color: red;
+  height: 48px;
 `;
 
 export {
@@ -453,4 +465,5 @@ export {
   Footer,
   Copyright,
   Modal,
+  MobileNavContainer,
 };

@@ -19,6 +19,9 @@ const Modal = styled.div`
     color: #fff;
     text-align: center;
   }
+  @media (max-width: 400px) {
+    width: 80%;
+  }
 `;
 const Container = styled.div`
   display: flex;

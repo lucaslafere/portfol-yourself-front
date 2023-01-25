@@ -257,17 +257,20 @@ export default function DashboardScreen() {
   }
   function mountLayout() {
     return (
-      <S.Container layout={layout.style}>
-        <S.TopSection>
-          <S.Title layout={layout.style}>{layout.title}</S.Title>
-        </S.TopSection>
-        <S.Content>{renderItems}</S.Content>
-        <S.Footer layout={layout.style}>
-          <S.Copyright layout={layout.style}>
-            <p>Copyright © Portfol-Yourself 2022.</p>
-          </S.Copyright>
-        </S.Footer>
-      </S.Container>
+      <>
+        <S.Container layout={layout.style}>
+          <S.TopSection>
+            <S.Title layout={layout.style}>{layout.title}</S.Title>
+          </S.TopSection>
+          <S.Content>{renderItems}</S.Content>
+          <S.Footer layout={layout.style}>
+            <S.Copyright layout={layout.style}>
+              <p>Copyright © Portfol-Yourself 2022.</p>
+            </S.Copyright>
+          </S.Footer>
+        </S.Container>
+        <S.MobileNavContainer />
+      </>
     );
   }
   function openSuccessModal() {
