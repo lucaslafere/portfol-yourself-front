@@ -5,7 +5,6 @@ const Modal = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30%;
   height: 40%;
   background-color: #1976d2;
   border-radius: 12px;
