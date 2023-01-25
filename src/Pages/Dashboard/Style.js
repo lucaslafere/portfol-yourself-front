@@ -47,6 +47,8 @@ const SideBarItem = styled.div`
   ion-icon {
     font-size: 2rem;
     margin-right: 2rem;
+    flex-shrink: 0;
+    width: 32px;
   }
   cursor: pointer;
   :hover {
@@ -62,6 +64,11 @@ const SideBarItem = styled.div`
   :nth-child(9) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     color: red;
+  }
+  @media (max-width: 1080px) {
+    ion-icon {
+      width: 100%;
+    }
   }
 `;
 const Header = styled.div`
