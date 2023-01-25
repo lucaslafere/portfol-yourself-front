@@ -22,6 +22,11 @@ const Modal = styled.div`
     white-space: normal;
     overflow: hidden;
   }
+  @media (max-width: 640px) {
+    p {
+      display: none;
+    }
+  }
 `;
 
 const ClickableIcon = styled.div`
