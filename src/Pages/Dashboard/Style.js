@@ -49,6 +49,7 @@ const SideBarItem = styled.div`
     margin-right: 2rem;
     flex-shrink: 0;
     width: 32px;
+    pointer-events: none;
   }
   cursor: pointer;
   :hover {

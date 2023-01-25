@@ -310,35 +310,59 @@ export default function DashboardScreen() {
             {renderFailureModal}
             {renderIncompleteModal}
           </S.SideBarTopBox>
-          <S.SideBarItem onClick={() => navigate("/add")}>
+          <S.SideBarItem
+            onClick={() => navigate("/add")}
+            title={"Add a new item"}
+          >
             <ion-icon name="add-circle-outline"></ion-icon>
             Add New Item
           </S.SideBarItem>
-          <S.SideBarItem onClick={() => setEdit("box")}>
+          <S.SideBarItem
+            onClick={() => setEdit("box")}
+            title={"Change products sizes"}
+          >
             <ion-icon name="cube-outline"></ion-icon>
             Box Sizes
           </S.SideBarItem>
-          <S.SideBarItem onClick={() => setEdit("color")}>
+          <S.SideBarItem
+            onClick={() => setEdit("color")}
+            title={"Change color palette (WIP)"}
+          >
             <ion-icon name="color-palette-outline"></ion-icon>
             Color Scheme
           </S.SideBarItem>
-          <S.SideBarItem onClick={() => setEdit("link")}>
+          <S.SideBarItem
+            onClick={() => setEdit("link")}
+            title={"Get your portfolio link"}
+          >
             <ion-icon name="at-outline"></ion-icon>
             Get Your Link
           </S.SideBarItem>
-          <S.SideBarItem onClick={() => setEdit("layouts")}>
+          <S.SideBarItem
+            onClick={() => setEdit("layouts")}
+            title={"Select a layout"}
+          >
             <ion-icon name="image-outline"></ion-icon>
             Layouts
           </S.SideBarItem>
-          <S.SideBarItem onClick={() => setEdit("store-options")}>
+          <S.SideBarItem
+            onClick={() => setEdit("store-options")}
+            title={"Change to Store mode"}
+          >
             <ion-icon name="storefront-outline"></ion-icon>
             Store Options
           </S.SideBarItem>
-          <S.SideBarItem onClick={() => putSaveChanges()}>
+          <S.SideBarItem
+            onClick={() => putSaveChanges()}
+            title={"Save your changes"}
+          >
             <ion-icon name="checkmark-circle-outline"></ion-icon>
             Save Changes
           </S.SideBarItem>
-          <S.SideBarItem onClick={() => setEdit("delete")}>
+          <S.SideBarItem
+            onClick={() => setEdit("delete")}
+            title={"Delete your page"}
+          >
             <ion-icon name="close-circle-outline"></ion-icon>
             Delete Page
           </S.SideBarItem>
