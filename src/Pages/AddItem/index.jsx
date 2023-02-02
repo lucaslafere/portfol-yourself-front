@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import * as S from "./style";
 import TokenContext from "../../Contexts/TokenContext";
+import api from "../../Services/api";
 
 export default function AddItemScreen() {
   const [disabled, setDisabled] = useState(false);
@@ -13,7 +13,6 @@ export default function AddItemScreen() {
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
-  const URL = "https://portfol-yourself.onrender.com/items";
   const navigate = useNavigate();
   const body = {
     title,
@@ -82,8 +81,8 @@ export default function AddItemScreen() {
       setError(true);
       return;
     } else {
-      axios
-        .post(URL, body, config)
+      api
+        .post("/items", body, config)
         .then(() => {
           setDisabled(true);
           setLoading(true);
