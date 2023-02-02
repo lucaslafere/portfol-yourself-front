@@ -1,12 +1,12 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import TokenContext from "../../Contexts/TokenContext";
 import * as S from "./style";
 import pin from "../../Assets/pin.png";
 import SuccessModal from "../../Components/SuccessModal";
 import FailureModal from "../../Components/FailureModal";
 import IncompleteFeatureModal from "../../Components/IncompleteFeatureModal";
+import api from "../../Services/api";
 /* eslint-env browser */
 
 export default function DashboardScreen() {
@@ -26,8 +26,6 @@ export default function DashboardScreen() {
   const [edit, setEdit] = useState("");
   const userURL = `https://portfol-yourself-front.vercel.app/portfolio/${portfolioId}`;
   const { token } = useContext(TokenContext);
-  const dashboardURL = "https://portfol-yourself.onrender.com/dashboard";
-  const portfoliosURL = `https://portfol-yourself.onrender.com/portfolios/${portfolioId}`;
   const body = {
     boxSize: layout.boxSize,
     style: layout.style,
@@ -41,8 +39,8 @@ export default function DashboardScreen() {
   const navigate = useNavigate();
 
   function putSaveChanges() {
-    axios
-      .put(portfoliosURL, body, config)
+    api
+      .put("/portfolios", body, config)
       .then(() => {
         setModal(true);
       })
@@ -53,8 +51,8 @@ export default function DashboardScreen() {
   }
 
   function getLoggedUserPortfolioByToken() {
-    axios
-      .get(dashboardURL, config)
+    api
+      .get("/dashboard", config)
       .then((res) => {
         setLayout({
           title: res.data.portfolio.title,
@@ -82,14 +80,13 @@ export default function DashboardScreen() {
       );
   }
   function deleteItem(title, imageUrl, description, id) {
-    const itemsURL = `https://portfol-yourself.onrender.com/items/${id}`;
     const data = {
       title,
       imageUrl,
       description,
     };
-    axios
-      .delete(itemsURL, config, data)
+    api
+      .delete(`/items/${id}`, config, data)
       .then(() => {
         getLoggedUserPortfolioByToken();
         setModal(true);
@@ -217,8 +214,8 @@ export default function DashboardScreen() {
     }
   }
   function deletePortfolio() {
-    axios
-      .delete(portfoliosURL, config)
+    api
+      .delete("/portfolios", config)
       .then(() => {
         setModal(true);
         setTimeout(() => navigate("/", 2000));
