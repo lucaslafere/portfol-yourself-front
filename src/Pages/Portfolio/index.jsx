@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import * as S from "./style.js";
+import * as S from "./style";
 import pin from "../../Assets/pin.png";
 import api from "../../Services/api";
 

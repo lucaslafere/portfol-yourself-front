@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import * as S from "./style.js";
+import * as S from "./style";
 import TokenContext from "../../Contexts/TokenContext";
 import api from "../../Services/api";
 
