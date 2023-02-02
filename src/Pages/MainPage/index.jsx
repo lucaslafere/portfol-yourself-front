@@ -1,18 +1,17 @@
 import { useState, useContext, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import * as S from "./style";
 import TokenContext from "../../Contexts/TokenContext";
+import api from "../../Services/api";
 
 export default function MainScreen() {
   const navigate = useNavigate();
   const [portfoliosData, setPortfoliosData] = useState([]);
-  const portfoliosURL = "https://portfol-yourself.onrender.com/portfolios";
   const { token } = useContext(TokenContext);
   const [boxSize, setBoxSize] = useState("medium");
   function getPortfolios() {
-    axios
-      .get(portfoliosURL)
+    api
+      .get("/portfolios")
       .then((res) => {
         setPortfoliosData(res.data);
       })
