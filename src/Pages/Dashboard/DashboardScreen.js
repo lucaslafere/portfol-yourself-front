@@ -193,18 +193,6 @@ export default function DashboardScreen() {
         </S.ButtonsContainer>
       );
     }
-    if (edit === "store-options") {
-      return (
-        <S.ButtonsContainer>
-          <S.BlueButton onClick={() => callIncomplete()}>
-            Switch to non-store
-          </S.BlueButton>
-          <S.WhiteButton onClick={() => callIncomplete()}>
-            Switch to store
-          </S.WhiteButton>
-        </S.ButtonsContainer>
-      );
-    }
     if (edit === "link") {
       return (
         <S.ButtonsContainer>
@@ -308,12 +296,6 @@ export default function DashboardScreen() {
             <ion-icon name="image-outline"></ion-icon>
           </S.MobileButton>
           <S.MobileButton
-            onClick={() => setEdit("store-options")}
-            title={"Change to Store mode"}
-          >
-            <ion-icon name="storefront-outline"></ion-icon>
-          </S.MobileButton>
-          <S.MobileButton
             onClick={() => putSaveChanges()}
             title={"Save your changes"}
           >
@@ -328,9 +310,6 @@ export default function DashboardScreen() {
         </S.MobileNavContainer>
       </>
     );
-  }
-  function callIncomplete() {
-    setIncompleteModal(true);
   }
   function mountSideBar() {
     return (
@@ -368,13 +347,6 @@ export default function DashboardScreen() {
           >
             <ion-icon name="image-outline"></ion-icon>
             Layouts
-          </S.SideBarItem>
-          <S.SideBarItem
-            onClick={() => setEdit("store-options")}
-            title={"Change to Store mode"}
-          >
-            <ion-icon name="storefront-outline"></ion-icon>
-            Store Options
           </S.SideBarItem>
           <S.SideBarItem
             onClick={() => putSaveChanges()}
