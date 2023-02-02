@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import TokenContext from "../../Contexts/TokenContext";
-import * as S from "./style";
+import * as S from "./style.js";
 import pin from "../../Assets/pin.png";
 import SuccessModal from "../../Components/SuccessModal";
 import FailureModal from "../../Components/FailureModal";

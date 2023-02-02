@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import TokenContext from "../../Contexts/TokenContext";
 import UserDataContext from "../../Contexts/UserDataContext";
-import * as S from "./style";
+import * as S from "./style.js";
 import api from "../../Services/api";
 
 export default function LoginPage() {
