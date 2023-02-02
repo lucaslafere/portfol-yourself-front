@@ -392,6 +392,7 @@ const Footer = styled.div`
   margin-left: 240px;
   @media (max-width: 400px) {
     margin-left: 0px;
+    margin-bottom: 48px;
   }
 `;
 const Copyright = styled.div`
@@ -443,6 +444,9 @@ const MobileNavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  position: fixed;
+  bottom: 0px;
+  background-color: #fff;
   gap: 2px;
 `;
 const MobileButton = styled.div`
