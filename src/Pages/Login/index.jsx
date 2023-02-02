@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import TokenContext from "../../Contexts/TokenContext";
 import UserDataContext from "../../Contexts/UserDataContext";
 import * as S from "./style";
+import api from "../../Services/api";
 
 export default function LoginPage() {
   const [disabled, setDisabled] = useState(false);
@@ -13,7 +13,6 @@ export default function LoginPage() {
   const [errorText, setErrorText] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const URL = "https://portfol-yourself.onrender.com/sign-in";
   const navigate = useNavigate();
 
   const { setToken } = useContext(TokenContext);
@@ -32,8 +31,8 @@ export default function LoginPage() {
     requestLogin();
   }
   function requestLogin() {
-    axios
-      .post(URL, body)
+    api
+      .post("/sign-in", body)
       .then((res) => {
         setDisabled(true);
         setLoading(true);
