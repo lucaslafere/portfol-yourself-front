@@ -27,7 +27,7 @@ const SideBar = styled.div`
   border-right: 1px solid rgba(0, 0, 0, 0.12);
   gap: 8px;
   position: relative;
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     display: none;
   } ;
 `;
@@ -250,7 +250,7 @@ const TopSection = styled.div`
   width: 60%;
   margin-bottom: 3rem;
   margin-left: 240px;
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     margin-left: 0px;
   }
 `;
@@ -276,7 +276,7 @@ const Content = styled.div`
   justify-content: space-evenly;
   margin-left: 240px;
   padding: 1rem;
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     margin-left: 0;
   }
@@ -390,7 +390,7 @@ const Footer = styled.div`
   align-items: center;
   font-weight: 500;
   margin-left: 240px;
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     margin-left: 0px;
     margin-bottom: 48px;
   }
@@ -407,7 +407,7 @@ const Copyright = styled.div`
     (layout === "handwritten" && "2rem") ||
     (layout === "altcursive" && "2rem")};
   font-weight: 400;
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     margin-top: 0px;
   }
 `;
@@ -430,13 +430,13 @@ const Modal = styled.div`
     color: #fff;
     text-align: center;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     width: 80%;
   }
 `;
 
 const MobileNavContainer = styled.div`
-  @media (min-width: 401px) {
+  @media (min-width: 600px) {
     display: none;
   }
   width: 100%;
@@ -450,7 +450,7 @@ const MobileNavContainer = styled.div`
   gap: 2px;
 `;
 const MobileButton = styled.div`
-  @media (min-width: 401px) {
+  @media (min-width: 600px) {
     display: none;
   }
   width: 12.5%;
