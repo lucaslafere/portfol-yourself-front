@@ -435,6 +435,9 @@ const Modal = styled.div`
 `;
 
 const MobileNavContainer = styled.div`
+  @media (min-width: 401px) {
+    display: none;
+  }
   width: 100%;
   height: 48px;
   display: flex;
