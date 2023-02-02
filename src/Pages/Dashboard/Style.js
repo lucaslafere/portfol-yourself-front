@@ -446,6 +446,9 @@ const MobileNavContainer = styled.div`
   gap: 2px;
 `;
 const MobileButton = styled.div`
+  @media (min-width: 401px) {
+    display: none;
+  }
   width: 12.5%;
   background-color: transparent;
   -webkit-tap-highlight-color: transparent;
