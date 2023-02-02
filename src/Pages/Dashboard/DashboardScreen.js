@@ -4,9 +4,9 @@ import axios from "axios";
 import TokenContext from "../../Contexts/TokenContext";
 import * as S from "./Style";
 import pin from "../../Assets/pin.png";
-import SuccessModal from "../../Components/SuccessModal/SuccessModal";
-import FailureModal from "../../Components/FailureModal/Failuremodal";
-import IncompleteFeatureModal from "../../Components/IncompleteFeatureModal/IncompleteFeature";
+import SuccessModal from "../../Components/SuccessModal";
+import FailureModal from "../../Components/FailureModal";
+import IncompleteFeatureModal from "../../Components/IncompleteFeatureModal/";
 /* eslint-env browser */
 
 export default function DashboardScreen() {
