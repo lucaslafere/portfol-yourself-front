@@ -1,5 +1,4 @@
-import * as S from "./style.js";
-
+import * as S from "./Style";
 export default function FailureModal() {
   return (
     <S.Modal>
