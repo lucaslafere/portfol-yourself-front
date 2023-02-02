@@ -40,7 +40,7 @@ export default function DashboardScreen() {
 
   function putSaveChanges() {
     api
-      .put("/portfolios", body, config)
+      .put(`/portfolios/${portfolioId}`, body, config)
       .then(() => {
         setModal(true);
       })
