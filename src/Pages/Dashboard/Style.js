@@ -155,6 +155,9 @@ const ButtonsContainer = styled.div`
   gap: 16px;
   margin-top: 24px;
   border-radius: 60px;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 const BlueButton = styled.button`
   display: flex;
@@ -459,6 +462,7 @@ const MobileButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
   cursor: pointer;
   :hover {
     background-color: #f5f5f5;
