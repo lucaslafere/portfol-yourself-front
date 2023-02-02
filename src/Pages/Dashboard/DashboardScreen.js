@@ -251,19 +251,19 @@ export default function DashboardScreen() {
   }
   function openSuccessModal() {
     if (modal) {
-      setTimeout(() => setModal(false), 2000);
+      setTimeout(() => setModal(false), 4000);
       return <SuccessModal />;
     }
   }
   function openFailureModal() {
     if (failureModal) {
-      setTimeout(() => setFailureModal(false), 2000);
+      setTimeout(() => setFailureModal(false), 4000);
       return <FailureModal />;
     }
   }
   function openIncompleteFeatureModal() {
     if (incompleteModal) {
-      setTimeout(() => setIncompleteModal(false), 2000);
+      setTimeout(() => setIncompleteModal(false), 4000);
       return <IncompleteFeatureModal />;
     }
   }
