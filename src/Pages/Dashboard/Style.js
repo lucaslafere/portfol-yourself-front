@@ -252,7 +252,7 @@ const TopSection = styled.div`
   gap: 1rem;
   width: 60%;
   margin-bottom: 3rem;
-  margin-left: 240px;
+  margin-left: 20%;
   @media (max-width: 600px) {
     margin-left: 0px;
   }
@@ -277,7 +277,7 @@ const Content = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: 240px;
+  margin-left: 20%;
   padding: 1rem;
   @media (max-width: 600px) {
     flex-direction: column;
@@ -392,7 +392,7 @@ const Footer = styled.div`
   flex-direction: column;
   align-items: center;
   font-weight: 500;
-  margin-left: 240px;
+  margin-left: 20%;
   @media (max-width: 600px) {
     margin-left: 0px;
     margin-bottom: 48px;
@@ -447,7 +447,7 @@ const MobileNavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   background-color: #fff;
   gap: 2px;
