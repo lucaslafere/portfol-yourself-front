@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import * as S from "./style";
 import pin from "../../Assets/pin.png";
+import api from "../../Services/api";
 
 export default function PortfolioScreen() {
   const [itemsData, setItemsData] = useState([]);
@@ -17,8 +17,8 @@ export default function PortfolioScreen() {
   const navigate = useNavigate();
 
   function getPortfolioById() {
-    axios
-      .get(`https://portfol-yourself.onrender.com/portfolios/${portfolioId}`)
+    api
+      .get(`/portfolios/${portfolioId}`)
 
       .then((res) => {
         setLayout({
