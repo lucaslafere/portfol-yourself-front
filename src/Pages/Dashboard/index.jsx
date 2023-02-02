@@ -7,6 +7,7 @@ import pin from "../../Assets/pin.png";
 import SuccessModal from "../../Components/SuccessModal";
 import FailureModal from "../../Components/FailureModal";
 import IncompleteFeatureModal from "../../Components/IncompleteFeatureModal";
+import api from "../../Services/api";
 /* eslint-env browser */
 
 export default function DashboardScreen() {
@@ -26,7 +27,7 @@ export default function DashboardScreen() {
   const [edit, setEdit] = useState("");
   const userURL = `https://portfol-yourself-front.vercel.app/portfolio/${portfolioId}`;
   const { token } = useContext(TokenContext);
-  const dashboardURL = "https://portfol-yourself.onrender.com/dashboard";
+  const dashboardURL = api("/dashboard");
   const portfoliosURL = `https://portfol-yourself.onrender.com/portfolios/${portfolioId}`;
   const body = {
     boxSize: layout.boxSize,
