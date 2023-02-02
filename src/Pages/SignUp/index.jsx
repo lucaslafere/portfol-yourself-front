@@ -1,8 +1,8 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import * as S from "./style";
+import api from "../../Services/api";
 
 export default function SignUpScreen() {
   const [disabled, setDisabled] = useState(false);
@@ -12,7 +12,6 @@ export default function SignUpScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const URL = "https://portfol-yourself.onrender.com/sign-up";
   const navigate = useNavigate();
   const body = {
     email,
@@ -55,8 +54,8 @@ export default function SignUpScreen() {
       setError(true);
       return;
     } else {
-      axios
-        .post(URL, body)
+      api
+        .post("/sign-up", body)
         .then(() => {
           setDisabled(true);
           setLoading(true);
