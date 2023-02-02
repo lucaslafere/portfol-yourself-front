@@ -172,17 +172,6 @@ export default function DashboardScreen() {
         </S.ButtonsContainer>
       );
     }
-    if (edit === "color") {
-      return (
-        <S.ButtonsContainer>
-          <S.BlueButton onClick={() => callIncomplete()}>Blue</S.BlueButton>
-          <S.GreenButton onClick={() => callIncomplete()}>Green</S.GreenButton>
-          <S.YellowButton onClick={() => callIncomplete()}>
-            Yellow
-          </S.YellowButton>
-        </S.ButtonsContainer>
-      );
-    }
     if (edit === "layouts") {
       return (
         <S.ButtonsContainer>
@@ -307,12 +296,6 @@ export default function DashboardScreen() {
             <ion-icon name="cube-outline"></ion-icon>
           </S.MobileButton>
           <S.MobileButton
-            onClick={() => setEdit("color")}
-            title={"Change color palette (WIP)"}
-          >
-            <ion-icon name="color-palette-outline"></ion-icon>
-          </S.MobileButton>
-          <S.MobileButton
             onClick={() => setEdit("link")}
             title={"Get your portfolio link"}
           >
@@ -371,13 +354,6 @@ export default function DashboardScreen() {
           >
             <ion-icon name="cube-outline"></ion-icon>
             Box Sizes
-          </S.SideBarItem>
-          <S.SideBarItem
-            onClick={() => setEdit("color")}
-            title={"Change color palette (WIP)"}
-          >
-            <ion-icon name="color-palette-outline"></ion-icon>
-            Color Scheme
           </S.SideBarItem>
           <S.SideBarItem
             onClick={() => setEdit("link")}

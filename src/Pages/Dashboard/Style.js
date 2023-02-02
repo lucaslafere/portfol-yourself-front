@@ -58,14 +58,14 @@ const SideBarItem = styled.div`
   :hover {
     background-color: #f5f5f5;
   }
-  :nth-child(8) {
+  :nth-child(7) {
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 
     color: #1976d2;
     margin-bottom: -8px;
   }
-  :nth-child(9) {
+  :nth-child(8) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     color: red;
   }
@@ -463,10 +463,10 @@ const MobileButton = styled.div`
   :hover {
     background-color: #f5f5f5;
   }
-  :nth-child(7) {
+  :nth-child(6) {
     color: #1976d2;
   }
-  :nth-child(8) {
+  :nth-child(7) {
     color: red;
   }
   ion-icon {
