@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import * as S from "./Style";
+import * as S from "./style";
 import TokenContext from "../../Contexts/TokenContext";
 
 export default function MainScreen() {

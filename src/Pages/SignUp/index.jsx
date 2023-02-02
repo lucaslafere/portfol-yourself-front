@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
-import * as S from "./Style";
+import * as S from "./style";
 
 export default function SignUpScreen() {
   const [disabled, setDisabled] = useState(false);

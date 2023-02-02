@@ -2,11 +2,11 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import TokenContext from "../../Contexts/TokenContext";
-import * as S from "./Style";
+import * as S from "./style";
 import pin from "../../Assets/pin.png";
 import SuccessModal from "../../Components/SuccessModal";
 import FailureModal from "../../Components/FailureModal";
-import IncompleteFeatureModal from "../../Components/IncompleteFeatureModal/";
+import IncompleteFeatureModal from "../../Components/IncompleteFeatureModal";
 /* eslint-env browser */
 
 export default function DashboardScreen() {

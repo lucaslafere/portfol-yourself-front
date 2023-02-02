@@ -4,7 +4,7 @@ import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import TokenContext from "../../Contexts/TokenContext";
 import UserDataContext from "../../Contexts/UserDataContext";
-import * as S from "./Style";
+import * as S from "./style";
 
 export default function LoginPage() {
   const [disabled, setDisabled] = useState(false);

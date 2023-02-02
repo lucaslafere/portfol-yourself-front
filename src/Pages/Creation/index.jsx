@@ -2,23 +2,21 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
-import * as S from "./Style";
+import * as S from "./style";
 import TokenContext from "../../Contexts/TokenContext";
 
-export default function AddItemScreen() {
+export default function CreationScreen() {
   const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [description, setDescription] = useState("");
+  const [logo, setLogo] = useState("");
   const [title, setTitle] = useState("");
-  const URL = "https://portfol-yourself.onrender.com/items";
+  const URL = "https://portfol-yourself.onrender.com/portfolios";
   const navigate = useNavigate();
   const body = {
     title,
-    imageUrl,
-    description,
+    logo,
   };
   const { token } = useContext(TokenContext);
 
@@ -39,10 +37,10 @@ export default function AddItemScreen() {
       /(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/g
     );
 
-    if (imageUrl.length < 1) {
+    if (logo.length < 1) {
       setDisabled(true);
       setLoading(true);
-      setErrorText("The ImageURL field is obligatory");
+      setErrorText("The Logo field is obligatory");
       setError(true);
       return;
     }
@@ -60,25 +58,11 @@ export default function AddItemScreen() {
       setError(true);
       return;
     }
-    if (description.length < 1) {
-      setDisabled(true);
-      setLoading(true);
-      setErrorText("The description field is obligatory");
-      setError(true);
-      return;
-    }
-    if (description.length > 30) {
-      setDisabled(true);
-      setLoading(true);
-      setErrorText("The description field can only be 30 characters long");
-      setError(true);
-      return;
-    }
-    const testUrl = regexImageUrl.test(imageUrl);
+    const testUrl = regexImageUrl.test(logo);
     if (!testUrl) {
       setDisabled(true);
       setLoading(true);
-      setErrorText("The link must be an image URL");
+      setErrorText("The Logo must be an image URL");
       setError(true);
       return;
     } else {
@@ -92,15 +76,13 @@ export default function AddItemScreen() {
         .catch((err) => {
           setLoading(false);
           setDisabled(false);
-          setErrorText(`There was an error creating your item. ${err.message}`);
+          setErrorText(
+            `There was an error creating your portfolio. ${err.message}.
+            Are you sure you don't have a portfolio yet?`
+          );
           setError(true);
         });
     }
-  }
-  function resetError() {
-    setDisabled(false);
-    setLoading(false);
-    setError(false);
   }
   function openModal() {
     if (error) {
@@ -112,6 +94,11 @@ export default function AddItemScreen() {
       );
     }
   }
+  function resetError() {
+    setDisabled(false);
+    setLoading(false);
+    setError(false);
+  }
   const openError = openModal();
 
   return (
@@ -120,11 +107,11 @@ export default function AddItemScreen() {
       <S.Container>
         <S.Title>
           <ion-icon name="image-outline"></ion-icon>
-          <h1>Create your Item</h1>
+          <h1>Create your Portfolio</h1>
         </S.Title>
         <S.Form onSubmit={create}>
           <S.Input
-            placeholder="Item Title, 20 characters limit *"
+            placeholder="Portfolio Title, 20 characters limit *"
             type="text"
             autoComplete="off"
             disabled={disabled}
@@ -132,20 +119,12 @@ export default function AddItemScreen() {
             onChange={(e) => setTitle(e.target.value)}
           />
           <S.Input
-            placeholder="Item Description, 30 characters limit *"
-            type="text"
-            autoComplete="off"
-            disabled={disabled}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <S.Input
-            placeholder="Image URL *"
+            placeholder="Logo Image URL *"
             type="url"
             autoComplete="off"
             disabled={disabled}
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
+            value={logo}
+            onChange={(e) => setLogo(e.target.value)}
           />
           <S.Button disabled={disabled} type="submit">
             {loading ? (
@@ -159,8 +138,10 @@ export default function AddItemScreen() {
           <Link to={"/"}>
             <S.TextLink>Main page</S.TextLink>
           </Link>
-          <Link to={"/dashboard"}>
-            <S.TextLink>Back to dashboard</S.TextLink>
+          <Link to={"/sign-up"}>
+            <S.TextLink>
+              Don't have an account yet? Click here to sign up
+            </S.TextLink>
           </Link>
         </S.ContainerLinks>
         <S.Copyright>

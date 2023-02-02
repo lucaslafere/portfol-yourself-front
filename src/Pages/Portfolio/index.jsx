@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import * as S from "./Style";
+import * as S from "./style";
 import pin from "../../Assets/pin.png";
 
 export default function PortfolioScreen() {

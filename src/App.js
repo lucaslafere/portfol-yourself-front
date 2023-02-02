@@ -2,13 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import TokenContext from "./Contexts/TokenContext";
 import UserDataContext from "./Contexts/UserDataContext";
-import SignUpScreen from "./Pages/SignUp/SignUpScreen";
-import LoginScreen from "./Pages/Login/LoginScreen";
-import MainScreen from "./Pages/MainPage/MainScreen";
-import CreationScreen from "./Pages/Creation/CreationScreen";
-import DashboardScreen from "./Pages/Dashboard/DashboardScreen";
-import AddItemScreen from "./Pages/AddItem/AddItemScreen";
-import PortfolioScreen from "./Pages/Portfolio/PortfolioScreen";
+import SignUpScreen from "./Pages/SignUp";
+import LoginScreen from "./Pages/Login";
+import MainScreen from "./Pages/MainPage";
+import CreationScreen from "./Pages/Creation";
+import DashboardScreen from "./Pages/Dashboard";
+import AddItemScreen from "./Pages/AddItem";
+import PortfolioScreen from "./Pages/Portfolio";
 
 export default function App() {
   const [token, setToken] = useState("");
