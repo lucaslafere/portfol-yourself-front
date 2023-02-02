@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
-import * as S from "./style.js";
+import * as S from "./style";
 import api from "../../Services/api";
 
 export default function SignUpScreen() {
